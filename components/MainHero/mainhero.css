@@ -3,3 +3,16 @@
   max-width: 100vw;
   background-color: bisque;
 }
+
+.loading {
+  height: 400px;
+  width: 600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading > p {
+  font-size: 32px;
+  color: #202020;
+}
