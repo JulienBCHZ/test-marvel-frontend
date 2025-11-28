@@ -12,10 +12,10 @@ const MainHero = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `https://site--project-marvel-backend--hgkxb6f276xk.code.run/characters?limit=5`
+        `https://site--project-marvel-backend--hgkxb6f276xk.code.run/characters?limit=10`
       );
-      console.log("RES :", response.data);
-      setData(response.data);
+      // console.log("RES :", response.data);
+      setData(response.data.data);
       setIsLoading(false);
     };
     fetchData();
@@ -28,7 +28,14 @@ const MainHero = () => {
   ) : (
     <section className="hero">
       {data.results.map((character) => {
-        return <img src={getImage(character.thumbnail)} />;
+        return (
+          <img
+            src={getImage(character.thumbnail)}
+            alt="character"
+            className="hero-image"
+            key={character._id}
+          />
+        );
       })}
     </section>
   );

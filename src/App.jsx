@@ -15,6 +15,7 @@ import Login from "../pages/Login/Login";
 
 // COMPOSANTS
 import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 
 function App() {
   const [token, setToken] = useState(Cookies.get("userToken") || null);
@@ -34,6 +35,7 @@ function App() {
           <Route path="/auth/signup" element={<Signup />} />
           <Route path="/auth/login" element={<Login />} />
         </Routes>
+        <Footer />
       </Router>
     </>
   );
