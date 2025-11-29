@@ -63,7 +63,15 @@ const AllCharacters = () => {
         {data.results.map((characters) => {
           return (
             <section className="character-container" key={characters._id}>
-              <Link to={`comics/${characters._id}`}>
+              <Link
+                to={`/comics/character/${characters._id}`}
+                state={{
+                  name: characters.name,
+                  description: characters.description,
+                  image: getImage(characters.thumbnail),
+                  comics: characters.comics,
+                }}
+              >
                 <img src={getImage(characters.thumbnail)} />
               </Link>
               <div className="charac-details-container">

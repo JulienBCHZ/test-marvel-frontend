@@ -63,7 +63,7 @@ const AllComics = () => {
         {data.results.map((comics) => {
           return (
             <section className="comic-container" key={comics._id}>
-              <Link to={`comics/${comics._id}`}>
+              <Link to={`/comics/${comics._id}`}>
                 <img src={getImage(comics.thumbnail)} />
               </Link>
               <div className="details-container">

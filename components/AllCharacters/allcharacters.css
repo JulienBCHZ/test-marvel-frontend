@@ -25,24 +25,39 @@
   border-radius: 3px;
 }
 .character-container img {
-  height: 220px;
+  height: 225px;
   width: 100%;
   object-fit: cover;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
+  border-bottom: red solid 5px;
 }
+.character-container img:hover {
+  border-top: red solid 4px;
+  border-left: red solid 4px;
+  border-right: red solid 4px;
+}
+
 .charac-details-container {
-  height: 147px;
+  height: 140px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 20px 15px;
 }
 .characters-details > h2 {
-  font-size: 20px;
+  font-size: 18px;
+  line-height: 20px;
 }
 .char-favorit-button {
+  height: 22px;
   color: white;
   background-color: #1e2029;
   border: white solid 1px;
+}
+.char-favorit-button:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #0a6c0a;
+  border: white solid 2px;
 }

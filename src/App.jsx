@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home/Home";
 import Characters from "../pages/Characters/Characters";
 import Comics from "../pages/Comics/Comics";
-import ComicsFromCharacter from "../pages/ComicsFromCharacter/ComicsFromCharacter";
+import CharacterPage from "../pages/CharacterPage/CharacterPage";
 import Favorits from "../pages/Favorits/Favorits";
 import Signup from "../pages/Signup/Signup";
 import Login from "../pages/Login/Login";
@@ -28,8 +28,8 @@ function App() {
           <Route path="/comics" element={<Comics />} />
           <Route path="/characters" element={<Characters />} />
           <Route
-            path="/comics/:characterId"
-            element={<ComicsFromCharacter />}
+            path="/comics/character/:characterId"
+            element={<CharacterPage />}
           />
           <Route path="/favorits" element={<Favorits />} />
           <Route path="/auth/signup" element={<Signup />} />

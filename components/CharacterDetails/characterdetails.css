@@ -1,0 +1,28 @@
+.comics-character-vision {
+  min-height: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px; */
+  padding: 80px 20px;
+}
+.comics-charact-container {
+  display: flex;
+}
+.comics-charact {
+  border: black solid 2px;
+  height: 500px;
+  width: 100%;
+  display: flex;
+}
+
+.comics-charact-details {
+  display: flex;
+}
+.comics-charact img {
+  height: 100%;
+  width: 600px;
+  object-fit: cover;
+}
