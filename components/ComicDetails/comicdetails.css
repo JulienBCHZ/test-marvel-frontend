@@ -1,0 +1,41 @@
+.loading-comic-page {
+  background-color: #202020;
+  height: 400px;
+  width: 600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading-comic-page > p {
+  font-size: 32px;
+  color: white;
+}
+
+.comic-page-container {
+  width: 1180px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+.comic-page-vision {
+  padding: 60px 0;
+  display: flex;
+  color: white;
+  border-top: white solid 5px;
+  border-bottom: white solid 5px;
+}
+.comic-page-vision img {
+  height: 700px;
+  box-shadow: 7px 7px 8px red;
+}
+.comics-vision-details {
+  width: calc(1180px - 460px);
+  padding-left: 40px;
+  padding-right: 20px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  text-align: justify;
+}

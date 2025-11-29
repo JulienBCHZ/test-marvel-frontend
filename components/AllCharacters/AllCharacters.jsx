@@ -62,7 +62,10 @@ const AllCharacters = () => {
       <section className="all-characters-container">
         {data.results.map((characters) => {
           return (
-            <section className="character-container" key={characters._id}>
+            <section
+              className="character-preview-container"
+              key={characters._id}
+            >
               <Link
                 to={`/comics/character/${characters._id}`}
                 state={{
@@ -77,7 +80,6 @@ const AllCharacters = () => {
               <div className="charac-details-container">
                 <div className="characters-details">
                   <h2>{characters.name}</h2>
-                  {/* <p>{characters.description}</p> */}
                 </div>
                 <div className="favorit-container">
                   <button className="char-favorit-button">

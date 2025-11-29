@@ -4,7 +4,7 @@ import { BsPersonCircle } from "react-icons/bs";
 import { AiOutlineLogin } from "react-icons/ai";
 
 import { useNavigate, Link } from "react-router-dom";
-import logo from "../../public/MarvelLogo.svg_uw9pi8.png";
+import logo from "../../src/assets/MarvelLogo.svg_uw9pi8.png";
 import Cookies from "js-cookie";
 
 const Header = ({ setToken }) => {

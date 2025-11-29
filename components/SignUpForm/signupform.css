@@ -1,0 +1,60 @@
+.form-container {
+  width: 400px;
+  margin: 0 auto;
+  padding: 30px 40px;
+}
+.form-vision {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+input {
+  height: 50px;
+  border: none;
+  border-bottom: red solid;
+  outline: none;
+}
+.submit-button {
+  height: 45px;
+  background-color: red;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+.submit-button:hover {
+  cursor: pointer;
+}
+.form-checkbox {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.line-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 0 10px;
+}
+.line-checkbox span {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #666666;
+}
+.checkbox {
+  height: 20px;
+  width: 20px;
+}
+
+.newsletter-terms {
+  padding: 0 12px;
+  text-align: justify;
+  color: #999999;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 16px;
+}
+.signup-error-message {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: red;
+}

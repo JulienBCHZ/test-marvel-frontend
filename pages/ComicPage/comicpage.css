@@ -1,0 +1,11 @@
+.main-comic {
+  min-height: calc(100vh - 150px);
+}
+.comic-page-main-deco {
+  border-top: grey solid 0.5px;
+  border-bottom: grey solid 0.5px;
+  min-height: calc(100vh - 150px);
+  width: 100vw;
+  margin: 0 auto;
+  background-color: #202020;
+}

@@ -63,7 +63,7 @@ const AllComics = () => {
         {data.results.map((comics) => {
           return (
             <section className="comic-container" key={comics._id}>
-              <Link to={`/comics/${comics._id}`}>
+              <Link to={`/comics/comic/${comics._id}`}>
                 <img src={getImage(comics.thumbnail)} />
               </Link>
               <div className="details-container">
@@ -72,7 +72,12 @@ const AllComics = () => {
                 </div>
                 <div className="comics-details">
                   <h2>{comics.title}</h2>
-                  <p>{comics.description}</p>
+                  {comics.description === null ? (
+                    <p>Description is coming...</p>
+                  ) : (
+                    <p>{comics.description}</p>
+                  )}
+                  {/* <p>{comics.description}</p> */}
                 </div>
               </div>
             </section>
