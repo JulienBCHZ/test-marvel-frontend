@@ -25,6 +25,7 @@
 }
 .favorit-button:hover {
   cursor: pointer;
+  background-color: #0a6c0a;
 }
 .comic-container {
   display: flex;
@@ -37,6 +38,9 @@
   width: 408px;
   box-shadow: 7px 12px 10px #202020;
   border-radius: 2px;
+}
+.comic-container img:hover {
+  box-shadow: 7px 12px 10px red;
 }
 
 .details-container {

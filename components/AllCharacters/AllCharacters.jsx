@@ -1,4 +1,4 @@
-import "./allcomics.css";
+import "./allcharacters.css";
 import { GrNext } from "react-icons/gr";
 import { GrPrevious } from "react-icons/gr";
 
@@ -8,17 +8,17 @@ import { Link } from "react-router-dom";
 
 import getImage from "../../utils/getImage";
 
-const AllComics = () => {
-  const [isLoading, setIsLoading] = useState(true);
+const AllCharacters = () => {
   const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `https://site--project-marvel-backend--hgkxb6f276xk.code.run/comics?page=${page}`
+        `https://site--project-marvel-backend--hgkxb6f276xk.code.run/characters?page=${page}`
       );
-      // console.log(response.data);
+      console.log("CHAR :", response.data);
 
       setData(response.data.data);
       setIsLoading(false);
@@ -31,7 +31,7 @@ const AllComics = () => {
       <p>Please wait...</p>
     </section>
   ) : (
-    <section className="all-comics-vision">
+    <section className="all-characters-vision">
       <pages className="change-page">
         {page > 1 ? (
           <button
@@ -59,20 +59,22 @@ const AllComics = () => {
           <button className="button-disabled"></button>
         )}
       </pages>
-      <section className="all-comics-container">
-        {data.results.map((comics) => {
+      <section className="all-characters-container">
+        {data.results.map((characters) => {
           return (
-            <section className="comic-container" key={comics._id}>
-              <Link to={`comics/${comics._id}`}>
-                <img src={getImage(comics.thumbnail)} />
+            <section className="character-container" key={characters._id}>
+              <Link to={`comics/${characters._id}`}>
+                <img src={getImage(characters.thumbnail)} />
               </Link>
-              <div className="details-container">
-                <div className="button-container">
-                  <button className="favorit-button">Add to favorits</button>
+              <div className="charac-details-container">
+                <div className="characters-details">
+                  <h2>{characters.name}</h2>
+                  {/* <p>{characters.description}</p> */}
                 </div>
-                <div className="comics-details">
-                  <h2>{comics.title}</h2>
-                  <p>{comics.description}</p>
+                <div className="favorit-container">
+                  <button className="char-favorit-button">
+                    Add to favorits
+                  </button>
                 </div>
               </div>
             </section>
@@ -110,4 +112,4 @@ const AllComics = () => {
   );
 };
 
-export default AllComics;
+export default AllCharacters;
