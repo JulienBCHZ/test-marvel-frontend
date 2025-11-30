@@ -12,7 +12,7 @@ const Comics = () => {
   const [search, setSearch] = useState("");
   return (
     <main className="main-comics-page">
-      <AllComics />
+      <AllComics search={search} setSearch={setSearch} />
     </main>
   );
 };

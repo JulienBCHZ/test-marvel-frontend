@@ -61,3 +61,28 @@
   background-color: #0a6c0a;
   border: white solid 2px;
 }
+
+.characters-search-section {
+  background-color: #202020;
+  height: 50px;
+  border-top: grey solid 0.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.characters-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 26px;
+  color: white;
+}
+
+.characters-search-bar > input {
+  height: 24px;
+  width: 470px;
+  border: #202020 solid 0.5px;
+  border-radius: 2px;
+  font-size: 18px;
+}
