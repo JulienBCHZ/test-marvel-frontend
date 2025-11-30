@@ -1,9 +1,9 @@
-.form-container {
+.signup-form-container {
   width: 400px;
   margin: 0 auto;
   padding: 30px 40px;
 }
-.form-vision {
+.signup-form-vision {
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -54,7 +54,6 @@ input {
 }
 .signup-error-message {
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: red;
 }

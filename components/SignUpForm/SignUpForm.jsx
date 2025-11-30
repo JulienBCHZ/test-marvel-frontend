@@ -46,6 +46,9 @@ const SignUpForm = ({
       );
       if (response.data.token) {
         Cookies.set("userToken", response.data.token, { expires: 10 });
+        Cookies.set("userUsername", response.data.account.username, {
+          expires: 10,
+        });
         setToken(response.data.token);
         navigate("/");
         setErrorMessage("");
@@ -78,8 +81,8 @@ const SignUpForm = ({
   };
 
   return (
-    <div className="form-container">
-      <form onSubmit={handleSubmit} className="form-vision">
+    <div className="signup-form-container">
+      <form onSubmit={handleSubmit} className="signup-form-vision">
         <input
           type="text"
           placeholder="Username"

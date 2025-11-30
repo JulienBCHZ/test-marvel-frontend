@@ -1,0 +1,27 @@
+.login-form-container {
+  width: 400px;
+  margin: 0 auto;
+  padding: 30px 40px;
+}
+.login-form-vision {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.submit-button {
+  height: 45px;
+  background-color: red;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+.login-error-message {
+  font-weight: 12px;
+}
+.signin-error-message {
+  text-align: center;
+  font-weight: bold;
+  color: red;
+}

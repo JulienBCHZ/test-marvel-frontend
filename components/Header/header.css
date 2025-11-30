@@ -12,7 +12,8 @@ header > div {
   margin: 0 auto;
   height: 60px;
   display: flex;
-  gap: 355px;
+  justify-content: space-between;
+  /* gap: 355px; */
 }
 .header-bottom-container {
   max-width: 1180px;
@@ -25,7 +26,7 @@ header > div {
 }
 
 .user-connexion {
-  width: 170px;
+  width: 180px;
   padding: 0 7px;
   border-left: grey solid 0.5px;
   border-right: grey solid 0.5px;
@@ -34,7 +35,7 @@ header > div {
   justify-content: space-between;
 }
 .user-logout {
-  width: 170px;
+  width: 180px;
   padding: 0 7px;
   border-left: grey solid 0.5px;
   border-right: grey solid 0.5px;
@@ -91,4 +92,25 @@ header > div {
 }
 .header-bottom-nav:hover {
   cursor: pointer;
+}
+
+.user-onscreen-username {
+  width: 180px;
+  padding: 0 10px;
+  border-left: grey solid 0.5px;
+  border-right: grey solid 0.5px;
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 14px;
+  line-height: 20px;
+  overflow: hidden;
+}
+.username-onscreen {
+  font-weight: bold;
+}
+.not-onscreen-username {
+  width: 180px;
+  border-left: #202020 solid 0.5px;
+  border-right: #202020 solid 0.5px;
 }

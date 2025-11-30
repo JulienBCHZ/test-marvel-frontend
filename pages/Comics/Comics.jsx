@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import getImage from "../../utils/getImage";
 
 const Comics = () => {
+  const [search, setSearch] = useState("");
   return (
     <main className="main-comics-page">
       <AllComics />

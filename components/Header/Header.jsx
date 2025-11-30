@@ -9,26 +9,28 @@ import Cookies from "js-cookie";
 
 const Header = ({ setToken }) => {
   const getUserToken = Cookies.get("userToken");
+  const getUserUsername = Cookies.get("userUsername");
   const navigate = useNavigate();
   return (
     <header>
       <div>
-        <div className="header-container">
+        <section className="header-container">
           {getUserToken ? (
-            <section className="user-logout">
+            <div className="user-logout">
               <button
                 className="logout-button"
                 onClick={() => {
                   Cookies.remove("userToken");
+                  Cookies.remove("userUsername");
                   setToken(null);
                   navigate("/");
                 }}
               >
                 <BsPersonCircle /> Logout
               </button>
-            </section>
+            </div>
           ) : (
-            <section className="user-connexion">
+            <div className="user-connexion">
               <button
                 onClick={() => {
                   navigate("/auth/signup");
@@ -45,13 +47,23 @@ const Header = ({ setToken }) => {
               >
                 <AiOutlineLogin /> Login
               </button>
-            </section>
+            </div>
           )}
 
           <Link to="/">
             <img src={logo} alt="mavel logo" className="logo" />
           </Link>
-        </div>
+          {getUserUsername ? (
+            <div className="user-onscreen-username">
+              <span>
+                Connected as :{" "}
+                <span className="username-onscreen">{getUserUsername}</span>
+              </span>
+            </div>
+          ) : (
+            <div className="not-onscreen-username"></div>
+          )}
+        </section>
       </div>
       <div>
         <section className="header-bottom-container">

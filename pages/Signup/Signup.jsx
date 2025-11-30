@@ -18,7 +18,7 @@ const Signup = ({ token, setToken }) => {
     <main className="main-signup">
       <section className="signup-container">
         <div className="title">
-          <h1 className="signup-title">S'inscrire</h1>
+          <h4 className="signup-title">S'inscrire</h4>
         </div>
         <div>
           <SignUpForm
@@ -37,7 +37,7 @@ const Signup = ({ token, setToken }) => {
           />
         </div>
         <div className="to-login">
-          <Link to="/login">
+          <Link to="/auth/login">
             <button className="existing-acount">
               Déjà un compte ? Connecte-toi !
             </button>

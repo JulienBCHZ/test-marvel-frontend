@@ -38,7 +38,7 @@ function App() {
             path="/auth/signup"
             element={<Signup token={token} setToken={setToken} />}
           />
-          <Route path="/auth/login" element={<Login />} />
+          <Route path="/auth/login" element={<Login setToken={setToken} />} />
         </Routes>
         <Footer />
       </Router>
