@@ -2,7 +2,7 @@ import "./loginform.css";
 
 import axios from "axios";
 import Cookies from "js-cookie";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 //    email={email}
 //             setEmail={setEmail}
@@ -21,7 +21,9 @@ const LoginForm = ({
   setErrorMessage,
   setToken,
 }) => {
+  const location = useLocation();
   const navigate = useNavigate();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -38,8 +40,13 @@ const LoginForm = ({
           expires: 10,
         });
         setToken(response.data.token);
-        navigate("/");
         setErrorMessage("");
+        // navigate("/");
+        if (location.state) {
+          navigate(location.state.from);
+        } else {
+          navigate("/");
+        }
       } else {
         setErrorMessage("Vérifiez votre email ou votre mot de passe !");
       }
