@@ -7,6 +7,13 @@
   align-items: center;
   gap: 30px;
   padding: 80px 20px;
+  position: relative;
+}
+.already-added {
+  color: red;
+  position: sticky;
+  top: 20px;
+  left: 1500px;
 }
 
 .all-comics-container {
@@ -27,6 +34,15 @@
   cursor: pointer;
   background-color: #0a6c0a;
 }
+.unfavorit-button {
+  background-color: #202020;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  height: 25px;
+  font-weight: bold;
+}
+
 .comic-container {
   display: flex;
   gap: 40px;

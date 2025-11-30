@@ -12,7 +12,7 @@ const MainHero = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `https://site--project-marvel-backend--hgkxb6f276xk.code.run/characters?limit=10`
+        `https://site--project-marvel-backend--hgkxb6f276xk.code.run/characters?limit=3`
       );
       // console.log("RES :", response.data);
       setData(response.data.data);

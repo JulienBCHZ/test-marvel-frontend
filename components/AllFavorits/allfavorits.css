@@ -1,0 +1,33 @@
+.all-favorits-vision {
+  min-height: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.favorit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 100px;
+  gap: 40px;
+}
+
+.favorit-preview img {
+  height: 450px;
+  width: 298px;
+  box-shadow: 7px 12px 10px #202020;
+  border-radius: 2px;
+  object-fit: cover;
+}
+.favorit-preview {
+  display: flex;
+  gap: 40px;
+}
+
+.favorit-details {
+  width: 655px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 100px;
+}

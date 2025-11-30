@@ -6,6 +6,7 @@ import { HiOutlineSearch } from "react-icons/hi";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
 
 import getImage from "../../utils/getImage";
 
@@ -15,6 +16,8 @@ const AllCharacters = ({ search, setSearch }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [errorMessage, setErrorMessage] = useState("");
+  const [favButton, setFavButton] = useState("");
+  const getUserToken = Cookies.get("userToken");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -91,6 +94,34 @@ const AllCharacters = ({ search, setSearch }) => {
             </div>
             <section className="all-characters-container">
               {data.results.map((characters) => {
+                const picture = getImage(characters.thumbnail);
+
+                const handleClick = async () => {
+                  try {
+                    const response = await axios.post(
+                      `https://site--project-marvel-backend--hgkxb6f276xk.code.run/user/favorits/add`,
+                      {
+                        title: characters.name,
+                        description: characters.description,
+                        image: picture,
+                      },
+                      {
+                        headers: {
+                          authorization: `Bearer ${getUserToken}`,
+                        },
+                      }
+                    );
+                    if (response.data.message === "Already added in favorits") {
+                      setFavButton(response.data.message);
+                    } else {
+                      setFavButton("");
+                    }
+                    console.log("FAV :", response.data);
+                  } catch (error) {
+                    console.log(error);
+                  }
+                };
+
                 return (
                   <section
                     className="character-preview-container"
@@ -111,8 +142,11 @@ const AllCharacters = ({ search, setSearch }) => {
                       <div className="characters-details">
                         <h2>{characters.name}</h2>
                       </div>
-                      <div className="favorit-container">
-                        <button className="char-favorit-button">
+                      <div className="preview-favorit-container">
+                        <button
+                          className="char-favorit-button"
+                          onClick={handleClick}
+                        >
                           Add to favorits
                         </button>
                       </div>
