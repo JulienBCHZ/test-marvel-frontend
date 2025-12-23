@@ -14,7 +14,7 @@ import Favorits from "../pages/Favorits/Favorits";
 import Signup from "../pages/Signup/Signup";
 import Login from "../pages/Login/Login";
 
-// COMPOSANTS
+// COMPONENTS
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 
