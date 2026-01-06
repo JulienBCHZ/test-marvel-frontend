@@ -4,6 +4,8 @@
 
 Projet déployé sur [Netlify](https://www.netlify.com/) et consultable à l'adresse : https://startling-empanada-be4b73.netlify.app/
 
+---
+
 ## 📌 Description
 
 Ce projet est une application web fonctionnelle inspirée du site Marvel, réalisé en autonomie pendant ma formation de développeur web/mobile. Il met en pratique les concepts clés de React pour construire une interface dynamique et interactive, avec gestion des routes, authentification et création de favorits.
@@ -15,6 +17,8 @@ L’objectif était de réaliser les tâches suivantes de manière autonome :
 - Implémenter une authentification simple via JS Cookie.
 - Interroger une API privée en transitant d'abord par le Back-End permettant d'incrémenter une clé API.
 
+---
+
 ## 🏗️ Technologies utilisées
 
 - **React** — Framework principal
@@ -23,17 +27,20 @@ L’objectif était de réaliser les tâches suivantes de manière autonome :
 - **Axios** - Requêtes vers le Back-End
 - **CSS** — Style du site
 
+---
+
 ## 🛠️ Développement
 
 - **React Hooks** - pour la gestion d'état locale (`useState` et `useEffect`)
 - `useEffect` - pour le chargement des données
 - `useNavigate` - pour la redirection automatique
 
+---
+
 ## 🚀 Installation
 
 ### Prérequis
 
-- [Node.js](https://nodejs.org/) (version 22 ou supérieure) installé sur la machine
 - npm ou yarn
 
 ### Étapes
@@ -62,9 +69,13 @@ yarn dev
 
 Un serveur de développement se lancera et l’application sera accessible à l’adresse : http://localhost:5173.
 
+---
+
 ## 📄 License
 
 Ce projet est fourni à des fins éducatives. Il n’est pas destiné à un usage commercial.
+
+---
 
 ## 📡 Contact
 
