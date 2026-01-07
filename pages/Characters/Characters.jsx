@@ -4,11 +4,11 @@ import AllCharacters from "../../components/AllCharacters/AllCharacters";
 
 import { useState, useEffect } from "react";
 
-const Characters = () => {
+const Characters = ({ API_URL }) => {
   const [search, setSearch] = useState("");
   return (
     <main className="main-characters-page">
-      <AllCharacters search={search} setSearch={setSearch} />
+      <AllCharacters search={search} setSearch={setSearch} API_URL={API_URL} />
     </main>
   );
 };

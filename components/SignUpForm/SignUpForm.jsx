@@ -30,36 +30,32 @@ const SignUpForm = ({
   setErrorMessage,
   token,
   setToken,
+  API_URL,
 }) => {
   const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post(
-        "https://site--project-marvel-backend--hgkxb6f276xk.code.run/auth/signup",
-        {
-          username: username,
-          email: email,
-          password: password,
-          newsletter: newsletter,
-        }
-      );
+      const response = await axios.post(`${API_URL}/auth/signup`, {
+        username: username,
+        email: email,
+        password: password,
+        newsletter: newsletter,
+      });
       if (response.data.token) {
-        Cookies.set("userToken", response.data.token, { expires: 10 });
+        Cookies.set("userToken", response.data.token, { expires: 30 });
         Cookies.set("userUsername", response.data.account.username, {
-          expires: 10,
+          expires: 30,
         });
         setToken(response.data.token);
         navigate("/");
         setErrorMessage("");
       } else {
-        setErrorMessage("Vérifiez les champs");
+        alert("Server doesn't respond...");
       }
       //   console.log(response.data);
     } catch (error) {
-      error.response
-        ? setErrorMessage(error.response.data.message)
-        : console.log(error);
+      error.message ? alert(error.message) : console.log(error);
     }
   };
 
@@ -104,7 +100,6 @@ const SignUpForm = ({
           value={password}
           onChange={handleChangePassword}
         />
-        {errorMessage && <p className="signup-error-message">{errorMessage}</p>}
         <section className="form-checkbox">
           <div className="line-checkbox">
             <input

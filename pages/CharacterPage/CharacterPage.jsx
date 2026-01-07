@@ -30,7 +30,7 @@ import { useParams, useLocation, Navigate } from "react-router-dom";
 //     ]
 // }
 
-const CharacterPage = () => {
+const CharacterPage = ({ API_URL }) => {
   // const params = useParams();
   // const { characterId } = params;
   // console.log(characterId);
@@ -46,7 +46,7 @@ const CharacterPage = () => {
         name={name}
         description={description}
         image={image}
-        comics={comics}
+        API_URL={API_URL}
       />
     </main>
   );

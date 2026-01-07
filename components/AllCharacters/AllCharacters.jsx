@@ -13,19 +13,19 @@ import getImage from "../../utils/getImage";
 import { TfiFaceSad } from "react-icons/tfi";
 
 // search={search} setSearch={setSearch}
-const AllCharacters = ({ search, setSearch }) => {
+const AllCharacters = ({ search, setSearch, API_URL }) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [errorMessage, setErrorMessage] = useState("");
-  const [favButton, setFavButton] = useState("");
+  const [favButton, setFavButton] = useState(false);
   const getUserToken = Cookies.get("userToken");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://site--project-marvel-backend--hgkxb6f276xk.code.run/characters?page=${page}&name=${search}`
+          `${API_URL}/characters?page=${page}&name=${search}`
         );
         if (response.data) {
           // console.log("CHAR DATA : ", response.data);
@@ -38,11 +38,9 @@ const AllCharacters = ({ search, setSearch }) => {
       } catch (error) {
         setIsLoading(false);
         console.log("CHARACTS ERROR : ", error);
-        if (error.message) {
-          setErrorMessage(`Something went wrong : ${error.message}`);
-        } else {
-          setErrorMessage("Something went wrong...");
-        }
+        error.message
+          ? setErrorMessage(error.message)
+          : setErrorMessage("Something went wrong...");
       }
     };
     fetchData();
@@ -103,10 +101,10 @@ const AllCharacters = ({ search, setSearch }) => {
           {data.results.map((characters) => {
             const picture = getImage(characters.thumbnail);
 
-            const handleClick = async () => {
+            const handleAddFavorit = async () => {
               try {
                 const response = await axios.post(
-                  `https://site--project-marvel-backend--hgkxb6f276xk.code.run/user/favorits/add`,
+                  `${API_URL}/user/favorits/add`,
                   {
                     title: characters.name,
                     description: characters.description,
@@ -118,10 +116,10 @@ const AllCharacters = ({ search, setSearch }) => {
                     },
                   }
                 );
-                if (response.data.message === "Already added in favorits") {
-                  setFavButton(response.data.message);
+                if (response.data.message === "Add in favorits") {
+                  setFavButton(true);
                 } else {
-                  setFavButton("");
+                  setFavButton(false);
                 }
                 console.log("FAV :", response.data);
               } catch (error) {
@@ -152,7 +150,7 @@ const AllCharacters = ({ search, setSearch }) => {
                   <div className="preview-favorit-container">
                     <button
                       className="char-favorit-button"
-                      onClick={handleClick}
+                      onClick={handleAddFavorit}
                     >
                       Add to favorits
                     </button>

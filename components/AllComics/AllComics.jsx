@@ -14,11 +14,11 @@ import { TfiFaceSad } from "react-icons/tfi";
 
 // search={search} setSearch={setSearch}
 
-const AllComics = ({ search, setSearch }) => {
+const AllComics = ({ search, setSearch, API_URL }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
   const [page, setPage] = useState(1);
-  const [favButton, setFavButton] = useState("");
+  const [favButton, setFavButton] = useState(true);
   const getUserToken = Cookies.get("userToken");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -26,7 +26,7 @@ const AllComics = ({ search, setSearch }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://site--project-marvel-backend--hgkxb6f276xk.code.run/comics?page=${page}&title=${search}`
+          `${API_URL}/comics?page=${page}&title=${search}`
         );
         if (response.data) {
           // console.log("COMICS DATA :", response.data);
@@ -39,11 +39,9 @@ const AllComics = ({ search, setSearch }) => {
       } catch (error) {
         setIsLoading(false);
         console.log("COMICS ERROR : ", error);
-        if (error.message) {
-          setErrorMessage(`Something went wrong : ${error.message}`);
-        } else {
-          setErrorMessage("Something went wrong...");
-        }
+        error.message
+          ? setErrorMessage(error.message)
+          : setErrorMessage("Something went wrong...");
       }
     };
     fetchData();
@@ -106,10 +104,10 @@ const AllComics = ({ search, setSearch }) => {
             const picture = getImage(comics.thumbnail);
 
             // title, description
-            const handleClick = async () => {
+            const handleAddFavorit = async () => {
               try {
                 const response = await axios.post(
-                  `https://site--project-marvel-backend--hgkxb6f276xk.code.run/user/favorits/add`,
+                  `${API_URL}/user/favorits/add`,
                   {
                     title: comics.title,
                     description: comics.description,
@@ -121,10 +119,8 @@ const AllComics = ({ search, setSearch }) => {
                     },
                   }
                 );
-                if (response.data.message === "Already added in favorits") {
-                  setFavButton(response.data.message);
-                } else {
-                  setFavButton("");
+                if (response.data.message === "Add in favorits") {
+                  setFavButton(true);
                 }
                 console.log("FAV :", response.data);
               } catch (error) {
@@ -139,7 +135,10 @@ const AllComics = ({ search, setSearch }) => {
                 </Link>
                 <div className="details-container">
                   <div className="button-container">
-                    <button className="favorit-button" onClick={handleClick}>
+                    <button
+                      className="favorit-button"
+                      onClick={handleAddFavorit}
+                    >
                       Add to favorits
                     </button>
                   </div>

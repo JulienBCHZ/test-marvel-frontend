@@ -40,7 +40,7 @@ import getImage from "../../utils/getImage";
 //     }
 // ]
 
-const CharacterDetails = ({ name, description, image, comics }) => {
+const CharacterDetails = ({ name, description, image, API_URL }) => {
   const params = useParams();
   const { characterId } = params;
   // console.log(characterId);
@@ -53,9 +53,7 @@ const CharacterDetails = ({ name, description, image, comics }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `https://site--project-marvel-backend--hgkxb6f276xk.code.run/comics/${characterId}`
-        );
+        const response = await axios.get(`${API_URL}/comics/${characterId}`);
         if (response.data) {
           //   console.log("CHAR :", response.data);
           setData(response.data.data);
@@ -67,11 +65,9 @@ const CharacterDetails = ({ name, description, image, comics }) => {
       } catch (error) {
         setIsLoading(false);
         console.log("CHAR ERROR : ", error);
-        if (error.message) {
-          setErrorMessage(`Something went wrong : ${error.message}`);
-        } else {
-          setErrorMessage("Something went wrong...");
-        }
+        error.message
+          ? setErrorMessage(error.message)
+          : setErrorMessage("Something went wrong...");
       }
     };
     fetchData();

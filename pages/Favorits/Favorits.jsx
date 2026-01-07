@@ -5,12 +5,12 @@ import AllFavorits from "../../components/AllFavorits/AllFavorits";
 import Cookies from "js-cookie";
 import { Navigate } from "react-router-dom";
 
-const Favorits = () => {
+const Favorits = ({ API_URL }) => {
   const getUserToken = Cookies.get("userToken");
 
   return getUserToken ? (
     <main className="main-favorits">
-      <AllFavorits />
+      <AllFavorits API_URL={API_URL} />
     </main>
   ) : (
     <Navigate to="/auth/login" state={{ from: "/favorits" }} />

@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 
 import { TfiFaceSad } from "react-icons/tfi";
 
-const AllFavorits = () => {
+const AllFavorits = ({ API_URL }) => {
   const getUserToken = Cookies.get("userToken");
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
@@ -16,14 +16,11 @@ const AllFavorits = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `https://site--project-marvel-backend--hgkxb6f276xk.code.run/user/favorits`,
-          {
-            headers: {
-              authorization: `Bearer ${getUserToken}`,
-            },
-          }
-        );
+        const response = await axios.get(`${API_URL}/user/favorits`, {
+          headers: {
+            authorization: `Bearer ${getUserToken}`,
+          },
+        });
         if (response.data) {
           console.log("FAV DATA : ", response.data);
           setData(response.data);
@@ -35,11 +32,9 @@ const AllFavorits = () => {
       } catch (error) {
         setIsLoading(false);
         console.log("FAV ERROR : ", error);
-        if (error.message) {
-          setErrorMessage(`Something went wrong : ${error.message}`);
-        } else {
-          setErrorMessage("Something went wrong...");
-        }
+        error.message
+          ? setErrorMessage(error.message)
+          : setErrorMessage("Something went wrong...");
       }
     };
     fetchData();

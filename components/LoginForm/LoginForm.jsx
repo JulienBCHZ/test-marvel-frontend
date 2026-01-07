@@ -20,6 +20,7 @@ const LoginForm = ({
   errorMessage,
   setErrorMessage,
   setToken,
+  API_URL,
 }) => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -27,13 +28,10 @@ const LoginForm = ({
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post(
-        "https://site--project-marvel-backend--hgkxb6f276xk.code.run/auth/login",
-        {
-          email: email,
-          password: password,
-        }
-      );
+      const response = await axios.post(`${API_URL}/auth/login`, {
+        email: email,
+        password: password,
+      });
       if (response.data.token) {
         Cookies.set("userToken", response.data.token, { expires: 10 });
         Cookies.set("userUsername", response.data.account.username, {

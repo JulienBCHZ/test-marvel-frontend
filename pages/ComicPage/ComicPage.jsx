@@ -2,11 +2,11 @@ import "./comicpage.css";
 
 import ComicDetails from "../../components/ComicDetails/ComicDetails";
 
-const ComicPage = () => {
+const ComicPage = ({ API_URL }) => {
   return (
     <main ClassName="main-comic">
       <div className="comic-page-main-deco">
-        <ComicDetails />
+        <ComicDetails API_URL={API_URL} />
       </div>
     </main>
   );

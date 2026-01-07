@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 import getImage from "../../utils/getImage";
 
-const ComicDetails = () => {
+const ComicDetails = ({ API_URL }) => {
   const params = useParams();
   const { comicId } = params;
   console.log(comicId);
@@ -19,9 +19,7 @@ const ComicDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `https://site--project-marvel-backend--hgkxb6f276xk.code.run/comic/${comicId}`
-        );
+        const response = await axios.get(`${API_URL}/comic/${comicId}`);
         if (response.data) {
           // console.log("COMIC : ", response.data.data);
           setData(response.data.data);
