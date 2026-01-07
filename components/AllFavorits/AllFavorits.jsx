@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useState, useEffect } from "react";
 
+import { TfiFaceSad } from "react-icons/tfi";
+
 const AllFavorits = () => {
   const getUserToken = Cookies.get("userToken");
   const [isLoading, setIsLoading] = useState(true);
@@ -22,22 +24,38 @@ const AllFavorits = () => {
             },
           }
         );
-        console.log(response.data);
-        setData(response.data);
-        setIsLoading(false);
+        if (response.data) {
+          console.log("FAV DATA : ", response.data);
+          setData(response.data);
+          setIsLoading(false);
+        } else {
+          setIsLoading(false);
+          setErrorMessage("Server doesn't respond...");
+        }
       } catch (error) {
-        error.response
-          ? setErrorMessage(error.response.data.message)
-          : console.log(error);
+        setIsLoading(false);
+        console.log("FAV ERROR : ", error);
+        if (error.response) {
+          setErrorMessage(
+            `Something went wrong : ${error.response.data.message}`
+          );
+        } else {
+          setErrorMessage("Something went wrong...");
+        }
       }
     };
     fetchData();
   }, []);
 
   return isLoading ? (
-    <section className="loading">
+    <section className="loadingFavorits">
       <p>Please wait...</p>
     </section>
+  ) : errorMessage ? (
+    <div className="errorFavorits">
+      <p>{errorMessage}</p>
+      <TfiFaceSad style="font-size: 4wv; color: grey" />
+    </div>
   ) : (
     <div className="all-favorits-vision">
       <section className="favorit-container">

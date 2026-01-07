@@ -31,3 +31,27 @@
   padding: 20px;
   gap: 100px;
 }
+
+.loadingFavorits {
+  min-height: 100%;
+  max-width: 1180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loadingFavorits > p {
+  font-size: 3vw;
+  color: #202020;
+}
+.errorFavorits {
+  min-height: 100%;
+  max-width: 1180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.errorFavorits > p {
+  font-size: 3vw;
+  color: #202020;
+}

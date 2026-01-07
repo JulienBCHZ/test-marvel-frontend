@@ -43,20 +43,38 @@ import getImage from "../../utils/getImage";
 const CharacterDetails = ({ name, description, image, comics }) => {
   const params = useParams();
   const { characterId } = params;
-  console.log(characterId);
+  // console.log(characterId);
   //   console.log(comics);
 
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(
-        `https://site--project-marvel-backend--hgkxb6f276xk.code.run/comics/${characterId}`
-      );
-      //   console.log(response.data.data.comics);
-      setData(response.data.data);
-      setIsLoading(false);
+      try {
+        const response = await axios.get(
+          `https://site--project-marvel-backend--hgkxb6f276xk.code.run/comics/${characterId}`
+        );
+        if (response.data) {
+          //   console.log("CHAR :", response.data);
+          setData(response.data.data);
+          setIsLoading(false);
+        } else {
+          setIsLoading(false);
+          setErrorMessage("Server doesn't respond...");
+        }
+      } catch (error) {
+        setIsLoading(false);
+        console.log("CHAR ERROR : ", error);
+        if (error.response) {
+          setErrorMessage(
+            `Something went wrong : ${error.response.data.message}`
+          );
+        } else {
+          setErrorMessage("Something went wrong...");
+        }
+      }
     };
     fetchData();
   }, []);

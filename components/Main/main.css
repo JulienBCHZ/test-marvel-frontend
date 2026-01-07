@@ -39,3 +39,30 @@ h1:hover {
   background-color: red;
   box-shadow: 10px 10px 5px rgba(255, 0, 0, 0.462);
 }
+
+.loadingMain {
+  min-height: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loadingMain > p {
+  font-size: 3vw;
+  color: #202020;
+}
+.errorMain {
+  min-height: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.errorMain > p {
+  font-size: 3vw;
+  color: #202020;
+}

@@ -19,14 +19,28 @@
   border: #202020 solid 3px;
 }
 .loading {
-  height: 400px;
-  width: 600px;
+  height: 600px;
+  max-width: 1180px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .loading > p {
-  font-size: 32px;
+  font-size: 3vw;
+  color: #202020;
+}
+.error {
+  height: 600px;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.error > p {
+  font-size: 3vw;
   color: #202020;
 }

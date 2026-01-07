@@ -10,6 +10,8 @@ import Cookies from "js-cookie";
 
 import getImage from "../../utils/getImage";
 
+import { TfiFaceSad } from "react-icons/tfi";
+
 // search={search} setSearch={setSearch}
 
 const AllComics = ({ search, setSearch }) => {
@@ -18,16 +20,33 @@ const AllComics = ({ search, setSearch }) => {
   const [page, setPage] = useState(1);
   const [favButton, setFavButton] = useState("");
   const getUserToken = Cookies.get("userToken");
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(
-        `https://site--project-marvel-backend--hgkxb6f276xk.code.run/comics?page=${page}&title=${search}`
-      );
-      // console.log(response.data);
-
-      setData(response.data.data);
-      setIsLoading(false);
+      try {
+        const response = await axios.get(
+          `https://site--project-marvel-backend--hgkxb6f276xk.code.run/comics?page=${page}&title=${search}`
+        );
+        if (response.data) {
+          // console.log("COMICS DATA :", response.data);
+          setData(response.data.data);
+          setIsLoading(false);
+        } else {
+          setIsLoading(false);
+          setErrorMessage("Server doesn't respond...");
+        }
+      } catch (error) {
+        setIsLoading(false);
+        console.log("COMICS ERROR : ", error);
+        if (error.response) {
+          setErrorMessage(
+            `Something went wrong : ${error.response.data.message}`
+          );
+        } else {
+          setErrorMessage("Something went wrong...");
+        }
+      }
     };
     fetchData();
   }, [page, search]);
@@ -41,6 +60,11 @@ const AllComics = ({ search, setSearch }) => {
     <section className="loading">
       <p>Please wait...</p>
     </section>
+  ) : errorMessage ? (
+    <div>
+      <p>{errorMessage}</p>
+      <TfiFaceSad style="font-size: 4wv; color: grey" />
+    </div>
   ) : (
     <>
       <section className="comics-search-section">
@@ -55,9 +79,6 @@ const AllComics = ({ search, setSearch }) => {
           />
         </div>
       </section>
-      {favButton !== "" ? (
-        <span className="already-added">{favButton}</span>
-      ) : null}
       <section className="all-comics-vision">
         <div className="change-page">
           {page > 1 ? (
