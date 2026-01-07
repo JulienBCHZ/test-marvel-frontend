@@ -48,13 +48,11 @@ const LoginForm = ({
           navigate("/");
         }
       } else {
-        setErrorMessage("Vérifiez votre email ou votre mot de passe !");
+        alert("Check email and/or password");
       }
       //   console.log(response.data);
     } catch (error) {
-      error.response
-        ? setErrorMessage(error.response.data.message)
-        : console.log(error);
+      error.message ? alert(error.message) : console.log(error);
     }
   };
 
@@ -84,7 +82,7 @@ const LoginForm = ({
           value={password}
           onChange={handleChangePassword}
         />
-        {errorMessage && <p className="login-error-message">{errorMessage}</p>}
+        {/* {errorMessage && <p className="login-error-message">{errorMessage}</p>} */}
         <button className="submit-button">Se connecter</button>
       </form>
     </div>

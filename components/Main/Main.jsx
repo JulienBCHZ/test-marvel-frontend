@@ -8,7 +8,7 @@ import getImage from "../../utils/getImage";
 
 import { TfiFaceSad } from "react-icons/tfi";
 
-const Main = () => {
+const Main = ({ API_URL }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
@@ -16,9 +16,7 @@ const Main = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `https://site--project-marvel-backend--hgkxb6f276xk.code.run/comics?limit=15`
-        );
+        const response = await axios.get(`${API_URL}/comics?limit=15`);
         if (response.data) {
           // console.log("DATA : ", response.data);
           setData(response.data.data);
@@ -29,11 +27,9 @@ const Main = () => {
         }
       } catch (error) {
         setIsLoading(false);
-        console.log("MH ERROR : ", error);
-        if (error.response) {
-          setErrorMessage(
-            `Something went wrong : ${error.response.data.message}`
-          );
+        console.log("MAIN ERROR : ", error);
+        if (error.message) {
+          setErrorMessage(`Something went wrong : ${error.message}`);
         } else {
           setErrorMessage("Something went wrong...");
         }
@@ -46,11 +42,6 @@ const Main = () => {
     <section className="loadingMain">
       <p>Please wait...</p>
     </section>
-  ) : errorMessage ? (
-    <div className="errorMain">
-      <p>{errorMessage}</p>
-      <TfiFaceSad style="font-size: 4wv; color: grey" />
-    </div>
   ) : (
     <section className="comics-preview-section">
       <Link to="/comics" className="read-comics-link">

@@ -18,6 +18,9 @@ import Login from "../pages/Login/Login";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 
+const API_URL = "http://localhost:3615/api/v1";
+// https://site--project-marvel-backend--hgkxb6f276xk.code.run/api/v1
+
 function App() {
   const [token, setToken] = useState(Cookies.get("userToken") || null);
   return (
@@ -25,20 +28,31 @@ function App() {
       <Router>
         <Header setToken={setToken} />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/comics" element={<Comics />} />
-          <Route path="/characters" element={<Characters />} />
+          <Route path="/" element={<Home API_URL={API_URL} />} />
+          <Route path="/comics" element={<Comics API_URL={API_URL} />} />
+          <Route
+            path="/characters"
+            element={<Characters API_URL={API_URL} />}
+          />
           <Route
             path="/comics/character/:characterId"
-            element={<CharacterPage />}
+            element={<CharacterPage API_URL={API_URL} />}
           />
-          <Route path="/comics/comic/:comicId" element={<ComicPage />} />
-          <Route path="/favorits" element={<Favorits />} />
+          <Route
+            path="/comics/comic/:comicId"
+            element={<ComicPage API_URL={API_URL} />}
+          />
+          <Route path="/favorits" element={<Favorits API_URL={API_URL} />} />
           <Route
             path="/auth/signup"
-            element={<Signup token={token} setToken={setToken} />}
+            element={
+              <Signup token={token} setToken={setToken} API_URL={API_URL} />
+            }
           />
-          <Route path="/auth/login" element={<Login setToken={setToken} />} />
+          <Route
+            path="/auth/login"
+            element={<Login setToken={setToken} API_URL={API_URL} />}
+          />
         </Routes>
         <Footer />
       </Router>

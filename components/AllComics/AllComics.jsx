@@ -39,10 +39,8 @@ const AllComics = ({ search, setSearch }) => {
       } catch (error) {
         setIsLoading(false);
         console.log("COMICS ERROR : ", error);
-        if (error.response) {
-          setErrorMessage(
-            `Something went wrong : ${error.response.data.message}`
-          );
+        if (error.message) {
+          setErrorMessage(`Something went wrong : ${error.message}`);
         } else {
           setErrorMessage("Something went wrong...");
         }
@@ -60,11 +58,6 @@ const AllComics = ({ search, setSearch }) => {
     <section className="loading">
       <p>Please wait...</p>
     </section>
-  ) : errorMessage ? (
-    <div>
-      <p>{errorMessage}</p>
-      <TfiFaceSad style="font-size: 4wv; color: grey" />
-    </div>
   ) : (
     <>
       <section className="comics-search-section">

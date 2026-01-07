@@ -7,7 +7,7 @@ import getImage from "../../utils/getImage";
 
 import { TfiFaceSad } from "react-icons/tfi";
 
-const MainHero = () => {
+const MainHero = ({ API_URL }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
@@ -15,9 +15,7 @@ const MainHero = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `https://site--project-marvel-backend--hgkxb6f276xk.code.run/characters?limit=3`
-        );
+        const response = await axios.get(`${API_URL}/characters?limit=3`);
         if (response.data) {
           // console.log("RES :", response.data);
           setData(response.data.data);
@@ -27,12 +25,10 @@ const MainHero = () => {
           setErrorMessage("Server doesn't respond...");
         }
       } catch (error) {
-        setIsLoading(false);
+        setIsLoading(true);
         console.log("MH ERROR : ", error);
-        if (error.response) {
-          setErrorMessage(
-            `Something went wrong : ${error.response.data.message}`
-          );
+        if (error.message) {
+          setErrorMessage(`Something went wrong : ${error.message}`);
         } else {
           setErrorMessage("Something went wrong...");
         }
@@ -45,11 +41,6 @@ const MainHero = () => {
     <section className="loading">
       <p>Please wait...</p>
     </section>
-  ) : errorMessage ? (
-    <div className="error">
-      <p>{errorMessage}</p>
-      <TfiFaceSad style="font-size: 4wv; color: grey" />
-    </div>
   ) : (
     <section className="hero">
       {data.results.map((character) => {

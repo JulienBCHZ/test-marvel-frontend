@@ -5,7 +5,7 @@ import LoginForm from "../../components/LoginForm/LoginForm";
 import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
-const Login = ({ setToken }) => {
+const Login = ({ setToken, API_URL }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -27,6 +27,7 @@ const Login = ({ setToken }) => {
             errorMessage={errorMessage}
             setErrorMessage={setErrorMessage}
             setToken={setToken}
+            API_URL={API_URL}
           />
         </div>
         <div className="to-signup">

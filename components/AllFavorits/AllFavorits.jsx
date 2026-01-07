@@ -35,10 +35,8 @@ const AllFavorits = () => {
       } catch (error) {
         setIsLoading(false);
         console.log("FAV ERROR : ", error);
-        if (error.response) {
-          setErrorMessage(
-            `Something went wrong : ${error.response.data.message}`
-          );
+        if (error.message) {
+          setErrorMessage(`Something went wrong : ${error.message}`);
         } else {
           setErrorMessage("Something went wrong...");
         }
@@ -51,11 +49,6 @@ const AllFavorits = () => {
     <section className="loadingFavorits">
       <p>Please wait...</p>
     </section>
-  ) : errorMessage ? (
-    <div className="errorFavorits">
-      <p>{errorMessage}</p>
-      <TfiFaceSad style="font-size: 4wv; color: grey" />
-    </div>
   ) : (
     <div className="all-favorits-vision">
       <section className="favorit-container">

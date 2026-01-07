@@ -33,10 +33,8 @@ const ComicDetails = () => {
       } catch (error) {
         setIsLoading(false);
         console.log("COMIC ERROR : ", error);
-        if (error.response) {
-          setErrorMessage(
-            `Something went wrong : ${error.response.data.message}`
-          );
+        if (error.message) {
+          setErrorMessage(`Something went wrong : ${error.message}`);
         } else {
           setErrorMessage("Something went wrong...");
         }

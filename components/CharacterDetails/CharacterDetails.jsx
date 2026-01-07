@@ -67,10 +67,8 @@ const CharacterDetails = ({ name, description, image, comics }) => {
       } catch (error) {
         setIsLoading(false);
         console.log("CHAR ERROR : ", error);
-        if (error.response) {
-          setErrorMessage(
-            `Something went wrong : ${error.response.data.message}`
-          );
+        if (error.message) {
+          setErrorMessage(`Something went wrong : ${error.message}`);
         } else {
           setErrorMessage("Something went wrong...");
         }
