@@ -11,6 +11,7 @@ import Cookies from "js-cookie";
 import getImage from "../../utils/getImage";
 
 import { TfiFaceSad } from "react-icons/tfi";
+import { MdFavoriteBorder } from "react-icons/md";
 
 // search={search} setSearch={setSearch}
 const AllCharacters = ({ search, setSearch, API_URL }) => {
@@ -18,7 +19,7 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [errorMessage, setErrorMessage] = useState("");
-  const [favButton, setFavButton] = useState(false);
+  const [favAdded, setFavAdded] = useState(false);
   const getUserToken = Cookies.get("userToken");
 
   useEffect(() => {
@@ -117,9 +118,9 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
                   }
                 );
                 if (response.data.message === "Add in favorits") {
-                  setFavButton(true);
+                  setFavAdded(true);
                 } else {
-                  setFavButton(false);
+                  setFavAdded(false);
                 }
                 console.log("FAV :", response.data);
               } catch (error) {
@@ -144,16 +145,22 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
                   <img src={getImage(characters.thumbnail)} />
                 </Link>
                 <div className="charac-details-container">
-                  <div className="characters-details">
-                    <h2>{characters.name}</h2>
-                  </div>
+                  <Link
+                    className="char-name-link"
+                    to={`/comics/character/${characters._id}`}
+                    state={{
+                      name: characters.name,
+                      description: characters.description,
+                      image: getImage(characters.thumbnail),
+                      comics: characters.comics,
+                    }}
+                  >
+                    <div className="characters-name">
+                      <h2>{characters.name}</h2>
+                    </div>
+                  </Link>
                   <div className="preview-favorit-container">
-                    <button
-                      className="char-favorit-button"
-                      onClick={handleAddFavorit}
-                    >
-                      Add to favorits
-                    </button>
+                    <MdFavoriteBorder className="charAdd-favorit-icon" />
                   </div>
                 </div>
               </section>

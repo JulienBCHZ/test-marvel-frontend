@@ -42,25 +42,34 @@
   height: 140px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   padding: 20px 15px;
+  position: relative;
 }
-.characters-details > h2 {
+.characters-name > h2 {
   font-size: 18px;
   line-height: 20px;
+  text-decoration: none;
+  color: white;
+}
+.char-name-link {
+  text-decoration: none;
+}
+.characters-name > h2:hover {
+  cursor: pointer;
+  color: rgb(255, 74, 74);
+  font-size: 19px;
 }
 
-.char-favorit-button {
-  height: 22px;
+.charAdd-favorit-icon {
+  font-size: 30px;
   color: white;
-  background-color: #1e2029;
-  border: white solid 1px;
+  position: absolute;
+  bottom: 17px;
+  z-index: 1000;
 }
-.char-favorit-button:hover {
+.charAdd-favorit-icon:hover {
   cursor: pointer;
-  color: white;
-  background-color: #0a6c0a;
-  border: white solid 2px;
+  color: rgb(255, 157, 157);
 }
 
 .characters-search-section {
