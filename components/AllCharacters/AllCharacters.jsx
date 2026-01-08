@@ -53,7 +53,7 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
   }, [page, search]);
 
   useEffect(() => {
-    const fetchFavoritsData = async () => {
+    const fetchFavoritsCharacData = async () => {
       try {
         const response = await axios.get(`${API_URL}/user/favorits`, {
           headers: {
@@ -61,7 +61,7 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
           },
         });
         if (response.data) {
-          console.log("READ FAV DATA : ", response.data);
+          // console.log("READ FAV DATA : ", response.data);
           setFavorits(response.data.favorits);
           setFavoritsLoading(false);
         } else {
@@ -72,7 +72,7 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
         console.log("READ FAV ERROR : ", error);
       }
     };
-    fetchFavoritsData();
+    fetchFavoritsCharacData();
   }, [favAdded, favRemoved]);
 
   const handleSearch = (event) => {
@@ -151,7 +151,7 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
                 } else {
                   setFavAdded(false);
                 }
-                console.log("FAV :", response.data);
+                // console.log("FAV :", response.data);
               } catch (error) {
                 console.log(error);
               }
@@ -229,25 +229,13 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
                               <MdFavoriteBorder
                                 className="charAdd-favorit-icon"
                                 onClick={handleAddFavorit}
+                                key={favorit._id}
                               />
                             );
                           }
                         })}
                       </>
                     )}
-
-                    {/* {favName === characters.name ? (
-                      <MdFavorite className="charRemove-favorit-icon" />
-                    ) : (
-                      <MdFavoriteBorder
-                        className="charAdd-favorit-icon"
-                        onClick={handleAddFavorit}
-                      />
-                    )} */}
-                    {/* <MdFavoriteBorder
-                      className="charAdd-favorit-icon"
-                      onClick={handleAddFavorit}
-                    /> */}
                   </div>
                 </div>
               </section>

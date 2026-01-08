@@ -11,16 +11,23 @@ import Cookies from "js-cookie";
 import getImage from "../../utils/getImage";
 
 import { TfiFaceSad } from "react-icons/tfi";
+import { MdFavoriteBorder } from "react-icons/md";
+import { MdFavorite } from "react-icons/md";
 
 // search={search} setSearch={setSearch}
 
 const AllComics = ({ search, setSearch, API_URL }) => {
+  const getUserToken = Cookies.get("userToken");
+
   const [isLoading, setIsLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
   const [data, setData] = useState(null);
   const [page, setPage] = useState(1);
   const [favButton, setFavButton] = useState(true);
-  const getUserToken = Cookies.get("userToken");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [favorits, setFavorits] = useState(null);
+  const [favoritsLoading, setFavoritsLoading] = useState(true);
+  const [favAdded, setFavAdded] = useState(false);
+  const [favRemoved, setFavRemoved] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,6 +53,29 @@ const AllComics = ({ search, setSearch, API_URL }) => {
     };
     fetchData();
   }, [page, search]);
+
+  useEffect(() => {
+    const fetchFavoritsComicsData = async () => {
+      try {
+        const response = await axios.get(`${API_URL}/user/favorits`, {
+          headers: {
+            authorization: `Bearer ${getUserToken}`,
+          },
+        });
+        if (response.data) {
+          console.log("READ FAV DATA : ", response.data);
+          setFavorits(response.data.favorits);
+          setFavoritsLoading(false);
+        } else {
+          setFavoritsLoading(false);
+        }
+      } catch (error) {
+        setFavoritsLoading(false);
+        console.log("READ FAV ERROR : ", error);
+      }
+    };
+    fetchFavoritsComicsData();
+  }, [favAdded, favRemoved]);
 
   const handleSearch = (event) => {
     const value = event.target.value;
@@ -120,7 +150,10 @@ const AllComics = ({ search, setSearch, API_URL }) => {
                   }
                 );
                 if (response.data.message === "Add in favorits") {
-                  setFavButton(true);
+                  setFavAdded(true);
+                  // setFavName(response.data.data.item_title);
+                } else {
+                  setFavAdded(false);
                 }
                 console.log("FAV :", response.data);
               } catch (error) {
@@ -134,16 +167,14 @@ const AllComics = ({ search, setSearch, API_URL }) => {
                   <img src={getImage(comics.thumbnail)} />
                 </Link>
                 <div className="details-container">
-                  <div className="button-container">
-                    <button
-                      className="favorit-button"
-                      onClick={handleAddFavorit}
-                    >
-                      Add to favorits
-                    </button>
-                  </div>
                   <div className="comics-details">
-                    <h2>{comics.title}</h2>
+                    <Link
+                      to={`/comics/comic/${comics._id}`}
+                      className="comics-title-link"
+                    >
+                      <h2>{comics.title}</h2>
+                    </Link>
+
                     {comics.description === null ? (
                       <p>Description is coming...</p>
                     ) : (
