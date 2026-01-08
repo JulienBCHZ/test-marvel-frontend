@@ -2,7 +2,7 @@
 
 > Inspiration libre du site Marvel, conçue en toute autonomie pour améliorer son aisance avec React.
 
-Projet déployé sur [Netlify](https://www.netlify.com/) et consultable à l'adresse : https://startling-empanada-be4b73.netlify.app/
+Projet déployé sur [Netlify](https://www.netlify.com/) et consultable à l'adresse : https://dazzling-semolina-57133c.netlify.app
 
 ---
 
