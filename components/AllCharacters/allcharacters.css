@@ -71,6 +71,13 @@
   cursor: pointer;
   color: rgb(255, 157, 157);
 }
+.charRemove-favorit-icon {
+  font-size: 30px;
+  color: rgb(255, 157, 157);
+  position: absolute;
+  bottom: 17px;
+  z-index: 1000;
+}
 
 .characters-search-section {
   background-color: #202020;

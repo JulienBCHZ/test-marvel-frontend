@@ -12,15 +12,20 @@ import getImage from "../../utils/getImage";
 
 import { TfiFaceSad } from "react-icons/tfi";
 import { MdFavoriteBorder } from "react-icons/md";
+import { MdFavorite } from "react-icons/md";
 
 // search={search} setSearch={setSearch}
 const AllCharacters = ({ search, setSearch, API_URL }) => {
+  const getUserToken = Cookies.get("userToken");
+
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [errorMessage, setErrorMessage] = useState("");
+  const [favorits, setFavorits] = useState(null);
+  const [favoritsLoading, setFavoritsLoading] = useState(true);
   const [favAdded, setFavAdded] = useState(false);
-  const getUserToken = Cookies.get("userToken");
+  const [favName, setFavName] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,6 +51,29 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
     };
     fetchData();
   }, [page, search]);
+
+  useEffect(() => {
+    const fetchFavoritsData = async () => {
+      try {
+        const response = await axios.get(`${API_URL}/user/favorits`, {
+          headers: {
+            authorization: `Bearer ${getUserToken}`,
+          },
+        });
+        if (response.data) {
+          console.log("READ FAV DATA : ", response.data);
+          setFavorits(response.data);
+          setFavoritsLoading(false);
+        } else {
+          setFavoritsLoading(false);
+        }
+      } catch (error) {
+        setFavoritsLoading(false);
+        console.log("READ FAV ERROR : ", error);
+      }
+    };
+    fetchFavoritsData();
+  }, []);
 
   const handleSearch = (event) => {
     const value = event.target.value;
@@ -119,6 +147,7 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
                 );
                 if (response.data.message === "Add in favorits") {
                   setFavAdded(true);
+                  setFavName(response.data.data.item_title);
                 } else {
                   setFavAdded(false);
                 }
@@ -160,7 +189,18 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
                     </div>
                   </Link>
                   <div className="preview-favorit-container">
-                    <MdFavoriteBorder className="charAdd-favorit-icon" />
+                    {favName === characters.name ? (
+                      <MdFavorite className="charRemove-favorit-icon" />
+                    ) : (
+                      <MdFavoriteBorder
+                        className="charAdd-favorit-icon"
+                        onClick={handleAddFavorit}
+                      />
+                    )}
+                    {/* <MdFavoriteBorder
+                      className="charAdd-favorit-icon"
+                      onClick={handleAddFavorit}
+                    /> */}
                   </div>
                 </div>
               </section>
