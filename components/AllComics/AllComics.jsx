@@ -23,9 +23,7 @@ const AllComics = ({ search, setSearch, API_URL }) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [data, setData] = useState(null);
   const [page, setPage] = useState(1);
-  const [favButton, setFavButton] = useState(true);
   const [favorits, setFavorits] = useState(null);
-  const [favoritsLoading, setFavoritsLoading] = useState(true);
   const [favAdded, setFavAdded] = useState(false);
   const [favRemoved, setFavRemoved] = useState(false);
 
@@ -36,7 +34,7 @@ const AllComics = ({ search, setSearch, API_URL }) => {
           `${API_URL}/comics?page=${page}&title=${search}`
         );
         if (response.data) {
-          // console.log("COMICS DATA :", response.data);
+          console.log("COMICS DATA :", response.data);
           setData(response.data.data);
           setIsLoading(false);
         } else {
@@ -64,13 +62,15 @@ const AllComics = ({ search, setSearch, API_URL }) => {
         });
         if (response.data) {
           console.log("READ FAV DATA : ", response.data);
-          setFavorits(response.data.favorits);
-          setFavoritsLoading(false);
+          if (response.data.favorits.length > 0) {
+            setFavorits(response.data.favorits);
+          } else {
+            setFavorits(null);
+          }
         } else {
-          setFavoritsLoading(false);
+          setFavorits(null);
         }
       } catch (error) {
-        setFavoritsLoading(false);
         console.log("READ FAV ERROR : ", error);
       }
     };
@@ -133,7 +133,6 @@ const AllComics = ({ search, setSearch, API_URL }) => {
           {data.results.map((comics) => {
             const picture = getImage(comics.thumbnail);
 
-            // title, description
             const handleAddFavorit = async () => {
               try {
                 const response = await axios.post(
@@ -167,6 +166,59 @@ const AllComics = ({ search, setSearch, API_URL }) => {
                   <img src={getImage(comics.thumbnail)} />
                 </Link>
                 <div className="details-container">
+                  {favorits ? (
+                    <>
+                      {favorits.map((favorit) => {
+                        const handleRemoveFavorit = async () => {
+                          try {
+                            const response = await axios.delete(
+                              `${API_URL}/user/favorit/delete/${favorit._id}`,
+                              {
+                                headers: {
+                                  authorization: `Bearer ${getUserToken}`,
+                                },
+                              }
+                            );
+                            if (response.data.message === "Favorit deleted") {
+                              setFavRemoved(true);
+                              setFavAdded(false);
+                            } else {
+                              setFavAdded(true);
+                              setFavRemoved(false);
+                            }
+                          } catch (error) {
+                            console.log(error);
+                          }
+                        };
+                        if (
+                          favorit.item_title === comics.title &&
+                          favorit.item_description === comics.description
+                        ) {
+                          return (
+                            <MdFavorite
+                              className="comicsRemove-favorit-icon"
+                              onClick={handleRemoveFavorit}
+                              key={favorit._id}
+                            />
+                          );
+                        } else {
+                          return (
+                            <MdFavoriteBorder
+                              className="comicsAdd-favorit-icon"
+                              onClick={handleAddFavorit}
+                              key={favorit._id}
+                            />
+                          );
+                        }
+                      })}
+                    </>
+                  ) : (
+                    <MdFavoriteBorder
+                      className="comicsAdd-favorit-icon"
+                      onClick={handleAddFavorit}
+                    />
+                  )}
+
                   <div className="comics-details">
                     <Link
                       to={`/comics/comic/${comics._id}`}

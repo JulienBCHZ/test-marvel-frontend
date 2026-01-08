@@ -23,7 +23,6 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
   const [page, setPage] = useState(1);
   const [errorMessage, setErrorMessage] = useState("");
   const [favorits, setFavorits] = useState(null);
-  const [favoritsLoading, setFavoritsLoading] = useState(true);
   const [favAdded, setFavAdded] = useState(false);
   const [favRemoved, setFavRemoved] = useState(false);
 
@@ -62,13 +61,16 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
         });
         if (response.data) {
           // console.log("READ FAV DATA : ", response.data);
-          setFavorits(response.data.favorits);
-          setFavoritsLoading(false);
+          if (response.data.favorits.length > 0) {
+            setFavorits(response.data.favorits);
+          } else {
+            setFavorits(null);
+          }
+          // setFavorits(response.data.favorits);
         } else {
-          setFavoritsLoading(false);
+          setFavorits(null);
         }
       } catch (error) {
-        setFavoritsLoading(false);
         console.log("READ FAV ERROR : ", error);
       }
     };
@@ -189,9 +191,7 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
                     </div>
                   </Link>
                   <div className="preview-favorit-container">
-                    {favoritsLoading ? (
-                      <></>
-                    ) : (
+                    {favorits ? (
                       <>
                         {favorits.map((favorit) => {
                           const handleRemoveFavorit = async () => {
@@ -235,6 +235,11 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
                           }
                         })}
                       </>
+                    ) : (
+                      <MdFavoriteBorder
+                        className="charAdd-favorit-icon"
+                        onClick={handleAddFavorit}
+                      />
                     )}
                   </div>
                 </div>

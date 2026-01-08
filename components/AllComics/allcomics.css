@@ -9,37 +9,11 @@
   padding: 80px 20px;
   position: relative;
 }
-.already-added {
-  color: red;
-  position: sticky;
-  top: 20px;
-  left: 1500px;
-}
 
 .all-comics-container {
   display: flex;
   flex-direction: column;
   /* gap: 20px; */
-}
-
-.favorit-container {
-  border: black solid 2px;
-  height: 10px;
-  width: 692px;
-  display: flex;
-  justify-content: flex-end;
-}
-.comicsAdd-favorit-icon {
-  font-size: 32;
-  color: black;
-}
-.comicsAdd-favorit-icon:hover {
-  cursor: pointer;
-  background-color: rgb(255, 157, 157);
-}
-.comicsRemove-favorit-icon {
-  color: rgb(255, 157, 157);
-  font-size: 32;
 }
 
 .comic-container {
@@ -58,10 +32,34 @@
   box-shadow: 7px 12px 10px red;
 }
 
+.comicsAdd-favorit-icon {
+  color: #202020;
+  font-size: 34px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+.comicsAdd-favorit-icon:hover {
+  cursor: pointer;
+  color: rgb(255, 157, 157);
+}
+.comicsRemove-favorit-icon {
+  color: rgb(255, 157, 157);
+  font-size: 34px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 1000;
+}
+.comicsRemove-favorit-icon:hover {
+  cursor: pointer;
+}
+
 .details-container {
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  padding-top: 100px;
+  position: relative;
 }
 
 .comics-details {
