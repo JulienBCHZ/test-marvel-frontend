@@ -25,7 +25,7 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
   const [favorits, setFavorits] = useState(null);
   const [favoritsLoading, setFavoritsLoading] = useState(true);
   const [favAdded, setFavAdded] = useState(false);
-  const [favName, setFavName] = useState("");
+  const [favRemoved, setFavRemoved] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -62,7 +62,7 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
         });
         if (response.data) {
           console.log("READ FAV DATA : ", response.data);
-          setFavorits(response.data);
+          setFavorits(response.data.favorits);
           setFavoritsLoading(false);
         } else {
           setFavoritsLoading(false);
@@ -73,7 +73,7 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
       }
     };
     fetchFavoritsData();
-  }, []);
+  }, [favAdded, favRemoved]);
 
   const handleSearch = (event) => {
     const value = event.target.value;
@@ -147,7 +147,7 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
                 );
                 if (response.data.message === "Add in favorits") {
                   setFavAdded(true);
-                  setFavName(response.data.data.item_title);
+                  // setFavName(response.data.data.item_title);
                 } else {
                   setFavAdded(false);
                 }
@@ -189,14 +189,61 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
                     </div>
                   </Link>
                   <div className="preview-favorit-container">
-                    {favName === characters.name ? (
+                    {favoritsLoading ? (
+                      <></>
+                    ) : (
+                      <>
+                        {favorits.map((favorit) => {
+                          const handleRemoveFavorit = async () => {
+                            try {
+                              const response = await axios.delete(
+                                `${API_URL}/user/favorit/delete/${favorit._id}`,
+                                {
+                                  headers: {
+                                    authorization: `Bearer ${getUserToken}`,
+                                  },
+                                }
+                              );
+                              if (response.data.message === "Favorit deleted") {
+                                setFavRemoved(true);
+                                setFavAdded(false);
+                              } else {
+                                setFavAdded(true);
+                                setFavRemoved(false);
+                              }
+                            } catch (error) {
+                              console.log(error);
+                            }
+                          };
+
+                          if (favorit.item_title === characters.name) {
+                            return (
+                              <MdFavorite
+                                className="charRemove-favorit-icon"
+                                onClick={handleRemoveFavorit}
+                                key={favorit._id}
+                              />
+                            );
+                          } else {
+                            return (
+                              <MdFavoriteBorder
+                                className="charAdd-favorit-icon"
+                                onClick={handleAddFavorit}
+                              />
+                            );
+                          }
+                        })}
+                      </>
+                    )}
+
+                    {/* {favName === characters.name ? (
                       <MdFavorite className="charRemove-favorit-icon" />
                     ) : (
                       <MdFavoriteBorder
                         className="charAdd-favorit-icon"
                         onClick={handleAddFavorit}
                       />
-                    )}
+                    )} */}
                     {/* <MdFavoriteBorder
                       className="charAdd-favorit-icon"
                       onClick={handleAddFavorit}
