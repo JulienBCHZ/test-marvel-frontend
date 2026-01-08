@@ -19,8 +19,7 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 
 const API_URL =
-  "https://site--project-marvel-backend--hgkxb6f276xk.code.run/api/v1";
-// https://site--project-marvel-backend--hgkxb6f276xk.code.run/api/v1
+  "https://site--marvel-back-end-rebuilt--hgkxb6f276xk.code.run/api/v1";
 //"http://localhost:3615/api/v1"
 
 function App() {

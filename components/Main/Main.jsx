@@ -13,6 +13,8 @@ const Main = ({ API_URL }) => {
   const [data, setData] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
 
+  console.log("URL :", API_URL);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
