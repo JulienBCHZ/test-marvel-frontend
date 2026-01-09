@@ -12,7 +12,6 @@ const Signup = ({ setToken, API_URL }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
 
   return (
     <main className="main-signup">

@@ -18,8 +18,6 @@ const LoginForm = ({
   setEmail,
   password,
   setPassword,
-  errorMessage,
-  setErrorMessage,
   setToken,
   API_URL,
 }) => {
@@ -55,7 +53,6 @@ const LoginForm = ({
           alert("Server doesn't respond...");
           setSubmitLoading(false);
         }
-        //   console.log(response.data);
       } catch (error) {
         setSubmitLoading(false);
         error.message

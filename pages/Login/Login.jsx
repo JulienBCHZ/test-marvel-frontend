@@ -8,9 +8,6 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 const Login = ({ setToken, API_URL }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-  const navigate = useNavigate();
-  const location = useLocation();
 
   return (
     <main className="main-login">
@@ -24,8 +21,6 @@ const Login = ({ setToken, API_URL }) => {
             setEmail={setEmail}
             password={password}
             setPassword={setPassword}
-            errorMessage={errorMessage}
-            setErrorMessage={setErrorMessage}
             setToken={setToken}
             API_URL={API_URL}
           />
