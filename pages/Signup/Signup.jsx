@@ -18,7 +18,7 @@ const Signup = ({ token, setToken, API_URL }) => {
     <main className="main-signup">
       <section className="signup-container">
         <div className="title">
-          <h4 className="signup-title">S'inscrire</h4>
+          <h4 className="signup-title">Signup</h4>
         </div>
         <div>
           <SignUpForm
@@ -40,7 +40,7 @@ const Signup = ({ token, setToken, API_URL }) => {
         <div className="to-login">
           <Link to="/auth/login">
             <button className="existing-acount">
-              Déjà un compte ? Connecte-toi !
+              Existing account ? Login !
             </button>
           </Link>
         </div>

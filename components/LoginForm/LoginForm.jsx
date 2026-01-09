@@ -27,30 +27,36 @@ const LoginForm = ({
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    try {
-      const response = await axios.post(`${API_URL}/auth/login`, {
-        email: email,
-        password: password,
-      });
-      if (response.data.token) {
-        Cookies.set("userToken", response.data.token, { expires: 10 });
-        Cookies.set("userUsername", response.data.account.username, {
-          expires: 10,
+    if (!email || !password) {
+      alert("Enter your email and password");
+    } else {
+      try {
+        const response = await axios.post(`${API_URL}/auth/login`, {
+          email: email,
+          password: password,
         });
-        setToken(response.data.token);
-        setErrorMessage("");
-        // navigate("/");
-        if (location.state) {
-          navigate(location.state.from);
+        if (response.data.token) {
+          Cookies.set("userToken", response.data.token, { expires: 10 });
+          Cookies.set("userUsername", response.data.account.username, {
+            expires: 10,
+          });
+          setToken(response.data.token);
+          setErrorMessage("");
+          // navigate("/");
+          if (location.state) {
+            navigate(location.state.from);
+          } else {
+            navigate("/");
+          }
         } else {
-          navigate("/");
+          alert("Server doesn't respond...");
         }
-      } else {
-        alert("Check email and/or password");
+        //   console.log(response.data);
+      } catch (error) {
+        error.message
+          ? alert("Check email and/or password")
+          : console.log("LOGIN ERR :", error);
       }
-      //   console.log(response.data);
-    } catch (error) {
-      error.message ? alert(error.message) : console.log(error);
     }
   };
 

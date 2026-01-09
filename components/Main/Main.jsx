@@ -47,7 +47,7 @@ const Main = ({ API_URL }) => {
   ) : (
     <section className="comics-preview-section">
       <Link to="/comics" className="read-comics-link">
-        <h1>READ NOW</h1>
+        <h1>OUT NOW</h1>
       </Link>
       <div className="carrousel">
         {data.results.map((comics) => {

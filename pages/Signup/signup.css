@@ -27,7 +27,19 @@
   background-color: white;
   border: none;
   color: red;
+  font-size: 16px;
 }
 .existing-acount:hover {
   cursor: pointer;
+}
+
+.signup-error-msg {
+  border: black solid 2px;
+  height: 20px;
+  min-width: 200px;
+  margin-top: 20px;
+}
+.signup-error-msg > p {
+  font-size: 16px;
+  color: red;
 }

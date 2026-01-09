@@ -18,9 +18,8 @@ import Login from "../pages/Login/Login";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 
-const API_URL =
-  "https://site--marvel-back-end-rebuilt--hgkxb6f276xk.code.run/api/v1";
-//"http://localhost:3615/api/v1"
+const API_URL = "http://localhost:3615/api/v1";
+// "https://site--marvel-back-end-rebuilt--hgkxb6f276xk.code.run/api/v1";
 
 function App() {
   const [token, setToken] = useState(Cookies.get("userToken") || null);

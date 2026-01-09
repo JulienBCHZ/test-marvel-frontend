@@ -1,15 +1,15 @@
 .signup-form-container {
   width: 400px;
   margin: 0 auto;
-  padding: 30px 40px;
+  padding: 5px 40px;
 }
 .signup-form-vision {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
 }
 input {
-  height: 50px;
+  height: 40px;
   border: none;
   border-bottom: red solid;
   outline: none;
@@ -20,6 +20,8 @@ input {
   border: none;
   border-radius: 5px;
   color: white;
+  font-size: 16px;
+  margin-top: 20px;
 }
 .submit-button:hover {
   cursor: pointer;
@@ -28,6 +30,7 @@ input {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-top: 20px;
 }
 .line-checkbox {
   display: flex;
@@ -55,5 +58,18 @@ input {
 .signup-error-message {
   text-align: center;
   font-weight: bold;
+  color: red;
+}
+
+.input-fields {
+  display: flex;
+  flex-direction: column;
+}
+.field-error-text {
+  height: 16px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-top: 5px;
   color: red;
 }
