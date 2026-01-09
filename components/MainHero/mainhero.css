@@ -5,19 +5,16 @@
   display: flex;
   border-bottom: #202020 solid 3px;
   overflow-x: auto;
-  /* scroll-behavior: smooth; */
 }
 .hero-carousel::-webkit-scrollbar {
   display: none;
 }
 .characters-group {
-  max-width: 100%;
   display: flex;
-  animation: spin 50s infinite linear;
-  /* overflow: scroll; */
+  animation: spin 100s infinite linear;
 }
 .picture-card {
-  flex-shrink: 0 0 5em;
+  flex-shrink: 0 0 10em;
   width: calc(100% / 3);
 }
 
