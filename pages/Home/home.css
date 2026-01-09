@@ -2,31 +2,4 @@ main {
   min-height: calc(100vh - 150px);
 }
 
-@media (max-width: 1180px) {
-  .comics-preview-section {
-    min-height: 100%;
-    max-width: 1024px;
-    gap: 40px;
-    padding: 100px 0;
-  }
-  h1 {
-    font-size: 50px;
-    line-height: 60px;
-    font-style: italic;
-    font-weight: bold;
-    padding-right: 5px;
-    box-shadow: 10px 10px 5px #202020;
-  }
-  .carrousel {
-    background-color: #202020;
-    height: 500px;
-    gap: 10px;
-    overflow: scroll;
-    border-radius: 5px;
-    box-shadow: 20px 20px 20px red;
-  }
 
-  .carrousel img {
-    width: calc((100% - 20px) / 3);
-  }
-}
