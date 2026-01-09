@@ -14,3 +14,12 @@
   color: white;
   font-weight: bold;
 }
+
+@media (max-width: 576px) {
+  .footer {
+    height: 40px;
+    gap: 5px;
+    color: white;
+    font-size: 12px;
+  }
+}

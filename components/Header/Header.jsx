@@ -41,11 +41,27 @@ const Header = ({ setToken }) => {
               </button>
               <button
                 onClick={() => {
+                  navigate("/auth/signup");
+                }}
+                className="hidden-signup-button"
+              >
+                <BsPersonCircle />
+              </button>
+              <button
+                onClick={() => {
                   navigate("/auth/login");
                 }}
                 className="login-button"
               >
                 <AiOutlineLogin /> Login
+              </button>
+              <button
+                onClick={() => {
+                  navigate("/auth/login");
+                }}
+                className="hidden-login-button"
+              >
+                <AiOutlineLogin />
               </button>
             </div>
           )}
@@ -65,19 +81,17 @@ const Header = ({ setToken }) => {
           )}
         </section>
       </div>
-      <div>
-        <section className="header-bottom-container">
-          <Link to="/characters">
-            <button className="header-bottom-nav">Characters</button>
-          </Link>
-          <Link to="/comics">
-            <button className="header-bottom-nav">Comics</button>
-          </Link>
-          <Link to="/favorits">
-            <button className="header-bottom-nav">Favorits</button>
-          </Link>
-        </section>
-      </div>
+      <section className="header-bottom-container">
+        <Link to="/characters" className="header-bottom-link">
+          <button className="header-bottom-nav">Characters</button>
+        </Link>
+        <Link to="/comics" className="header-bottom-link">
+          <button className="header-bottom-nav">Comics</button>
+        </Link>
+        <Link to="/favorits" className="header-bottom-link">
+          <button className="header-bottom-nav">Favorits</button>
+        </Link>
+      </section>
     </header>
   );
 };

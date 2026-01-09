@@ -54,17 +54,35 @@ header > div {
 .signup-button:hover {
   cursor: pointer;
 }
-.login-button {
-  display: flex;
+.hidden-signup-button {
+  display: none;
   gap: 5px;
   color: white;
   background-color: #202020;
   border: none;
   font-size: 16px;
 }
+
+.login-button {
+  display: flex;
+  gap: 5px;
+  color: white;
+  background-color: #202020;
+  border: none;
+  font-size: 16.5px;
+}
 .login-button:hover {
   cursor: pointer;
 }
+.hidden-login-button {
+  display: none;
+  gap: 5px;
+  color: white;
+  background-color: #202020;
+  border: none;
+  font-size: 16px;
+}
+
 .logout-button {
   height: 30px;
   display: flex;
@@ -89,6 +107,7 @@ header > div {
   font-size: 16px;
   font-weight: bold;
   border: none;
+  width: 100px;
 }
 .header-bottom-nav:hover {
   cursor: pointer;
@@ -113,4 +132,119 @@ header > div {
   width: 180px;
   border-left: #202020 solid 0.5px;
   border-right: #202020 solid 0.5px;
+}
+
+@media (max-width: 768px) {
+  header {
+    height: 90px;
+  }
+  .header-container {
+    max-width: 768px;
+    height: 40px;
+    /* gap: 355px; */
+  }
+  .header-bottom-container {
+    max-width: 768px;
+    margin: 0 auto;
+    height: 49.5px;
+    justify-content: space-around;
+    gap: 10px;
+  }
+  .user-onscreen-username {
+    width: 160px;
+    padding: 0 20px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .not-onscreen-username {
+    width: 160px;
+  }
+  .user-connexion {
+    width: 160px;
+    padding: 0;
+    justify-content: space-around;
+  }
+  .user-logout {
+    width: 160px;
+  }
+  .signup-button {
+    display: none;
+  }
+
+  .hidden-signup-button {
+    display: flex;
+    font-size: 20px;
+  }
+  .hidden-signup-button:hover {
+    cursor: pointer;
+  }
+  .login-button {
+    display: none;
+  }
+  .login-button:hover {
+    cursor: pointer;
+  }
+  .hidden-login-button {
+    display: flex;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 576px) {
+  header {
+    height: 90px;
+  }
+  .header-container {
+    max-width: 576px;
+    height: 40px;
+    /* gap: 355px; */
+  }
+  .user-onscreen-username {
+    width: 145px;
+    padding: 0 20px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .not-onscreen-username {
+    width: 145px;
+  }
+  .user-connexion {
+    width: 145px;
+    padding: 0;
+    justify-content: space-around;
+  }
+  .user-logout {
+    width: 145px;
+  }
+  .header-bottom-container {
+    max-width: 576px;
+    margin: 0 auto;
+    height: 49.5px;
+    justify-content: space-around;
+    gap: 10px;
+  }
+  .header-bottom-nav {
+    font-size: 16px;
+    width: 100px;
+  }
+  .signup-button {
+    display: none;
+  }
+  .hidden-signup-button {
+    display: flex;
+    font-size: 20px;
+  }
+  .hidden-signup-button:hover {
+    cursor: pointer;
+  }
+  .login-button {
+    display: none;
+  }
+  .login-button:hover {
+    cursor: pointer;
+  }
+  .hidden-login-button {
+    display: flex;
+    font-size: 22px;
+  }
 }
