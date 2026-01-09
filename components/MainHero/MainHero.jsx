@@ -5,32 +5,29 @@ import axios from "axios";
 
 import getImage from "../../utils/getImage";
 
-import { TfiFaceSad } from "react-icons/tfi";
-
 const MainHero = ({ API_URL }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
-  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${API_URL}/characters?limit=3`);
+        const response = await axios.get(`${API_URL}/characters?limit=40`);
         if (response.data) {
           // console.log("RES :", response.data);
           setData(response.data.data);
           setIsLoading(false);
         } else {
           setIsLoading(false);
-          setErrorMessage("Server doesn't respond...");
+          alert("Server doesn't respond...");
         }
       } catch (error) {
         setIsLoading(true);
         console.log("MH ERROR : ", error);
         if (error.message) {
-          setErrorMessage(`Something went wrong : ${error.message}`);
+          alert(`Something went wrong : ${error.message}`);
         } else {
-          setErrorMessage("Something went wrong...");
+          alert("Something went wrong...");
         }
       }
     };
@@ -42,17 +39,45 @@ const MainHero = ({ API_URL }) => {
       <p>Please wait...</p>
     </section>
   ) : (
-    <section className="hero">
-      {data.results.map((character) => {
-        return (
+    <section className="hero-carousel">
+      <div className="characters-group">
+        <div className="picture-card">
           <img
-            src={getImage(character.thumbnail)}
-            alt="character"
+            src={getImage(data.results[0].thumbnail)}
             className="hero-image"
-            key={character._id}
           />
-        );
-      })}
+        </div>
+        <div className="picture-card">
+          <img
+            src={getImage(data.results[4].thumbnail)}
+            className="hero-image"
+          />
+        </div>
+        <div className="picture-card">
+          <img
+            src={getImage(data.results[7].thumbnail)}
+            className="hero-image"
+          />
+        </div>
+        <div className="picture-card">
+          <img
+            src={getImage(data.results[30].thumbnail)}
+            className="hero-image"
+          />
+        </div>
+        <div className="picture-card">
+          <img
+            src={getImage(data.results[12].thumbnail)}
+            className="hero-image"
+          />
+        </div>
+        <div className="picture-card">
+          <img
+            src={getImage(data.results[36].thumbnail)}
+            className="hero-image"
+          />
+        </div>
+      </div>
     </section>
   );
 };

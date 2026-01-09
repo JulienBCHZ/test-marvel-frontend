@@ -11,7 +11,6 @@ import { TfiFaceSad } from "react-icons/tfi";
 const Main = ({ API_URL }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
-  const [errorMessage, setErrorMessage] = useState("");
 
   console.log("URL :", API_URL);
 
@@ -25,15 +24,15 @@ const Main = ({ API_URL }) => {
           setIsLoading(false);
         } else {
           setIsLoading(false);
-          setErrorMessage("Server doesn't respond...");
+          alert("Server doesn't respond...");
         }
       } catch (error) {
         setIsLoading(false);
         console.log("MAIN ERROR : ", error);
         if (error.message) {
-          setErrorMessage(`Something went wrong : ${error.message}`);
+          alert(`Something went wrong : ${error.message}`);
         } else {
-          setErrorMessage("Something went wrong...");
+          alert("Something went wrong...");
         }
       }
     };
