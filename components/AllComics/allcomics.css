@@ -13,6 +13,7 @@
 .all-comics-container {
   display: flex;
   flex-direction: column;
+  width: 100%;
   /* gap: 20px; */
 }
 
@@ -21,6 +22,7 @@
   gap: 40px;
   border-bottom: #202020 solid 3px;
   padding: 25px 0;
+  width: 100%;
 }
 .comic-container img {
   height: 620px;
@@ -56,6 +58,7 @@
 }
 
 .details-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   padding-top: 100px;
@@ -89,7 +92,7 @@ p {
   gap: 40px;
 }
 .change-page span {
-  font-size: 24px;
+  font-size: 28px;
 }
 .button-enabled {
   background-color: #202020;

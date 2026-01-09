@@ -106,3 +106,7 @@
   border-radius: 2px;
   font-size: 18px;
 }
+.page-number-container {
+  width: 50px;
+  text-align: center;
+}

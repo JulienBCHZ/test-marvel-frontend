@@ -114,8 +114,11 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
           ) : (
             <button className="button-disabled"></button>
           )}
-          <span>{page}</span>
-          {page < 10 ? (
+          <div className="page-number-container">
+            <span>{page}</span>
+          </div>
+
+          {page < 20 ? (
             <button
               className="button-enabled"
               onClick={() => {
@@ -260,8 +263,10 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
           ) : (
             <button className="button-disabled"></button>
           )}
-          <span>{page}</span>
-          {page < 10 ? (
+          <div className="page-number-container">
+            <span>{page}</span>
+          </div>
+          {page < 20 ? (
             <button
               className="button-enabled"
               onClick={() => {

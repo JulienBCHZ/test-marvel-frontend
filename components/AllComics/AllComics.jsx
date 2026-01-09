@@ -114,7 +114,9 @@ const AllComics = ({ search, setSearch, API_URL }) => {
           ) : (
             <button className="button-disabled"></button>
           )}
-          <span>{page}</span>
+          <div className="page-number-container">
+            <span>{page}</span>
+          </div>
           {page < 10 ? (
             <button
               className="button-enabled"
@@ -252,7 +254,9 @@ const AllComics = ({ search, setSearch, API_URL }) => {
           ) : (
             <button className="button-disabled"></button>
           )}
-          <span>{page}</span>
+          <div className="page-number-container">
+            <span>{page}</span>
+          </div>
           {page < 10 ? (
             <button
               className="button-enabled"
