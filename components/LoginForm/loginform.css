@@ -9,13 +9,32 @@
   gap: 40px;
 }
 
-.submit-button {
+.login-submit-button {
   height: 45px;
   background-color: red;
   border: none;
   border-radius: 5px;
   color: white;
   font-size: 16px;
+}
+.login-submit-button:hover {
+  cursor: pointer;
+}
+.login-submit-disabled {
+  height: 45px;
+  background-color: rgba(255, 0, 0, 0.387);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-submit-disabled > p {
+  color: white;
+  font-size: 16px;
+  font-style: normal;
 }
 
 .login-error-message {

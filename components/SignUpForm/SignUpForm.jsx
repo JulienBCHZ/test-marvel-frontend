@@ -27,22 +27,27 @@ const SignUpForm = ({
   setPassword,
   newsletter,
   setNewsletter,
-  errorMessage,
-  setErrorMessage,
-  token,
   setToken,
   API_URL,
 }) => {
   const [usernameError, setUsernameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [submitLoading, setSubmitLoading] = useState(false);
 
   const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!username || !email || !password) {
       alert("A username, an email and a password are required");
+    } else if (usernameError) {
+      alert(usernameError);
+    } else if (emailError) {
+      alert(emailError);
+    } else if (passwordError) {
+      alert(passwordError);
     } else {
+      setSubmitLoading(true);
       try {
         const response = await axios.post(`${API_URL}/auth/signup`, {
           username: username,
@@ -56,13 +61,15 @@ const SignUpForm = ({
             expires: 30,
           });
           setToken(response.data.token);
+          setSubmitLoading(false);
           navigate("/");
-          setErrorMessage("");
         } else {
           alert("Server doesn't respond...");
+          setSubmitLoading(false);
         }
         //   console.log(response.data);
       } catch (error) {
+        setSubmitLoading(false);
         error.message
           ? alert("Check all fields", error.message)
           : console.log("SIGNUP ERR :", error);
@@ -73,16 +80,25 @@ const SignUpForm = ({
   const handleChangeUsername = (event) => {
     const value = event.target.value;
     setUsername(value);
-    if (value.length < 4 && value.length > 0) {
+    if (value.length > 0 && value.length < 4) {
       setUsernameError("username is too short");
     } else {
       setUsernameError("");
     }
   };
+
   const handleChangeEmail = (event) => {
     const value = event.target.value;
     setEmail(value);
+    if (value.length > 0 && value.length < 6) {
+      setEmailError("Invalid email format");
+    } else if (!value.includes("@") && value.length > 0) {
+      setEmailError("Invalid email format");
+    } else {
+      setEmailError("");
+    }
   };
+
   const handleChangePassword = (event) => {
     const value = event.target.value;
     setPassword(value);
@@ -92,6 +108,7 @@ const SignUpForm = ({
       setPasswordError("");
     }
   };
+
   const handleCheckNewsletter = (event) => {
     const value = event.target.checked;
     setNewsletter(value);
@@ -167,8 +184,20 @@ const SignUpForm = ({
             </p>
           </div>
         </section>
-
-        <button className="submit-button">Signup</button>
+        {submitLoading ||
+        usernameError ||
+        emailError ||
+        passwordError ||
+        !username ||
+        !email ||
+        !password ? (
+          <div className="signup-submit-disabled">
+            <p>Signup</p>
+          </div>
+        ) : (
+          <button className="signup-submit-button">Signup</button>
+        )}
+        {/* <button className="signup-submit-button">Signup</button> */}
       </form>
     </div>
   );

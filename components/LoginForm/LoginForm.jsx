@@ -3,6 +3,7 @@ import "./loginform.css";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useState } from "react";
 
 //    email={email}
 //             setEmail={setEmail}
@@ -25,24 +26,26 @@ const LoginForm = ({
   const location = useLocation();
   const navigate = useNavigate();
 
+  const [submitLoading, setSubmitLoading] = useState(false);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!email || !password) {
       alert("Enter your email and password");
     } else {
+      setSubmitLoading(true);
       try {
         const response = await axios.post(`${API_URL}/auth/login`, {
           email: email,
           password: password,
         });
         if (response.data.token) {
-          Cookies.set("userToken", response.data.token, { expires: 10 });
+          Cookies.set("userToken", response.data.token, { expires: 30 });
           Cookies.set("userUsername", response.data.account.username, {
-            expires: 10,
+            expires: 30,
           });
           setToken(response.data.token);
-          setErrorMessage("");
-          // navigate("/");
+          setSubmitLoading(false);
           if (location.state) {
             navigate(location.state.from);
           } else {
@@ -50,9 +53,11 @@ const LoginForm = ({
           }
         } else {
           alert("Server doesn't respond...");
+          setSubmitLoading(false);
         }
         //   console.log(response.data);
       } catch (error) {
+        setSubmitLoading(false);
         error.message
           ? alert("Check email and/or password")
           : console.log("LOGIN ERR :", error);
@@ -86,8 +91,13 @@ const LoginForm = ({
           value={password}
           onChange={handleChangePassword}
         />
-        {/* {errorMessage && <p className="login-error-message">{errorMessage}</p>} */}
-        <button className="submit-button">Se connecter</button>
+        {submitLoading || !email || !password ? (
+          <div className="login-submit-disabled">
+            <p>Login</p>
+          </div>
+        ) : (
+          <button className="login-submit-button">Login</button>
+        )}
       </form>
     </div>
   );
