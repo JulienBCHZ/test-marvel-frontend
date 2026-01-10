@@ -5,7 +5,6 @@
   display: flex;
   border-bottom: #202020 solid 3px;
   overflow-x: auto;
-  overflow: hidden;
 }
 .hero-carousel::-webkit-scrollbar {
   display: none;
@@ -85,7 +84,14 @@
 @media (max-width: 576px) {
   .hero-carousel {
     height: 350px;
-    overflow: scroll;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    /* iOS smooth scroll */
+    -webkit-overflow-scrolling: touch;
+
+    /* évite les scrolls parasites */
+    scroll-behavior: smooth;
   }
   .characters-group {
     display: flex;
