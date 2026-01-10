@@ -1,7 +1,7 @@
 .hero-carousel {
   height: 600px;
   max-width: 100vw;
-  background-color: white;
+  background-color: #202020;
   display: flex;
   border-bottom: #202020 solid 3px;
   overflow-x: auto;

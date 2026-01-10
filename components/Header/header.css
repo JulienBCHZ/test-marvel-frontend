@@ -221,6 +221,9 @@ header > div {
     justify-content: center;
     /* gap: 355px; */
   }
+  .logo {
+    height: 40px;
+  }
   .user-onscreen-username {
     width: 145px;
     border-left: none;
