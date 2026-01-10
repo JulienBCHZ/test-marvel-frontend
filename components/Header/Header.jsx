@@ -71,10 +71,7 @@ const Header = ({ setToken }) => {
           </Link>
           {getUserUsername ? (
             <div className="user-onscreen-username">
-              <span>
-                Connected as :{" "}
-                <span className="username-onscreen">{getUserUsername}</span>
-              </span>
+              <span className="username-onscreen">{getUserUsername}</span>
             </div>
           ) : (
             <div className="not-onscreen-username"></div>

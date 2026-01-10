@@ -115,10 +115,10 @@ header > div {
 
 .user-onscreen-username {
   width: 180px;
-  padding: 0 10px;
   border-left: grey solid 0.5px;
   border-right: grey solid 0.5px;
   display: flex;
+  justify-content: center;
   align-items: center;
   color: white;
   font-size: 14px;
@@ -132,6 +132,18 @@ header > div {
   width: 180px;
   border-left: #202020 solid 0.5px;
   border-right: #202020 solid 0.5px;
+}
+
+@media (max-width: 1024px) {
+  .user-onscreen-username {
+    border-right: none;
+  }
+  .user-connexion {
+    border-left: none;
+  }
+  .user-logout {
+    border-left: none;
+  }
 }
 
 @media (max-width: 768px) {
@@ -152,9 +164,8 @@ header > div {
   }
   .user-onscreen-username {
     width: 160px;
-    padding: 0 20px;
-    font-size: 14px;
     line-height: 16px;
+    border-right: none;
   }
   .not-onscreen-username {
     width: 160px;
@@ -163,9 +174,11 @@ header > div {
     width: 160px;
     padding: 0;
     justify-content: space-around;
+    border-left: none;
   }
   .user-logout {
     width: 160px;
+    border-left: none;
   }
   .signup-button {
     display: none;
@@ -188,6 +201,11 @@ header > div {
     display: flex;
     font-size: 22px;
   }
+  .logout-button {
+    height: 24px;
+    gap: 6px;
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -197,13 +215,19 @@ header > div {
   .header-container {
     max-width: 576px;
     height: 40px;
+    margin: 0;
+    justify-content: center;
     /* gap: 355px; */
   }
   .user-onscreen-username {
     width: 145px;
-    padding: 0 20px;
-    font-size: 14px;
+    border-left: none;
+    border-right: none;
+    font-size: 12px;
     line-height: 16px;
+  }
+  .username-onscreen {
+    font-weight: 500;
   }
   .not-onscreen-username {
     width: 145px;
@@ -212,9 +236,15 @@ header > div {
     width: 145px;
     padding: 0;
     justify-content: space-around;
+    padding: 0 10px;
+    border-left: none;
+    border-right: none;
   }
   .user-logout {
     width: 145px;
+    padding: 0;
+    border-left: none;
+    border-right: none;
   }
   .header-bottom-container {
     max-width: 576px;
@@ -246,5 +276,10 @@ header > div {
   .hidden-login-button {
     display: flex;
     font-size: 22px;
+  }
+  .logout-button {
+    height: 24px;
+    gap: 6px;
+    font-size: 14px;
   }
 }
