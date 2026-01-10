@@ -15,7 +15,7 @@
 }
 .picture-card {
   flex-shrink: 0 0 10em;
-  width: calc(100% / 3);
+  /* width: calc(100% / 3); */
 }
 
 @keyframes spin {
@@ -74,5 +74,8 @@
 @media (max-width: 576px) {
   .hero-carousel {
     height: 350px;
+  }
+  .hidden-group {
+    display: none;
   }
 }

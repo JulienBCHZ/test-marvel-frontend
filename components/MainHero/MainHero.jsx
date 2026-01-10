@@ -78,7 +78,7 @@ const MainHero = ({ API_URL }) => {
           />
         </div>
       </div>
-      <div aria-hidden className="characters-group">
+      <div className="characters-group hidden-group">
         <div className="picture-card">
           <img
             src={getImage(data.results[0].thumbnail)}
