@@ -15,6 +15,7 @@ header > div {
   justify-content: space-between;
   /* gap: 355px; */
 }
+
 .header-bottom-container {
   max-width: 1180px;
   margin: 0 auto;
@@ -135,6 +136,10 @@ header > div {
 }
 
 @media (max-width: 1024px) {
+  .logo {
+    height: 60px;
+  }
+
   .user-onscreen-username {
     border-right: none;
   }
@@ -155,6 +160,10 @@ header > div {
     height: 40px;
     /* gap: 355px; */
   }
+  .logo {
+    height: 40px;
+  }
+
   .header-bottom-container {
     max-width: 768px;
     margin: 0 auto;
