@@ -9,6 +9,7 @@
 .hero-carousel::-webkit-scrollbar {
   display: none;
 }
+
 .characters-group {
   display: flex;
   animation: spin 100s infinite linear;
@@ -78,11 +79,13 @@
 
 @media (max-width: 768px) {
   .hero-carousel {
+    display: none;
     height: 400px;
   }
 }
 @media (max-width: 576px) {
   .hero-carousel {
+    display: none;
     height: 350px;
     overflow-x: auto;
     overflow-y: hidden;
@@ -90,7 +93,6 @@
     /* iOS smooth scroll */
     -webkit-overflow-scrolling: touch;
 
-    /* évite les scrolls parasites */
     scroll-behavior: smooth;
   }
   .characters-group {
