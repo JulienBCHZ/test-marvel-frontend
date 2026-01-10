@@ -75,7 +75,19 @@
   .hero-carousel {
     height: 350px;
   }
+  .characters-group {
+    display: flex;
+    animation: none;
+    /* width: 100vw; */
+  }
+  .picture-card {
+    width: 100vw;
+  }
   .hidden-group {
     display: none;
+  }
+  .hero-image {
+    min-width: 100%;
+    object-fit: cover;
   }
 }
