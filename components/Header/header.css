@@ -211,9 +211,11 @@ header > div {
 @media (max-width: 576px) {
   header {
     height: 90px;
+    max-width: 576px;
   }
   .header-container {
     max-width: 576px;
+    margin: 0 auto;
     height: 40px;
     margin: 0;
     justify-content: center;
