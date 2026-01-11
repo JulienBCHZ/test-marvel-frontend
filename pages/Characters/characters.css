@@ -1,3 +1,10 @@
 .main-characters-page {
   min-height: calc(100vh - 150px);
 }
+
+@media (max-width: 576px) {
+  .main-characters-page {
+    min-height: calc(100vh - 150px);
+    background-color: white;
+  }
+}

@@ -8,22 +8,25 @@
   gap: 30px;
   padding: 80px 20px;
 }
+
 .all-characters-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 60px;
   /* flex-direction: column; */
 }
+
 .character-preview-container {
   background-color: #1e2029;
   color: white;
   height: 370px;
-  width: calc((1180px - 160px) / 5);
+  width: calc((1180px - 220px) / 4);
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
   border-radius: 3px;
 }
+
 .character-preview-container img {
   height: 225px;
   width: 100%;
@@ -32,6 +35,7 @@
   border-top-right-radius: 2px;
   border-bottom: red solid 5px;
 }
+
 .character-preview-container img:hover {
   border-top: red solid 4px;
   border-left: red solid 4px;
@@ -45,15 +49,18 @@
   padding: 20px 15px;
   position: relative;
 }
+
 .characters-name > h2 {
   font-size: 18px;
   line-height: 20px;
   text-decoration: none;
   color: white;
 }
+
 .char-name-link {
   text-decoration: none;
 }
+
 .characters-name > h2:hover {
   cursor: pointer;
   color: rgb(255, 74, 74);
@@ -61,23 +68,26 @@
 }
 
 .charAdd-favorit-icon {
-  font-size: 30px;
+  font-size: 35px;
   color: white;
   position: absolute;
   bottom: 17px;
   /* z-index: 1000; */
 }
+
 .charAdd-favorit-icon:hover {
   cursor: pointer;
   color: rgb(255, 157, 157);
 }
+
 .charRemove-favorit-icon {
-  font-size: 30px;
+  font-size: 35px;
   color: rgb(255, 157, 157);
   position: absolute;
   bottom: 17px;
   z-index: 1000;
 }
+
 .charRemove-favorit-icon:hover {
   cursor: pointer;
 }
@@ -106,7 +116,37 @@
   border-radius: 2px;
   font-size: 18px;
 }
+
 .page-number-container {
   width: 50px;
   text-align: center;
+}
+
+@media (max-width: 1180px) {
+  .all-characters-vision {
+    min-height: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+
+  .all-characters-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px 110px;
+    /* flex-direction: column; */
+  }
+
+  .character-preview-container {
+    height: 370px;
+    width: calc((1024px - 260px) / 3);
+  }
+
+  .charAdd-favorit-icon {
+    bottom: 17px;
+    /* z-index: 1000; */
+  }
+
+  .charRemove-favorit-icon {
+    bottom: 17px;
+  }
 }

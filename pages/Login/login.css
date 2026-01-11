@@ -3,7 +3,7 @@
 }
 
 .login-container {
-  width: 1180px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 30px 0;
   display: flex;
@@ -21,11 +21,13 @@
   box-shadow: 7px 12px 10px red;
   border-radius: 3px;
 }
+
 .to-signup {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .no-acount {
   text-decoration: none;
   background-color: white;
@@ -33,6 +35,36 @@
   color: red;
   font-size: 16px;
 }
+
 .no-acount:hover {
   cursor: pointer;
+}
+
+/* @media (max-width: 1180px) {
+  .login-container {
+    max-width: 1024px;
+  }
+} */
+
+@media (max-width: 768px) {
+  .login-container {
+    max-width: 768px;
+  }
+
+  .login-title {
+    font-size: 45px;
+    line-height: 55px;
+    padding-right: 3px;
+    box-shadow: 6px 8px 8px red;
+  }
+}
+
+@media (max-width: 576px) {
+  .main-login {
+    min-height: calc(100vh - 150px);
+    background-color: white;
+  }
+  .login-container {
+    max-width: 576px;
+  }
 }

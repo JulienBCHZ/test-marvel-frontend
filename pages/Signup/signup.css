@@ -3,7 +3,7 @@
 }
 
 .signup-container {
-  width: 1180px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 30px 0;
   display: flex;
@@ -29,6 +29,7 @@
   color: red;
   font-size: 16px;
 }
+
 .existing-acount:hover {
   cursor: pointer;
 }
@@ -39,7 +40,32 @@
   min-width: 200px;
   margin-top: 20px;
 }
+
 .signup-error-msg > p {
   font-size: 16px;
   color: red;
+}
+
+@media (max-width: 768px) {
+  .signup-container {
+    max-width: 768px;
+  }
+  .signup-title {
+    font-size: 45px;
+    line-height: 55px;
+    padding-right: 3px;
+    box-shadow: 6px 8px 8px red;
+  }
+}
+
+@media (max-width: 576px) {
+  .main-signup {
+    min-height: calc(100vh - 150px);
+    background-color: white;
+  }
+
+  .signup-container {
+    max-width: 576px;
+    gap: 45px;
+  }
 }

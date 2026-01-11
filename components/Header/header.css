@@ -135,6 +135,18 @@ header > div {
   border-right: #202020 solid 0.5px;
 }
 
+@media (max-width: 1180px) {
+  .user-connexion {
+    border-left: none;
+  }
+  .user-onscreen-username {
+    border-right: none;
+  }
+  .user-logout {
+    border-left: none;
+  }
+}
+
 @media (max-width: 1024px) {
   .logo {
     height: 60px;
