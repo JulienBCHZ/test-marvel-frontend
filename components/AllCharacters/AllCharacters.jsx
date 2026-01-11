@@ -16,7 +16,7 @@ import { MdFavorite } from "react-icons/md";
 
 // search={search} setSearch={setSearch}
 const AllCharacters = ({ search, setSearch, API_URL }) => {
-  const getUserToken = Cookies.get("userToken");
+  const getUserToken = Cookies.get("userToken") || null;
 
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -38,14 +38,14 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
           setIsLoading(false);
         } else {
           setIsLoading(false);
-          setErrorMessage("Server doesn't respond...");
+          alert("Server doesn't respond...");
         }
       } catch (error) {
         setIsLoading(false);
         console.log("CHARACTS ERROR : ", error);
         error.message
-          ? setErrorMessage(error.message)
-          : setErrorMessage("Something went wrong...");
+          ? alert("Something went wrong : ", error.message)
+          : alert("Something went wrong...");
       }
     };
     fetchData();
@@ -72,9 +72,12 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
         }
       } catch (error) {
         console.log("READ FAV ERROR : ", error);
+        error.message
+          ? alert("Favorits not loaded : ", error.message)
+          : alert("Favorits not loaded");
       }
     };
-    fetchFavoritsCharacData();
+    getUserToken && fetchFavoritsCharacData();
   }, [favAdded, favRemoved]);
 
   const handleSearch = (event) => {
