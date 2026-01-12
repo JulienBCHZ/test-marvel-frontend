@@ -17,7 +17,7 @@ import { MdFavorite } from "react-icons/md";
 // search={search} setSearch={setSearch}
 
 const AllComics = ({ search, setSearch, API_URL }) => {
-  const getUserToken = Cookies.get("userToken");
+  const getUserToken = Cookies.get("userToken") || null;
 
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
@@ -74,7 +74,7 @@ const AllComics = ({ search, setSearch, API_URL }) => {
         console.log("READ FAV ERROR : ", error);
       }
     };
-    fetchFavoritsComicsData();
+    getUserToken && fetchFavoritsComicsData();
   }, [favAdded, favRemoved]);
 
   const handleSearch = (event) => {

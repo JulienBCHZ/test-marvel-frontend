@@ -39,3 +39,7 @@
   gap: 100px;
   text-align: justify;
 }
+
+.comics-vision-details > h2 {
+  color: white;
+}
