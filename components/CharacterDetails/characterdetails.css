@@ -184,3 +184,69 @@
     font-size: 22px;
   }
 }
+
+@media (max-width: 768px) {
+  .comics-character-vision {
+    max-width: 576px;
+  }
+
+  .comics-character-container {
+    max-width: 576px;
+    margin: 0 auto;
+    gap: 30px 60px;
+    /* padding-left: 100px; */
+  }
+
+  .comics-charact {
+    background-color: #202020;
+    border: red solid 3px;
+    height: 320px;
+    width: 100%;
+    display: flex;
+    border-radius: 2px;
+  }
+
+  .comics-charact img {
+    height: 100%;
+    width: 320px;
+  }
+
+  .comics-charact-details {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 25px;
+    gap: 40px;
+    text-align: start;
+  }
+
+  .comics-charact-details p {
+    font-size: 17px;
+    line-height: 24px;
+  }
+
+  .comics-charact-details h2 {
+    font-size: 22px;
+  }
+
+  .comics-character-container {
+    flex-wrap: nowrap;
+    overflow: scroll;
+    gap: 0px 10px;
+    width: 100%;
+    /* max-width: 576px; */
+    /* margin: 0 auto; */
+  }
+
+  .comic-with-character {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-decoration: none;
+    color: #202020;
+  }
+
+  .comic-with-character img {
+    height: 492px;
+  }
+}
