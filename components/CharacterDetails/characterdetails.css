@@ -164,8 +164,6 @@
 
   .comics-charact-details {
     width: 620px;
-    display: flex;
-    flex-direction: column;
     padding: 30px 25px;
     gap: 40px;
     text-align: start;
@@ -200,7 +198,7 @@
   .comics-charact {
     background-color: #202020;
     border: red solid 3px;
-    height: 320px;
+    height: 330px;
     width: 100%;
     display: flex;
     border-radius: 2px;
@@ -208,20 +206,19 @@
 
   .comics-charact img {
     height: 100%;
-    width: 320px;
+    width: 270px;
+    object-fit: contain;
   }
 
   .comics-charact-details {
-    display: flex;
-    flex-direction: column;
-    padding: 30px 25px;
-    gap: 40px;
+    padding: 20px 15px;
+    gap: 20px;
     text-align: start;
   }
 
   .comics-charact-details p {
-    font-size: 17px;
-    line-height: 24px;
+    font-size: 16px;
+    line-height: 22px;
   }
 
   .comics-charact-details h2 {
@@ -231,7 +228,7 @@
   .comics-character-container {
     flex-wrap: nowrap;
     overflow: scroll;
-    gap: 0px 10px;
+    gap: 0px 20px;
     width: 100%;
     /* max-width: 576px; */
     /* margin: 0 auto; */
