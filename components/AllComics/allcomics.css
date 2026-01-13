@@ -239,7 +239,7 @@ p {
     /* position: relative; */
   }
 
-  p {
+  .comics-details p {
     display: none;
   }
 

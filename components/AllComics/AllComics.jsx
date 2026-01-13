@@ -13,6 +13,7 @@ import getImage from "../../utils/getImage";
 import { TfiFaceSad } from "react-icons/tfi";
 import { MdFavoriteBorder } from "react-icons/md";
 import { MdFavorite } from "react-icons/md";
+import { FiAlertCircle } from "react-icons/fi";
 
 // search={search} setSearch={setSearch}
 
@@ -20,7 +21,6 @@ const AllComics = ({ search, setSearch, API_URL }) => {
   const getUserToken = Cookies.get("userToken") || null;
 
   const [isLoading, setIsLoading] = useState(true);
-  const [errorMessage, setErrorMessage] = useState("");
   const [data, setData] = useState(null);
   const [page, setPage] = useState(1);
   const [favorits, setFavorits] = useState(null);
@@ -39,14 +39,14 @@ const AllComics = ({ search, setSearch, API_URL }) => {
           setIsLoading(false);
         } else {
           setIsLoading(false);
-          setErrorMessage("Server doesn't respond...");
+          alert("Server doesn't respond...");
         }
       } catch (error) {
         setIsLoading(false);
         console.log("COMICS ERROR : ", error);
         error.message
-          ? setErrorMessage(error.message)
-          : setErrorMessage("Something went wrong...");
+          ? alert("Something went wrong : ", error.message)
+          : alert("Something went wrong...");
       }
     };
     fetchData();

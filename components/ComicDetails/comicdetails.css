@@ -1,35 +1,63 @@
 .loading-comic-page {
   background-color: #202020;
   height: 400px;
-  width: 600px;
+  max-width: 600px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .loading-comic-page > p {
   font-size: 32px;
   color: white;
 }
 
-.comic-page-container {
-  width: 1180px;
+.comic-page-vision {
+  max-width: 1180px;
   margin: 0 auto;
   padding: 60px 20px;
 }
-.comic-page-vision {
+
+.comic-page-container {
   padding: 60px 0;
   display: flex;
   color: white;
   border-top: white solid 5px;
   border-bottom: white solid 5px;
+  position: relative;
 }
+
 .comic-page-vision img {
   height: 700px;
   box-shadow: 7px 7px 8px red;
 }
+
+.comic-details-add-favorits {
+  font-size: 38px;
+  position: absolute;
+  right: 10px;
+}
+
+.comic-details-add-favorits:hover {
+  color: rgb(255, 157, 157);
+  cursor: pointer;
+}
+
+.comic-details-remove-favorits {
+  font-size: 38px;
+  position: absolute;
+  right: 10px;
+  z-index: 1000;
+  color: rgb(255, 157, 157);
+}
+
+.comic-details-remove-favorits {
+  cursor: pointer;
+}
+
 .comics-vision-details {
-  width: calc(1180px - 460px);
+  max-width: calc(1180px - 460px);
   padding-left: 40px;
   padding-right: 20px;
   padding-top: 50px;
@@ -42,4 +70,83 @@
 
 .comics-vision-details > h2 {
   color: white;
+}
+
+@media (max-width: 992px) {
+  .comic-page-vision {
+    max-width: 768px;
+    padding: 50px 20px;
+  }
+
+  .comic-page-container {
+    padding: 30px 0;
+    flex-direction: column;
+  }
+
+  .comic-page-vision img {
+    height: 100%;
+    width: 500px;
+  }
+
+  .comics-vision-details {
+    max-width: 768px;
+    padding-left: 5px;
+    padding-right: 10px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    gap: 20px;
+    text-align: start;
+  }
+}
+
+@media (max-width: 768px) {
+  .comic-page-vision {
+    max-width: 576px;
+    padding: 40px 10px;
+  }
+
+  .comic-page-vision img {
+    height: 100%;
+    width: 450px;
+  }
+
+  .comics-vision-details {
+    max-width: 576px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .comic-page-vision {
+    max-width: 400px;
+    padding: 30px 10px;
+  }
+
+  .comic-page-vision img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .comics-vision-details {
+    max-width: 400px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    gap: 20px;
+  }
+
+  .comic-details-add-favorits {
+    font-size: 32px;
+    top: 632px;
+  }
+
+  .comic-details-remove-favorits {
+    font-size: 32px;
+    top: 632px;
+  }
+
+  .comics-vision-details > h2 {
+    max-width: 300px;
+  }
 }

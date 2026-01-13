@@ -40,7 +40,7 @@
   object-fit: cover;
 }
 
-.comic-details-add-favorit {
+.charac-details-add-favorit {
   font-size: 38px;
   position: absolute;
   color: white;
@@ -48,12 +48,12 @@
   top: 10px;
 }
 
-.comic-details-add-favorit:hover {
+.charac-details-add-favorit:hover {
   color: rgb(255, 157, 157);
   cursor: pointer;
 }
 
-.comic-details-remove-favorit {
+.charac-details-remove-favorit {
   font-size: 38px;
   position: absolute;
   color: rgb(255, 157, 157);
@@ -62,7 +62,7 @@
   z-index: 1000;
 }
 
-.comic-details-remove-favorit:hover {
+.charac-details-remove-favorit:hover {
   cursor: pointer;
 }
 
@@ -153,11 +153,13 @@
   .comics-character-vision {
     max-width: 992px;
   }
+
   .comics-charact-details {
     width: 620px;
     padding: 40px 25px;
     gap: 50px;
   }
+
   .character-infos {
     max-height: 450px;
   }
@@ -183,11 +185,11 @@
     width: 400px;
   }
 
-  .comic-details-add-favorit {
+  .charac-details-add-favorit {
     font-size: 34px;
   }
 
-  .comic-details-remove-favorit {
+  .charac-details-remove-favorit {
     font-size: 34px;
   }
 
@@ -233,11 +235,11 @@
     object-fit: contain;
   }
 
-  .comic-details-add-favorit {
+  .charac-details-add-favorit {
     font-size: 30px;
   }
 
-  .comic-details-remove-favorit {
+  .charac-details-remove-favorit {
     font-size: 30px;
   }
 
@@ -316,12 +318,12 @@
     object-fit: cover;
   }
 
-  .comic-details-add-favorit {
+  .charac-details-add-favorit {
     font-size: 34px;
     color: rgb(255, 157, 157);
   }
 
-  .comic-details-remove-favorit {
+  .charac-details-remove-favorit {
     font-size: 34px;
   }
 

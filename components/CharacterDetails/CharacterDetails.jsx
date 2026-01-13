@@ -85,9 +85,9 @@ const CharacterDetails = ({ name, description, image, API_URL }) => {
       <section className="character-container">
         <div className="character-infos">
           {favorit ? (
-            <MdFavorite className="comic-details-remove-favorit" />
+            <MdFavorite className="charac-details-remove-favorit" />
           ) : (
-            <MdFavoriteBorder className="comic-details-add-favorit" />
+            <MdFavoriteBorder className="charac-details-add-favorit" />
           )}
           <img src={image} alt="character" />
           <div className="charact-info-details">

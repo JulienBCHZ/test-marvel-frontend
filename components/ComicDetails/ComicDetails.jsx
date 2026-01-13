@@ -7,6 +7,9 @@ import { Link } from "react-router-dom";
 
 import getImage from "../../utils/getImage";
 
+import { MdFavoriteBorder } from "react-icons/md";
+import { MdFavorite } from "react-icons/md";
+
 const ComicDetails = ({ API_URL }) => {
   const params = useParams();
   const { comicId } = params;
@@ -14,7 +17,7 @@ const ComicDetails = ({ API_URL }) => {
 
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [favorit, setFavorit] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,15 +29,15 @@ const ComicDetails = ({ API_URL }) => {
           setIsLoading(false);
         } else {
           setIsLoading(false);
-          setErrorMessage("Server doesn't respond...");
+          alert("Server doesn't respond...");
         }
       } catch (error) {
         setIsLoading(false);
         console.log("COMIC ERROR : ", error);
         if (error.message) {
-          setErrorMessage(`Something went wrong : ${error.message}`);
+          alert(`Something went wrong : ${error.message}`);
         } else {
-          setErrorMessage("Something went wrong...");
+          alert("Something went wrong...");
         }
       }
     };
@@ -46,8 +49,13 @@ const ComicDetails = ({ API_URL }) => {
       <p>Please wait...</p>
     </section>
   ) : (
-    <div className="comic-page-container">
-      <section className="comic-page-vision">
+    <div className="comic-page-vision">
+      <section className="comic-page-container">
+        {favorit ? (
+          <MdFavorite className="comic-details-remove-favorits" />
+        ) : (
+          <MdFavoriteBorder className="comic-details-add-favorits" />
+        )}
         <img src={getImage(data.thumbnail)} />
         <div className="comics-vision-details">
           <h2>{data.title}</h2>
