@@ -7,7 +7,6 @@
   align-items: center;
   gap: 30px;
   padding: 80px 20px;
-  position: relative;
 }
 
 .all-comics-container {
@@ -23,13 +22,16 @@
   border-bottom: #202020 solid 3px;
   padding: 25px 0;
   width: 100%;
+  position: relative;
 }
+
 .comic-container img {
   height: 620px;
   width: 408px;
   box-shadow: 7px 12px 10px #202020;
   border-radius: 2px;
 }
+
 .comic-container img:hover {
   box-shadow: 7px 12px 10px red;
 }
@@ -38,21 +40,24 @@
   color: #202020;
   font-size: 34px;
   position: absolute;
-  top: 5px;
+  top: 20px;
   right: 5px;
 }
+
 .comicsAdd-favorit-icon:hover {
   cursor: pointer;
   color: rgb(255, 157, 157);
 }
+
 .comicsRemove-favorit-icon {
   color: rgb(255, 157, 157);
   font-size: 34px;
   position: absolute;
-  top: 5px;
+  top: 20px;
   right: 5px;
   z-index: 1000;
 }
+
 .comicsRemove-favorit-icon:hover {
   cursor: pointer;
 }
@@ -62,7 +67,7 @@
   display: flex;
   flex-direction: column;
   padding-top: 100px;
-  position: relative;
+  /* position: relative; */
 }
 
 .comics-details {
@@ -72,15 +77,18 @@
   padding-left: 20px;
   padding-right: 50px;
 }
+
 h2 {
   font-size: 24px;
   font-weight: bold;
   color: #202020;
 }
+
 .comics-title-link > h2:hover {
   cursor: pointer;
   color: red;
 }
+
 p {
   line-height: 22px;
   font-style: italic;
@@ -91,9 +99,11 @@ p {
   align-items: center;
   gap: 40px;
 }
+
 .change-page span {
   font-size: 28px;
 }
+
 .button-enabled {
   background-color: #202020;
   color: white;
@@ -106,12 +116,14 @@ p {
   justify-content: center;
   align-items: center;
 }
+
 .button-disabled {
   background-color: white;
   border: none;
   height: 50px;
   width: 50px;
 }
+
 .button-enabled:hover {
   cursor: pointer;
 }
@@ -143,4 +155,117 @@ p {
 
 .comics-title-link {
   text-decoration: none;
+}
+
+@media (max-width: 992px) {
+  .all-comics-vision {
+    max-width: 768px;
+    padding: 60px 20px;
+  }
+
+  .all-comics-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 30px;
+    /* gap: 20px; */
+  }
+
+  .comic-container {
+    flex-direction: column;
+    gap: 0;
+    padding: 25px 0;
+  }
+  .comic-container img {
+    height: 620px;
+    width: 408px;
+    box-shadow: 7px 12px 10px #202020;
+    border-radius: 2px;
+  }
+
+  .comicsAdd-favorit-icon {
+    top: 20px;
+  }
+
+  .comicsRemove-favorit-icon {
+    top: 20px;
+  }
+
+  .details-container {
+    padding-top: 40px;
+    /* position: relative; */
+  }
+
+  .comics-details {
+    gap: 20px;
+    padding-left: 5px;
+    padding-right: 10px;
+  }
+
+  p {
+    line-height: 22px;
+    font-style: italic;
+  }
+}
+
+@media (max-width: 768px) {
+  .all-comics-vision {
+    max-width: 576px;
+    padding: 40px 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .all-comics-vision {
+    max-width: 400px;
+    padding: 30px 10px;
+  }
+
+  .comic-container {
+    display: flex;
+    gap: 0px;
+    padding: 30px 0;
+    width: 100%;
+    position: relative;
+  }
+
+  .comic-container img {
+    height: 570px;
+    width: 100%;
+  }
+
+  .details-container {
+    padding-top: 20px;
+    /* position: relative; */
+  }
+
+  p {
+    display: none;
+  }
+
+  h2 {
+    font-size: 22px;
+    max-width: 325px;
+  }
+
+  .comicsAdd-favorit-icon {
+    top: 618px;
+    right: 3px;
+  }
+
+  .comicsRemove-favorit-icon {
+    top: 618px;
+    right: 3px;
+  }
+
+  .comics-search-bar {
+    gap: 6px;
+    font-size: 24px;
+  }
+
+  .comics-search-bar > input {
+    height: 24px;
+    width: 310px;
+    font-size: 17px;
+  }
 }
