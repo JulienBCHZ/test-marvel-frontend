@@ -79,9 +79,9 @@ const CharacterDetails = ({ name, description, image, API_URL }) => {
   ) : (
     <div className="comics-character-vision">
       <section className="character-container">
-        <div className="comics-charact">
+        <div className="character-infos">
           <img src={image} alt="character" />
-          <div className="comics-charact-details">
+          <div className="charact-info-details">
             <h2>{name}</h2>
             {description === "" ? (
               <p>Description is coming...</p>
@@ -92,7 +92,12 @@ const CharacterDetails = ({ name, description, image, API_URL }) => {
           </div>
         </div>
       </section>
-      <h2 className="charact-page-title">APPEARS ON</h2>
+      {data.comics.length > 0 ? (
+        <h2 className="charact-page-title">APPEARS ON</h2>
+      ) : (
+        <h2 className="charact-page-title"></h2>
+      )}
+      {/* <h2 className="charact-page-title">APPEARS ON</h2> */}
       <section className="comics-character-container">
         {data.comics.map((comic) => {
           return (

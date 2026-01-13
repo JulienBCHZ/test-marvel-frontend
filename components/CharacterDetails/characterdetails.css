@@ -24,16 +24,16 @@
   width: 100%;
 }
 
-.comics-charact {
+.character-infos {
   background-color: #202020;
   border: red solid 3px;
-  height: 550px;
+  /* height: 550px; */
   width: 100%;
   display: flex;
   border-radius: 2px;
 }
 
-.comics-charact-details {
+.charact-info-details {
   width: 620px;
   display: flex;
   flex-direction: column;
@@ -42,17 +42,17 @@
   text-align: justify;
 }
 
-.comics-charact-details p {
+.charact-info-details p {
   font-size: 18px;
   line-height: 26px;
   color: white;
 }
 
-.comics-charact-details h2 {
+.charact-info-details h2 {
   color: white;
 }
 
-.comics-charact img {
+.character-infos img {
   height: 100%;
   width: 560px;
   object-fit: cover;
@@ -131,8 +131,8 @@
     padding: 40px 25px;
     gap: 50px;
   }
-  .comics-charact {
-    height: 450px;
+  .character-infos {
+    max-height: 450px;
   }
 }
 
@@ -148,21 +148,15 @@
     /* padding-left: 100px; */
   }
 
-  .comics-charact {
-    background-color: #202020;
-    border: red solid 3px;
-    height: 400px;
-    width: 100%;
-    display: flex;
-    border-radius: 2px;
+  .character-infos {
+    max-height: 400px;
   }
 
-  .comics-charact img {
-    height: 100%;
+  .character-infos img {
     width: 400px;
   }
 
-  .comics-charact-details {
+  .charact-info-details {
     width: 620px;
     padding: 30px 25px;
     gap: 40px;
@@ -173,12 +167,12 @@
     height: 500px;
   }
 
-  .comics-charact-details p {
+  .charact-info-details p {
     font-size: 17px;
     line-height: 24px;
   }
 
-  .comics-charact-details h2 {
+  .charact-info-details h2 {
     font-size: 22px;
   }
 }
@@ -195,41 +189,40 @@
     /* padding-left: 100px; */
   }
 
-  .comics-charact {
-    background-color: #202020;
-    border: red solid 3px;
-    height: 330px;
-    width: 100%;
-    display: flex;
-    border-radius: 2px;
+  .character-infos {
+    max-height: 350px;
   }
 
-  .comics-charact img {
-    height: 100%;
+  .character-infos img {
     width: 270px;
     object-fit: contain;
   }
 
-  .comics-charact-details {
+  .charact-info-details {
     padding: 20px 15px;
     gap: 20px;
     text-align: start;
   }
 
-  .comics-charact-details p {
+  .charact-info-details p {
     font-size: 16px;
     line-height: 22px;
   }
 
-  .comics-charact-details h2 {
+  .charact-info-details h2 {
     font-size: 22px;
   }
 
   .comics-character-container {
     flex-wrap: nowrap;
-    overflow: scroll;
+    /* overflow: scroll; */
+    overflow-x: auto;
+    overflow-y: hidden;
     gap: 0px 20px;
     width: 100%;
+    padding-bottom: 20px;
+    scroll-behavior: smooth;
+
     /* max-width: 576px; */
     /* margin: 0 auto; */
   }
@@ -245,5 +238,89 @@
 
   .comic-with-character img {
     height: 492px;
+  }
+
+  .charact-page-title {
+    font-size: 40px;
+    line-height: 52px;
+    box-shadow: 8px 8px 4px #202020;
+  }
+}
+
+@media (max-width: 576px) {
+  .comics-character-vision {
+    max-width: 400px;
+  }
+
+  .comics-character-container {
+    max-width: 400px;
+    margin: 0 auto;
+    gap: 30px 60px;
+    /* padding-left: 100px; */
+  }
+
+  .character-infos {
+    max-height: 800px;
+    min-height: 400px;
+    width: 100%;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .character-infos img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .charact-info-details {
+    padding: 20px 15px;
+    gap: 10px;
+    text-align: justify;
+    max-width: 100%;
+  }
+
+  .charact-info-details p {
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 20px;
+  }
+
+  .charact-info-details h2 {
+    font-size: 22px;
+  }
+
+  .comics-character-container {
+    flex-wrap: nowrap;
+    /* overflow: scroll; */
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 0px 10px;
+    width: 100%;
+    padding-bottom: 20px;
+    scroll-behavior: smooth;
+
+    /* max-width: 576px; */
+    /* margin: 0 auto; */
+  }
+
+  .comic-with-character {
+    width: 354px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-decoration: none;
+    color: #202020;
+  }
+
+  .comic-with-character img {
+    height: 492px;
+    width: calc(100% - 30px);
+  }
+
+  .charact-page-title {
+    font-size: 40px;
+    line-height: 52px;
+    box-shadow: 8px 8px 4px #202020;
   }
 }
