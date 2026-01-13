@@ -7,6 +7,9 @@ import { Link } from "react-router-dom";
 
 import getImage from "../../utils/getImage";
 
+import { MdFavorite } from "react-icons/md";
+import { MdFavoriteBorder } from "react-icons/md";
+
 // [
 //     {
 //         "thumbnail": {
@@ -48,6 +51,7 @@ const CharacterDetails = ({ name, description, image, API_URL }) => {
 
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [favorit, setFavorit] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -80,6 +84,11 @@ const CharacterDetails = ({ name, description, image, API_URL }) => {
     <div className="comics-character-vision">
       <section className="character-container">
         <div className="character-infos">
+          {favorit ? (
+            <MdFavorite className="comic-details-remove-favorit" />
+          ) : (
+            <MdFavoriteBorder className="comic-details-add-favorit" />
+          )}
           <img src={image} alt="character" />
           <div className="charact-info-details">
             <h2>{name}</h2>

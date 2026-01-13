@@ -31,6 +31,39 @@
   width: 100%;
   display: flex;
   border-radius: 2px;
+  position: relative;
+}
+
+.character-infos img {
+  height: 100%;
+  width: 560px;
+  object-fit: cover;
+}
+
+.comic-details-add-favorit {
+  font-size: 38px;
+  position: absolute;
+  color: white;
+  right: 10px;
+  top: 10px;
+}
+
+.comic-details-add-favorit:hover {
+  color: rgb(255, 157, 157);
+  cursor: pointer;
+}
+
+.comic-details-remove-favorit {
+  font-size: 38px;
+  position: absolute;
+  color: rgb(255, 157, 157);
+  right: 10px;
+  top: 10px;
+  z-index: 1000;
+}
+
+.comic-details-remove-favorit:hover {
+  cursor: pointer;
 }
 
 .charact-info-details {
@@ -50,12 +83,6 @@
 
 .charact-info-details h2 {
   color: white;
-}
-
-.character-infos img {
-  height: 100%;
-  width: 560px;
-  object-fit: cover;
 }
 
 .comics-character-container {
@@ -156,6 +183,14 @@
     width: 400px;
   }
 
+  .comic-details-add-favorit {
+    font-size: 34px;
+  }
+
+  .comic-details-remove-favorit {
+    font-size: 34px;
+  }
+
   .charact-info-details {
     width: 620px;
     padding: 30px 25px;
@@ -198,6 +233,14 @@
     object-fit: contain;
   }
 
+  .comic-details-add-favorit {
+    font-size: 30px;
+  }
+
+  .comic-details-remove-favorit {
+    font-size: 30px;
+  }
+
   .charact-info-details {
     padding: 20px 15px;
     gap: 20px;
@@ -210,7 +253,7 @@
   }
 
   .charact-info-details h2 {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .comics-character-container {
@@ -271,6 +314,15 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+  }
+
+  .comic-details-add-favorit {
+    font-size: 34px;
+    color: rgb(255, 157, 157);
+  }
+
+  .comic-details-remove-favorit {
+    font-size: 34px;
   }
 
   .charact-info-details {
