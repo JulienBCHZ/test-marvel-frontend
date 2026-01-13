@@ -11,7 +11,6 @@ const AllFavorits = ({ API_URL }) => {
   const getUserToken = Cookies.get("userToken");
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
-  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,14 +26,14 @@ const AllFavorits = ({ API_URL }) => {
           setIsLoading(false);
         } else {
           setIsLoading(false);
-          setErrorMessage("Server doesn't respond...");
+          alert("Server doesn't respond...");
         }
       } catch (error) {
         setIsLoading(false);
         console.log("FAV ERROR : ", error);
         error.message
-          ? setErrorMessage(error.message)
-          : setErrorMessage("Something went wrong...");
+          ? alert("Something went wrong : ", error.message)
+          : alert("Something went wrong...");
       }
     };
     fetchData();
