@@ -8,12 +8,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 100px 100px;
-  gap: 40px;
+  padding: 100px 0;
+  gap: 60px;
 }
 
 .favorit-preview img {
-  height: 450px;
+  height: 100%;
   width: 298px;
   box-shadow: 7px 12px 10px #202020;
   border-radius: 2px;
@@ -54,4 +54,84 @@
 .errorFavorits > p {
   font-size: 3vw;
   color: #202020;
+}
+
+@media (max-width: 1024px) {
+  .all-favorits-vision {
+    max-width: 992px;
+  }
+
+  .favorit-details {
+    width: 550px;
+  }
+}
+
+@media (max-width: 992px) {
+  .all-favorits-vision {
+    max-width: 768px;
+  }
+
+  .favorit-details {
+    width: 400px;
+    padding: 10px;
+  }
+
+  .favorit-preview {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .all-favorits-vision {
+    max-width: 576px;
+  }
+
+  .favorit-container {
+    padding: 70px 0;
+  }
+
+  .favorit-details {
+    width: 550px;
+    padding: 0 10px;
+    gap: 20px;
+  }
+
+  .favorit-preview {
+    gap: 40px;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 576px) {
+  .all-favorits-vision {
+    max-width: 360px;
+  }
+
+  .favorit-container {
+    padding: 70px 0;
+    gap: 70px;
+  }
+
+  .favorit-details {
+    width: 360px;
+    padding: 0 10px;
+    gap: 15px;
+  }
+
+  .favorit-details > p {
+    display: none;
+  }
+
+  .favorit-preview {
+    gap: 40px;
+    flex-direction: column;
+  }
+
+  .favorit-preview img {
+    height: 100%;
+    width: 100%;
+    box-shadow: 7px 12px 10px #202020;
+    border-radius: 2px;
+    object-fit: cover;
+  }
 }
