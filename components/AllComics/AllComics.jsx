@@ -44,8 +44,8 @@ const AllComics = ({ search, setSearch, API_URL }) => {
       } catch (error) {
         setIsLoading(false);
         console.log("COMICS ERROR : ", error);
-        error.message
-          ? alert("Something went wrong : ", error.message)
+        error.response
+          ? alert(error.response.data.message)
           : alert("Something went wrong...");
       }
     };

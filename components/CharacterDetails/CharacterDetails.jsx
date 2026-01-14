@@ -68,8 +68,8 @@ const CharacterDetails = ({ name, description, image, API_URL }) => {
       } catch (error) {
         setIsLoading(false);
         console.log("CHAR ERROR : ", error);
-        error.message
-          ? alert("Something went wrong : ", error.message)
+        error.response
+          ? alert(error.response.data.message)
           : alert("Something went wrong...");
       }
     };

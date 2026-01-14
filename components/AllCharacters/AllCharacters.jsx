@@ -43,8 +43,8 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
       } catch (error) {
         setIsLoading(false);
         console.log("CHARACTS ERROR : ", error);
-        error.message
-          ? alert("Something went wrong : ", error.message)
+        error.response
+          ? alert(error.response.data.message)
           : alert("Something went wrong...");
       }
     };
@@ -72,9 +72,6 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
         }
       } catch (error) {
         console.log("READ FAV ERROR : ", error);
-        error.message
-          ? alert("Favorits not loaded : ", error.message)
-          : alert("Favorits not loaded");
       }
     };
     getUserToken && fetchFavoritsCharacData();

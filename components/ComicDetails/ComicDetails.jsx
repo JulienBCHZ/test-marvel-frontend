@@ -34,11 +34,9 @@ const ComicDetails = ({ API_URL }) => {
       } catch (error) {
         setIsLoading(false);
         console.log("COMIC ERROR : ", error);
-        if (error.message) {
-          alert(`Something went wrong : ${error.message}`);
-        } else {
-          alert("Something went wrong...");
-        }
+        error.response
+          ? alert(error.response.data.message)
+          : alert("Something went wrong...");
       }
     };
     fetchData();

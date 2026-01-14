@@ -25,11 +25,9 @@ const MainHero = ({ API_URL }) => {
       } catch (error) {
         setIsLoading(true);
         console.log("MH ERROR : ", error);
-        if (error.message) {
-          alert(`Something went wrong : ${error.message}`);
-        } else {
-          alert("Something went wrong...");
-        }
+        error.response
+          ? alert(error.response.data.message)
+          : alert("Something went wrong...");
       }
     };
     fetchData();

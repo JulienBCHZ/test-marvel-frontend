@@ -54,10 +54,11 @@ const LoginForm = ({
           setSubmitLoading(false);
         }
       } catch (error) {
+        console.log("LOGIN ERR :", error);
         setSubmitLoading(false);
-        error.message
-          ? alert("Check email and/or password")
-          : console.log("LOGIN ERR :", error);
+        error.response
+          ? alert(error.response.data.message)
+          : alert("Check email and/or password");
       }
     }
   };
