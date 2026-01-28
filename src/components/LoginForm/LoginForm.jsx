@@ -2,16 +2,8 @@ import "./loginform.css";
 
 import axios from "axios";
 import Cookies from "js-cookie";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
-
-//    email={email}
-//             setEmail={setEmail}
-//             password={password}
-//             setPassword={setPassword}
-//             errorMessage={errorMessage}
-//             setErrorMessage={setErrorMessage}
-//             setToken={setToken}
 
 const LoginForm = ({
   email,
@@ -58,7 +50,7 @@ const LoginForm = ({
         setSubmitLoading(false);
         error.response
           ? alert(error.response.data.message)
-          : alert("Check email and/or password");
+          : alert("Check email and password");
       }
     }
   };

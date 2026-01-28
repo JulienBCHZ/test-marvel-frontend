@@ -5,18 +5,18 @@ import Cookies from "js-cookie";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // PAGES
-import Home from "../pages/Home/Home";
-import Characters from "../pages/Characters/Characters";
-import Comics from "../pages/Comics/Comics";
-import CharacterPage from "../pages/CharacterPage/CharacterPage";
-import ComicPage from "../pages/ComicPage/ComicPage";
-import Favorits from "../pages/Favorits/Favorits";
-import Signup from "../pages/Signup/Signup";
-import Login from "../pages/Login/Login";
+import Home from "./pages/Home/Home";
+import Characters from "./pages/Characters/Characters";
+import Comics from "./pages/Comics/Comics";
+import CharacterPage from "./pages/CharacterPage/CharacterPage";
+import ComicPage from "./pages/ComicPage/ComicPage";
+import Favorits from "./pages/Favorits/Favorits";
+import Signup from "./pages/Signup/Signup";
+import Login from "./pages/Login/Login";
 
 // COMPONENTS
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 const API_URL =
   "https://site--marvel-back-end-rebuilt--hgkxb6f276xk.code.run/api/v1";

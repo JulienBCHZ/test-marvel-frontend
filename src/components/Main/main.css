@@ -33,6 +33,10 @@ h1 {
   width: calc((100% - 20px) / 3);
 }
 
+.carousel img:hover {
+  cursor: pointer;
+}
+
 .read-comics-link {
   text-decoration: none;
   color: #202020;
@@ -160,7 +164,7 @@ h1:hover {
     line-height: 40px;
     box-shadow: 6px 6px 4px #202020;
   }
-  
+
   .carousel {
     height: 520px;
     gap: 5px;

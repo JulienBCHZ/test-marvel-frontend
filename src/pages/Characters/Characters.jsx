@@ -2,7 +2,7 @@ import "./characters.css";
 
 import AllCharacters from "../../components/AllCharacters/AllCharacters";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const Characters = ({ API_URL }) => {
   const [search, setSearch] = useState("");

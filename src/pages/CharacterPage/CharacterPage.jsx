@@ -2,8 +2,7 @@ import "./characterpage.css";
 
 import CharacterDetails from "../../components/CharacterDetails/CharacterDetails";
 
-import { useState, useEffect } from "react";
-import { useParams, useLocation, Navigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 //  name: characters.name,
 //                 description: characters.description,

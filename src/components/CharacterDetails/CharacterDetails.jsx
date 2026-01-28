@@ -89,6 +89,13 @@ const CharacterDetails = ({ name, description, image, API_URL }) => {
           ) : (
             <MdFavoriteBorder className="charac-details-add-favorit" />
           )}
+          <div className="charac-details-favorit-hidden">
+            {favorit ? (
+              <MdFavorite className="charac-details-remove-favorit-hidden" />
+            ) : (
+              <MdFavoriteBorder className="charac-details-add-favorit-hidden" />
+            )}
+          </div>
           <img src={image} alt="character" />
           <div className="charact-info-details">
             <h2>{name}</h2>
@@ -97,7 +104,6 @@ const CharacterDetails = ({ name, description, image, API_URL }) => {
             ) : (
               <p>{description}</p>
             )}
-            {/* <p>{description}</p> */}
           </div>
         </div>
       </section>
@@ -106,7 +112,6 @@ const CharacterDetails = ({ name, description, image, API_URL }) => {
       ) : (
         <h2 className="charact-page-title"></h2>
       )}
-      {/* <h2 className="charact-page-title">APPEARS ON</h2> */}
       <section className="comics-character-container">
         {data.comics.map((comic) => {
           return (
