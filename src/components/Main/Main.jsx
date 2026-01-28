@@ -2,17 +2,15 @@ import "./main.css";
 
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import getImage from "../../utils/getImage";
 
-import { TfiFaceSad } from "react-icons/tfi";
-
 const Main = ({ API_URL }) => {
+  const navigate = useNavigate();
+
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
-
-  console.log("URL :", API_URL);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -54,6 +52,9 @@ const Main = ({ API_URL }) => {
               alt="comics"
               className="comics-image"
               key={comics._id}
+              onClick={() => {
+                navigate(`/comics/comic/${comics._id}`);
+              }}
             />
           );
         })}

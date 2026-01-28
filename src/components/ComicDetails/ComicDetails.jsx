@@ -1,9 +1,8 @@
 import "./comicdetails.css";
 
 import { useState, useEffect } from "react";
-import { useParams, useLocation, Navigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 import getImage from "../../utils/getImage";
 

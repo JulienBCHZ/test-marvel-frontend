@@ -1,11 +1,8 @@
 import "./allfavorits.css";
 
 import axios from "axios";
-import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useState, useEffect } from "react";
-
-import { TfiFaceSad } from "react-icons/tfi";
 
 const AllFavorits = ({ API_URL }) => {
   const getUserToken = Cookies.get("userToken");

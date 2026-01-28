@@ -2,21 +2,8 @@ import "./signupform.css";
 
 import axios from "axios";
 import Cookies from "js-cookie";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-
-//  username={username}
-//             setUsername={setUsername}
-//             email={email}
-//             setEmail={setEmail}
-//             password={password}
-//             setPassword={setPassword}
-//             newsletter={newsletter}
-//             setNewsletter={setNewsletter}
-//             errorMessage={errorMessage}
-//             setErrorMessage={setErrorMessage}
-//             token={token}
-//             setToken={setToken}
 
 const SignUpForm = ({
   username,
@@ -70,8 +57,8 @@ const SignUpForm = ({
         //   console.log(response.data);
       } catch (error) {
         setSubmitLoading(false);
-        error.message
-          ? alert("Check all fields", error.message)
+        error.response
+          ? alert(error.response.data.message)
           : console.log("SIGNUP ERR :", error);
       }
     }

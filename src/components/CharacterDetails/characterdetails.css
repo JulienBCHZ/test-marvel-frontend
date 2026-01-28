@@ -66,6 +66,10 @@
   cursor: pointer;
 }
 
+.charac-details-favorit-hidden {
+  display: none;
+}
+
 .charact-info-details {
   width: 620px;
   display: flex;
@@ -172,7 +176,6 @@
 
   .comics-character-container {
     max-width: 704px;
-    margin: 0 auto;
     gap: 30px 60px;
     /* padding-left: 100px; */
   }
@@ -217,13 +220,8 @@
 @media (max-width: 768px) {
   .comics-character-vision {
     max-width: 576px;
-  }
-
-  .comics-character-container {
-    max-width: 576px;
-    margin: 0 auto;
-    gap: 30px 60px;
-    /* padding-left: 100px; */
+    gap: 60px;
+    padding: 60px 10px;
   }
 
   .character-infos {
@@ -259,8 +257,8 @@
   }
 
   .comics-character-container {
+    max-width: 576px;
     flex-wrap: nowrap;
-    /* overflow: scroll; */
     overflow-x: auto;
     overflow-y: hidden;
     gap: 0px 20px;
@@ -285,6 +283,11 @@
     height: 492px;
   }
 
+  .comic-with-character h3 {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
   .charact-page-title {
     font-size: 40px;
     line-height: 52px;
@@ -295,13 +298,6 @@
 @media (max-width: 576px) {
   .comics-character-vision {
     max-width: 400px;
-  }
-
-  .comics-character-container {
-    max-width: 400px;
-    margin: 0 auto;
-    gap: 30px 60px;
-    /* padding-left: 100px; */
   }
 
   .character-infos {
@@ -319,12 +315,35 @@
   }
 
   .charac-details-add-favorit {
-    font-size: 34px;
-    color: rgb(255, 157, 157);
+    display: none;
   }
 
   .charac-details-remove-favorit {
     font-size: 34px;
+    display: none;
+  }
+
+  .charac-details-favorit-hidden {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: #202020;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    right: 10px;
+    top: 10px;
+  }
+
+  .charac-details-add-favorit-hidden {
+    font-size: 34px;
+    color: white;
+  }
+
+  .charac-details-remove-favorit-hidden {
+    font-size: 34px;
+    color: rgb(255, 157, 157);
   }
 
   .charact-info-details {
@@ -345,11 +364,8 @@
   }
 
   .comics-character-container {
-    flex-wrap: nowrap;
-    /* overflow: scroll; */
-    overflow-x: auto;
-    overflow-y: hidden;
-    gap: 0px 10px;
+    max-width: 400px;
+    gap: 0px 15px;
     width: 100%;
     padding-bottom: 20px;
     scroll-behavior: smooth;
@@ -359,7 +375,7 @@
   }
 
   .comic-with-character {
-    width: 354px;
+    width: 310px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -368,8 +384,13 @@
   }
 
   .comic-with-character img {
-    height: 492px;
-    width: calc(100% - 30px);
+    height: 484px;
+    /* width: calc(100% - 30px); */
+  }
+
+  .comic-with-character h3 {
+    font-size: 16px;
+    margin-top: 10px;
   }
 
   .charact-page-title {

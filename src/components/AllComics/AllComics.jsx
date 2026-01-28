@@ -1,4 +1,4 @@
-import "./allcharacters.css";
+import "./allcomics.css";
 import { GrNext } from "react-icons/gr";
 import { GrPrevious } from "react-icons/gr";
 import { HiOutlineSearch } from "react-icons/hi";
@@ -10,18 +10,15 @@ import Cookies from "js-cookie";
 
 import getImage from "../../utils/getImage";
 
-import { TfiFaceSad } from "react-icons/tfi";
 import { MdFavoriteBorder } from "react-icons/md";
 import { MdFavorite } from "react-icons/md";
 
-// search={search} setSearch={setSearch}
-const AllCharacters = ({ search, setSearch, API_URL }) => {
+const AllComics = ({ search, setSearch, API_URL }) => {
   const getUserToken = Cookies.get("userToken") || null;
 
-  const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState(null);
   const [page, setPage] = useState(1);
-  const [errorMessage, setErrorMessage] = useState("");
   const [favorits, setFavorits] = useState(null);
   const [favAdded, setFavAdded] = useState(false);
   const [favRemoved, setFavRemoved] = useState(false);
@@ -30,10 +27,10 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${API_URL}/characters?page=${page}&name=${search}`
+          `${API_URL}/comics?page=${page}&title=${search}`,
         );
         if (response.data) {
-          // console.log("CHAR DATA : ", response.data);
+          console.log("COMICS DATA :", response.data);
           setData(response.data.data);
           setIsLoading(false);
         } else {
@@ -42,7 +39,7 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
         }
       } catch (error) {
         setIsLoading(false);
-        console.log("CHARACTS ERROR : ", error);
+        console.log("COMICS ERROR : ", error);
         error.response
           ? alert(error.response.data.message)
           : alert("Something went wrong...");
@@ -52,7 +49,7 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
   }, [page, search]);
 
   useEffect(() => {
-    const fetchFavoritsCharacData = async () => {
+    const fetchFavoritsComicsData = async () => {
       try {
         const response = await axios.get(`${API_URL}/user/favorits`, {
           headers: {
@@ -60,13 +57,12 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
           },
         });
         if (response.data) {
-          // console.log("READ FAV DATA : ", response.data);
+          console.log("READ FAV DATA : ", response.data);
           if (response.data.favorits.length > 0) {
             setFavorits(response.data.favorits);
           } else {
             setFavorits(null);
           }
-          // setFavorits(response.data.favorits);
         } else {
           setFavorits(null);
         }
@@ -74,7 +70,7 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
         console.log("READ FAV ERROR : ", error);
       }
     };
-    getUserToken && fetchFavoritsCharacData();
+    getUserToken && fetchFavoritsComicsData();
   }, [favAdded, favRemoved]);
 
   const handleSearch = (event) => {
@@ -88,19 +84,19 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
     </section>
   ) : (
     <>
-      <section className="characters-search-section">
-        <div className="characters-search-bar">
+      <section className="comics-search-section">
+        <div className="comics-search-bar">
           <HiOutlineSearch />
           <input
             type="text"
-            placeholder="Rechercher des personnages"
+            placeholder="Rechercher des comics"
             name="search"
             value={search}
             onChange={handleSearch}
           />
         </div>
       </section>
-      <section className="all-characters-vision">
+      <section className="all-comics-vision">
         <div className="change-page">
           {page > 1 ? (
             <button
@@ -117,8 +113,7 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
           <div className="page-number-container">
             <span>{page}</span>
           </div>
-
-          {page < 20 ? (
+          {page < 10 ? (
             <button
               className="button-enabled"
               onClick={() => {
@@ -131,24 +126,25 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
             <button className="button-disabled"></button>
           )}
         </div>
-        <section className="all-characters-container">
-          {data.results.map((characters) => {
-            const picture = getImage(characters.thumbnail);
+
+        <section className="all-comics-container">
+          {data.results.map((comics) => {
+            const picture = getImage(comics.thumbnail);
 
             const handleAddFavorit = async () => {
               try {
                 const response = await axios.post(
                   `${API_URL}/user/favorits/add`,
                   {
-                    title: characters.name,
-                    description: characters.description,
+                    title: comics.title,
+                    description: comics.description,
                     image: picture,
                   },
                   {
                     headers: {
                       authorization: `Bearer ${getUserToken}`,
                     },
-                  }
+                  },
                 );
                 if (response.data.message === "Add in favorits") {
                   setFavAdded(true);
@@ -156,94 +152,85 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
                 } else {
                   setFavAdded(false);
                 }
-                // console.log("FAV :", response.data);
+                console.log("FAV :", response.data);
               } catch (error) {
                 console.log(error);
               }
             };
 
             return (
-              <section
-                className="character-preview-container"
-                key={characters._id}
-              >
-                <Link
-                  to={`/comics/character/${characters._id}`}
-                  state={{
-                    name: characters.name,
-                    description: characters.description,
-                    image: getImage(characters.thumbnail),
-                    comics: characters.comics,
-                  }}
-                >
-                  <img src={getImage(characters.thumbnail)} />
+              <section className="comic-container" key={comics._id}>
+                <Link to={`/comics/comic/${comics._id}`}>
+                  <img src={getImage(comics.thumbnail)} />
                 </Link>
-                <div className="charac-details-container">
-                  <Link
-                    className="char-name-link"
-                    to={`/comics/character/${characters._id}`}
-                    state={{
-                      name: characters.name,
-                      description: characters.description,
-                      image: getImage(characters.thumbnail),
-                      comics: characters.comics,
-                    }}
-                  >
-                    <div className="characters-name">
-                      <h2>{characters.name}</h2>
-                    </div>
-                  </Link>
-                  <div className="preview-favorit-container">
-                    {favorits ? (
-                      <>
-                        {favorits.map((favorit) => {
-                          const handleRemoveFavorit = async () => {
-                            try {
-                              const response = await axios.delete(
-                                `${API_URL}/user/favorit/delete/${favorit._id}`,
-                                {
-                                  headers: {
-                                    authorization: `Bearer ${getUserToken}`,
-                                  },
-                                }
-                              );
-                              if (response.data.message === "Favorit deleted") {
-                                setFavRemoved(true);
-                                setFavAdded(false);
-                              } else {
-                                setFavAdded(true);
-                                setFavRemoved(false);
-                              }
-                            } catch (error) {
-                              console.log(error);
+                <div className="details-container">
+                  {favorits ? (
+                    <>
+                      {favorits.map((favorit) => {
+                        const handleRemoveFavorit = async () => {
+                          try {
+                            const response = await axios.delete(
+                              `${API_URL}/user/favorit/delete/${favorit._id}`,
+                              {
+                                headers: {
+                                  authorization: `Bearer ${getUserToken}`,
+                                },
+                              },
+                            );
+                            if (response.data.message === "Favorit deleted") {
+                              setFavRemoved(true);
+                              setFavAdded(false);
+                            } else {
+                              setFavAdded(true);
+                              setFavRemoved(false);
                             }
-                          };
-
-                          if (favorit.item_title === characters.name) {
-                            return (
-                              <MdFavorite
-                                className="charRemove-favorit-icon"
-                                onClick={handleRemoveFavorit}
-                                key={favorit._id}
-                              />
-                            );
-                          } else {
-                            return (
-                              <MdFavoriteBorder
-                                className="charAdd-favorit-icon"
-                                onClick={handleAddFavorit}
-                                key={favorit._id}
-                              />
-                            );
+                          } catch (error) {
+                            console.log(error);
                           }
-                        })}
-                      </>
+                        };
+                        if (
+                          favorit.item_title === comics.title &&
+                          favorit.item_description === comics.description
+                        ) {
+                          return (
+                            <MdFavorite
+                              className="comicsRemove-favorit-icon"
+                              onClick={handleRemoveFavorit}
+                              key={favorit._id}
+                            />
+                          );
+                        } else {
+                          return (
+                            <MdFavoriteBorder
+                              className="comicsAdd-favorit-icon"
+                              onClick={handleAddFavorit}
+                              key={favorit._id}
+                            />
+                          );
+                        }
+                      })}
+                    </>
+                  ) : (
+                    <MdFavoriteBorder
+                      className="comicsAdd-favorit-icon"
+                      onClick={handleAddFavorit}
+                    />
+                  )}
+
+                  <div className="comics-details">
+                    <Link
+                      to={`/comics/comic/${comics._id}`}
+                      className="comics-title-link"
+                    >
+                      <h2>{comics.title}</h2>
+                    </Link>
+
+                    {comics.description === null ? (
+                      <p>Description is coming...</p>
                     ) : (
-                      <MdFavoriteBorder
-                        className="charAdd-favorit-icon"
-                        onClick={handleAddFavorit}
-                      />
+                      <p>{comics.description}</p>
                     )}
+                    {/* <p>{comics.description}</p> */}
                   </div>
                 </div>
               </section>
@@ -266,7 +253,7 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
           <div className="page-number-container">
             <span>{page}</span>
           </div>
-          {page < 20 ? (
+          {page < 10 ? (
             <button
               className="button-enabled"
               onClick={() => {
@@ -284,4 +271,4 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
   );
 };
 
-export default AllCharacters;
+export default AllComics;
