@@ -3,17 +3,38 @@
   margin: 0 auto;
   padding: 5px 40px;
 }
+
 .signup-form-vision {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
+
 input {
   height: 40px;
   border: none;
   border-bottom: red solid;
   outline: none;
+  font-size: 16px;
 }
+
+input::placeholder {
+  color: #a7a7a7;
+  font-style: italic;
+}
+
+.input-error {
+  height: 40px;
+  border: none;
+  border-bottom: red solid;
+  outline: none;
+  font-size: 16px;
+  color: red;
+  background-color: rgba(255, 0, 0, 0.053);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
 .signup-submit-button {
   height: 45px;
   background-color: rgb(255, 0, 0);
@@ -23,9 +44,11 @@ input {
   font-size: 16px;
   margin-top: 20px;
 }
+
 .signup-submit-button:hover {
   cursor: pointer;
 }
+
 .signup-submit-disabled {
   height: 45px;
   background-color: rgba(255, 0, 0, 0.387);
@@ -38,17 +61,20 @@ input {
   align-items: center;
   justify-content: center;
 }
+
 .signup-submit-disabled > p {
   color: white;
   font-size: 16px;
   font-style: normal;
 }
+
 .form-checkbox {
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin-top: 20px;
 }
+
 .line-checkbox {
   display: flex;
   align-items: center;
@@ -56,10 +82,12 @@ input {
   gap: 20px;
   padding: 0 10px;
 }
+
 .line-checkbox span {
   font-family: Arial, Helvetica, sans-serif;
   color: #666666;
 }
+
 .checkbox {
   height: 20px;
   width: 20px;
@@ -72,6 +100,7 @@ input {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 16px;
 }
+
 .signup-error-message {
   text-align: center;
   font-weight: bold;
@@ -82,6 +111,21 @@ input {
   display: flex;
   flex-direction: column;
 }
+
+.input-field-password {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.password-eye {
+  font-size: 20px;
+  color: #666666;
+  position: absolute;
+  right: 2px;
+  top: 10px;
+}
+
 .field-error-text {
   height: 16px;
   display: flex;

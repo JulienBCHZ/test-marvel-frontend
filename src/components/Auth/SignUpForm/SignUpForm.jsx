@@ -5,6 +5,8 @@ import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
+import { ImEye, ImEyeBlocked } from "react-icons/im";
+
 const SignUpForm = ({
   username,
   setUsername,
@@ -21,6 +23,7 @@ const SignUpForm = ({
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [submitLoading, setSubmitLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
   const handleSubmit = async (event) => {
@@ -57,9 +60,10 @@ const SignUpForm = ({
         //   console.log(response.data);
       } catch (error) {
         setSubmitLoading(false);
+        console.log("SIGNUP ERR :", error);
         error.response
           ? alert(error.response.data.message)
-          : console.log("SIGNUP ERR :", error);
+          : alert("Something went wrong...");
       }
     }
   };
@@ -68,7 +72,7 @@ const SignUpForm = ({
     const value = event.target.value;
     setUsername(value);
     if (value.length > 0 && value.length < 4) {
-      setUsernameError("username is too short");
+      setUsernameError("Username is too short");
     } else {
       setUsernameError("");
     }
@@ -79,8 +83,19 @@ const SignUpForm = ({
     setEmail(value);
     if (value.length > 0 && value.length < 6) {
       setEmailError("Invalid email format");
-    } else if (!value.includes("@") && value.length > 0) {
-      setEmailError("Invalid email format");
+    } else if (value.length > 0) {
+      // value must contain one & only one "@"
+      let counter = 0;
+      for (let i = 0; i < value.length; i++) {
+        if (value[i] === "@") {
+          counter = counter + 1;
+        }
+      }
+      if (counter === 1) {
+        setEmailError("");
+      } else {
+        setEmailError("Invalid email format");
+      }
     } else {
       setEmailError("");
     }
@@ -90,7 +105,7 @@ const SignUpForm = ({
     const value = event.target.value;
     setPassword(value);
     if (value.length < 6 && value.length > 0) {
-      setPasswordError("password is too short");
+      setPasswordError("Password is too short");
     } else {
       setPasswordError("");
     }
@@ -111,6 +126,8 @@ const SignUpForm = ({
             name="username"
             value={username}
             onChange={handleChangeUsername}
+            className={usernameError && "input-error"}
+            required={true}
           />
           {usernameError ? (
             <div className="field-error-text">
@@ -127,6 +144,8 @@ const SignUpForm = ({
             name="email"
             value={email}
             onChange={handleChangeEmail}
+            className={emailError && "input-error"}
+            required={true}
           />
           {emailError ? (
             <div className="field-error-text">
@@ -136,13 +155,15 @@ const SignUpForm = ({
             <div className="field-error-text"></div>
           )}
         </div>
-        <div className="input-fields">
+        <div className="input-field-password">
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             placeholder="password"
             name="password"
             value={password}
             onChange={handleChangePassword}
+            className={passwordError && "input-error"}
+            required={true}
           />
           {passwordError ? (
             <div className="field-error-text">
@@ -151,6 +172,12 @@ const SignUpForm = ({
           ) : (
             <div className="field-error-text"></div>
           )}
+          <span
+            className="password-eye"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? <ImEyeBlocked /> : <ImEye />}
+          </span>
         </div>
 
         <section className="form-checkbox">
@@ -171,13 +198,7 @@ const SignUpForm = ({
             </p>
           </div>
         </section>
-        {submitLoading ||
-        usernameError ||
-        emailError ||
-        passwordError ||
-        !username ||
-        !email ||
-        !password ? (
+        {submitLoading ? (
           <div className="signup-submit-disabled">
             <p>Signup</p>
           </div>

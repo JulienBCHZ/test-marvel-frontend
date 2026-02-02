@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 30px 40px;
 }
+
 .login-form-vision {
   display: flex;
   flex-direction: column;
@@ -17,9 +18,11 @@
   color: white;
   font-size: 16px;
 }
+
 .login-submit-button:hover {
   cursor: pointer;
 }
+
 .login-submit-disabled {
   height: 45px;
   background-color: rgba(255, 0, 0, 0.387);
@@ -31,6 +34,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .login-submit-disabled > p {
   color: white;
   font-size: 16px;
@@ -40,9 +44,9 @@
 .login-error-message {
   font-weight: 12px;
 }
+
 .signin-error-message {
   text-align: center;
   font-weight: bold;
   color: red;
 }
-

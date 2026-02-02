@@ -1,0 +1,48 @@
+.catchall-container {
+  height: 400px;
+  max-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.catchall-message {
+  color: #c1c1c1;
+  font-size: 40px;
+  font-weight: bold;
+  font-style: italic;
+  box-shadow: none;
+}
+
+.catchall-icon {
+  color: #c1c1c1;
+  font-size: 48px;
+}
+
+@media (max-width: 576px) {
+  .catchall-container {
+    height: 200px;
+    gap: 10px;
+  }
+
+  .catchall-message {
+    font-size: 28px;
+  }
+
+  .catchall-icon {
+    color: #c1c1c1;
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 400px) {
+  .catchall-message {
+    font-size: 26px;
+  }
+
+  .catchall-icon {
+    color: #c1c1c1;
+    font-size: 34px;
+  }
+}

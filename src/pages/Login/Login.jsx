@@ -1,9 +1,9 @@
 import "./login.css";
 
-import LoginForm from "../../components/LoginForm/LoginForm";
+import LoginForm from "../../components/Auth/LoginForm/LoginForm";
 
 import { useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Login = ({ setToken, API_URL }) => {
   const [email, setEmail] = useState("");

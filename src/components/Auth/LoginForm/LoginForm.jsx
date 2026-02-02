@@ -73,6 +73,7 @@ const LoginForm = ({
           name="email"
           value={email}
           onChange={handleChangeEmail}
+          required={true}
         />
         <input
           type="password"
@@ -80,8 +81,9 @@ const LoginForm = ({
           name="password"
           value={password}
           onChange={handleChangePassword}
+          required={true}
         />
-        {submitLoading || !email || !password ? (
+        {submitLoading ? (
           <div className="login-submit-disabled">
             <p>Login</p>
           </div>
