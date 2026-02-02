@@ -18,11 +18,6 @@ input {
   font-size: 16px;
 }
 
-input::placeholder {
-  color: #a7a7a7;
-  font-style: italic;
-}
-
 .input-error {
   height: 40px;
   border: none;
@@ -33,6 +28,34 @@ input::placeholder {
   background-color: rgba(255, 0, 0, 0.053);
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+}
+
+.input-fields {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-field-password {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.password-eye {
+  font-size: 20px;
+  color: #666666;
+  position: absolute;
+  right: 2px;
+  top: 10px;
+}
+
+.field-error-text {
+  height: 16px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-top: 5px;
+  color: red;
 }
 
 .signup-submit-button {
@@ -104,33 +127,5 @@ input::placeholder {
 .signup-error-message {
   text-align: center;
   font-weight: bold;
-  color: red;
-}
-
-.input-fields {
-  display: flex;
-  flex-direction: column;
-}
-
-.input-field-password {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-.password-eye {
-  font-size: 20px;
-  color: #666666;
-  position: absolute;
-  right: 2px;
-  top: 10px;
-}
-
-.field-error-text {
-  height: 16px;
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  margin-top: 5px;
   color: red;
 }

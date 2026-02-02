@@ -96,36 +96,41 @@ const AllComics = ({ search, setSearch, API_URL }) => {
           />
         </div>
       </section>
+
       <section className="all-comics-vision">
-        <div className="change-page">
-          {page > 1 ? (
-            <button
-              className="button-enabled"
-              onClick={() => {
-                setPage(page - 1);
-              }}
-            >
-              <GrPrevious />
-            </button>
-          ) : (
-            <button className="button-disabled"></button>
-          )}
-          <div className="page-number-container">
-            <span>{page}</span>
+        {data.results.length >= 10 ? (
+          <div className="change-page">
+            {page > 1 ? (
+              <button
+                className="button-enabled"
+                onClick={() => {
+                  setPage(page - 1);
+                }}
+              >
+                <GrPrevious />
+              </button>
+            ) : (
+              <button className="button-disabled"></button>
+            )}
+            <div className="page-number-container">
+              <span>{page}</span>
+            </div>
+            {page < 10 ? (
+              <button
+                className="button-enabled"
+                onClick={() => {
+                  setPage(page + 1);
+                }}
+              >
+                <GrNext />
+              </button>
+            ) : (
+              <button className="button-disabled"></button>
+            )}
           </div>
-          {page < 10 ? (
-            <button
-              className="button-enabled"
-              onClick={() => {
-                setPage(page + 1);
-              }}
-            >
-              <GrNext />
-            </button>
-          ) : (
-            <button className="button-disabled"></button>
-          )}
-        </div>
+        ) : (
+          <div className="no-change-page-comics"></div>
+        )}
 
         <section className="all-comics-container">
           {data.results.map((comics) => {
@@ -237,35 +242,39 @@ const AllComics = ({ search, setSearch, API_URL }) => {
             );
           })}
         </section>
-        <div className="change-page">
-          {page > 1 ? (
-            <button
-              className="button-enabled"
-              onClick={() => {
-                setPage(page - 1);
-              }}
-            >
-              <GrPrevious />
-            </button>
-          ) : (
-            <button className="button-disabled"></button>
-          )}
-          <div className="page-number-container">
-            <span>{page}</span>
+        {data.results.length >= 10 ? (
+          <div className="change-page">
+            {page > 1 ? (
+              <button
+                className="button-enabled"
+                onClick={() => {
+                  setPage(page - 1);
+                }}
+              >
+                <GrPrevious />
+              </button>
+            ) : (
+              <button className="button-disabled"></button>
+            )}
+            <div className="page-number-container">
+              <span>{page}</span>
+            </div>
+            {page < 10 ? (
+              <button
+                className="button-enabled"
+                onClick={() => {
+                  setPage(page + 1);
+                }}
+              >
+                <GrNext />
+              </button>
+            ) : (
+              <button className="button-disabled"></button>
+            )}
           </div>
-          {page < 10 ? (
-            <button
-              className="button-enabled"
-              onClick={() => {
-                setPage(page + 1);
-              }}
-            >
-              <GrNext />
-            </button>
-          ) : (
-            <button className="button-disabled"></button>
-          )}
-        </div>
+        ) : (
+          <div className="no-change-page-comics"></div>
+        )}
       </section>
     </>
   );

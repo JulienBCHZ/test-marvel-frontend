@@ -5,6 +5,8 @@ import Cookies from "js-cookie";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 
+import { ImEyeBlocked, ImEye } from "react-icons/im";
+
 const LoginForm = ({
   email,
   setEmail,
@@ -17,6 +19,7 @@ const LoginForm = ({
   const navigate = useNavigate();
 
   const [submitLoading, setSubmitLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -75,14 +78,23 @@ const LoginForm = ({
           onChange={handleChangeEmail}
           required={true}
         />
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          value={password}
-          onChange={handleChangePassword}
-          required={true}
-        />
+        <div className="login-password-input-field">
+          <input
+            type={showPassword ? "text" : "password"}
+            placeholder="Password"
+            name="password"
+            value={password}
+            onChange={handleChangePassword}
+            required={true}
+          />
+          <span
+            className="login-password-eye"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? <ImEyeBlocked /> : <ImEye />}
+          </span>
+        </div>
+
         {submitLoading ? (
           <div className="login-submit-disabled">
             <p>Login</p>

@@ -128,6 +128,11 @@ p {
   cursor: pointer;
 }
 
+.no-change-page-comics {
+  height: 50px;
+  width: 50px;
+}
+
 .comics-search-section {
   background-color: #202020;
   height: 50px;

@@ -122,6 +122,11 @@
   text-align: center;
 }
 
+.no-change-page-characters {
+  height: 50px;
+  width: 50px;
+}
+
 @media (max-width: 1180px) {
   .all-characters-vision {
     max-width: 1024px;
