@@ -18,7 +18,7 @@
   font-style: italic;
   font-weight: bold;
   padding-right: 5px;
-  box-shadow: 7px 12px 10px red;
+  box-shadow: 7px 12px 10px #ed171e;
   border-radius: 3px;
 }
 
@@ -26,24 +26,12 @@
   text-decoration: none;
   background-color: white;
   border: none;
-  color: red;
+  color: #ed171e;
   font-size: 16px;
 }
 
 .existing-acount:hover {
   cursor: pointer;
-}
-
-.signup-error-msg {
-  border: black solid 2px;
-  height: 20px;
-  min-width: 200px;
-  margin-top: 20px;
-}
-
-.signup-error-msg > p {
-  font-size: 16px;
-  color: red;
 }
 
 @media (max-width: 768px) {
@@ -54,7 +42,7 @@
     font-size: 45px;
     line-height: 55px;
     padding-right: 3px;
-    box-shadow: 6px 8px 8px red;
+    box-shadow: 6px 8px 8px #ed171e;
   }
 }
 

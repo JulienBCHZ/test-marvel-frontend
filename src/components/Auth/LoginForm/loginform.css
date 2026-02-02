@@ -24,22 +24,27 @@
   top: 10px;
 }
 
+.login-password-eye:hover {
+  cursor: pointer;
+}
+
 .login-submit-button {
   height: 45px;
-  background-color: red;
+  background-color: #202020;
   border: none;
   border-radius: 5px;
   color: white;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .login-submit-button:hover {
   cursor: pointer;
+  background-color: #ed171e;
 }
 
 .login-submit-disabled {
   height: 45px;
-  background-color: rgba(255, 0, 0, 0.387);
+  background-color: #ed171e88;
   border: none;
   border-radius: 5px;
   color: white;
@@ -50,7 +55,5 @@
 }
 
 .login-submit-disabled > p {
-  color: white;
-  font-size: 16px;
-  font-style: normal;
+  font-style: italic;
 }

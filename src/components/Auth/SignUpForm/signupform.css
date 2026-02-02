@@ -13,7 +13,7 @@
 input {
   height: 40px;
   border: none;
-  border-bottom: red solid;
+  border-bottom: #ed171e solid;
   outline: none;
   font-size: 16px;
 }
@@ -21,7 +21,7 @@ input {
 .input-error {
   height: 40px;
   border: none;
-  border-bottom: red solid;
+  border-bottom: #ed171e solid;
   outline: none;
   font-size: 16px;
   color: red;
@@ -49,6 +49,10 @@ input {
   top: 10px;
 }
 
+.password-eye:hover {
+  cursor: pointer;
+}
+
 .field-error-text {
   height: 16px;
   display: flex;
@@ -60,21 +64,22 @@ input {
 
 .signup-submit-button {
   height: 45px;
-  background-color: rgb(255, 0, 0);
+  background-color: #202020;
   border: none;
   border-radius: 5px;
   color: white;
-  font-size: 16px;
+  font-size: 18px;
   margin-top: 20px;
 }
 
 .signup-submit-button:hover {
   cursor: pointer;
+  background-color: #ed171e;
 }
 
 .signup-submit-disabled {
   height: 45px;
-  background-color: rgba(255, 0, 0, 0.387);
+  background-color: #ed171e88;
   border: none;
   border-radius: 5px;
   color: white;
@@ -86,9 +91,7 @@ input {
 }
 
 .signup-submit-disabled > p {
-  color: white;
-  font-size: 16px;
-  font-style: normal;
+  font-style: italic;
 }
 
 .form-checkbox {

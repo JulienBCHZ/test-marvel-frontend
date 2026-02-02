@@ -26,7 +26,7 @@ h1 {
   gap: 10px;
   overflow: scroll;
   border-radius: 5px;
-  box-shadow: 20px 20px 20px red;
+  box-shadow: 20px 20px 20px #ed171e;
 }
 
 .carousel img {
@@ -44,8 +44,8 @@ h1 {
 
 h1:hover {
   color: white;
-  background-color: red;
-  box-shadow: 10px 10px 5px rgba(255, 0, 0, 0.462);
+  background-color: #ed171e;
+  box-shadow: 10px 10px 5px #ed171e88;
 }
 
 .loadingMain {
@@ -118,7 +118,7 @@ h1:hover {
   .carousel {
     height: 380px;
     gap: 8px;
-    box-shadow: 10px 10px 10px red;
+    box-shadow: 10px 10px 10px #ed171e;
   }
 
   .carousel img {
@@ -143,7 +143,7 @@ h1:hover {
   .carousel {
     height: 404px;
     gap: 8px;
-    box-shadow: 8px 8px 5px red;
+    box-shadow: 8px 8px 5px #ed171e;
   }
 
   .carousel img {
@@ -168,7 +168,7 @@ h1:hover {
   .carousel {
     height: 520px;
     gap: 5px;
-    box-shadow: 8px 8px 5px red;
+    box-shadow: 8px 8px 5px #ed171e;
   }
 
   .carousel img {
