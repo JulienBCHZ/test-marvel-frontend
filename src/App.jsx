@@ -13,6 +13,7 @@ import ComicPage from "./pages/ComicPage/ComicPage";
 import Favorits from "./pages/Favorits/Favorits";
 import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
+import Catchall from "./pages/Catchall/Catchall";
 
 // COMPONENTS
 import Header from "./components/Header/Header";
@@ -55,6 +56,7 @@ function App() {
             path="/auth/login"
             element={<Login setToken={setToken} API_URL={API_URL} />}
           />
+          <Route path="/*" element={<Catchall />} />
         </Routes>
         <Footer />
       </Router>

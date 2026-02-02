@@ -1,6 +1,6 @@
 import "./signup.css";
 
-import SignUpForm from "../../components/SignUpForm/SignUpForm";
+import SignUpForm from "../../components/Auth/SignUpForm/SignUpForm";
 
 import { useState } from "react";
 import { Link } from "react-router-dom";

@@ -18,7 +18,7 @@
   font-style: italic;
   font-weight: bold;
   padding-right: 5px;
-  box-shadow: 7px 12px 10px red;
+  box-shadow: 7px 12px 10px #ed171e;
   border-radius: 3px;
 }
 
@@ -32,19 +32,13 @@
   text-decoration: none;
   background-color: white;
   border: none;
-  color: red;
+  color: #ed171e;
   font-size: 16px;
 }
 
 .no-acount:hover {
   cursor: pointer;
 }
-
-/* @media (max-width: 1180px) {
-  .login-container {
-    max-width: 1024px;
-  }
-} */
 
 @media (max-width: 768px) {
   .login-container {
@@ -55,7 +49,7 @@
     font-size: 45px;
     line-height: 55px;
     padding-right: 3px;
-    box-shadow: 6px 8px 8px red;
+    box-shadow: 6px 8px 8px #ed171e;
   }
 }
 

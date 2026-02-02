@@ -3,32 +3,83 @@
   margin: 0 auto;
   padding: 5px 40px;
 }
+
 .signup-form-vision {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
+
 input {
   height: 40px;
   border: none;
-  border-bottom: red solid;
+  border-bottom: #ed171e solid;
   outline: none;
+  font-size: 16px;
 }
+
+.input-error {
+  height: 40px;
+  border: none;
+  border-bottom: #ed171e solid;
+  outline: none;
+  font-size: 16px;
+  color: red;
+  background-color: rgba(255, 0, 0, 0.053);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.input-fields {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-field-password {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.password-eye {
+  font-size: 20px;
+  color: #666666;
+  position: absolute;
+  right: 2px;
+  top: 10px;
+}
+
+.password-eye:hover {
+  cursor: pointer;
+}
+
+.field-error-text {
+  height: 16px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-top: 5px;
+  color: red;
+}
+
 .signup-submit-button {
   height: 45px;
-  background-color: rgb(255, 0, 0);
+  background-color: #202020;
   border: none;
   border-radius: 5px;
   color: white;
-  font-size: 16px;
+  font-size: 18px;
   margin-top: 20px;
 }
+
 .signup-submit-button:hover {
   cursor: pointer;
+  background-color: #ed171e;
 }
+
 .signup-submit-disabled {
   height: 45px;
-  background-color: rgba(255, 0, 0, 0.387);
+  background-color: #ed171e88;
   border: none;
   border-radius: 5px;
   color: white;
@@ -38,17 +89,18 @@ input {
   align-items: center;
   justify-content: center;
 }
+
 .signup-submit-disabled > p {
-  color: white;
-  font-size: 16px;
-  font-style: normal;
+  font-style: italic;
 }
+
 .form-checkbox {
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin-top: 20px;
 }
+
 .line-checkbox {
   display: flex;
   align-items: center;
@@ -56,10 +108,12 @@ input {
   gap: 20px;
   padding: 0 10px;
 }
+
 .line-checkbox span {
   font-family: Arial, Helvetica, sans-serif;
   color: #666666;
 }
+
 .checkbox {
   height: 20px;
   width: 20px;
@@ -72,21 +126,9 @@ input {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 16px;
 }
+
 .signup-error-message {
   text-align: center;
   font-weight: bold;
-  color: red;
-}
-
-.input-fields {
-  display: flex;
-  flex-direction: column;
-}
-.field-error-text {
-  height: 16px;
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  margin-top: 5px;
   color: red;
 }

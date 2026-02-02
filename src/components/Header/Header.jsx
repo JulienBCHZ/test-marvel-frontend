@@ -1,10 +1,11 @@
 import "./header.css";
-import { BsPersonCircle } from "react-icons/bs";
-import { AiOutlineLogin } from "react-icons/ai";
 
 import { useNavigate, Link } from "react-router-dom";
 import logo from "../../assets/MarvelLogo.svg_uw9pi8.png";
 import Cookies from "js-cookie";
+
+import { BsPersonCircle } from "react-icons/bs";
+import { AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
 
 const Header = ({ setToken }) => {
   const getUserToken = Cookies.get("userToken");
@@ -25,7 +26,7 @@ const Header = ({ setToken }) => {
                   navigate("/");
                 }}
               >
-                <BsPersonCircle /> Logout
+                <AiOutlineLogout /> Logout
               </button>
             </div>
           ) : (
@@ -78,13 +79,13 @@ const Header = ({ setToken }) => {
         </section>
       </div>
       <section className="header-bottom-container">
-        <Link to="/characters" className="header-bottom-link">
+        <Link to="/characters">
           <button className="header-bottom-nav">Characters</button>
         </Link>
-        <Link to="/comics" className="header-bottom-link">
+        <Link to="/comics">
           <button className="header-bottom-nav">Comics</button>
         </Link>
-        <Link to="/favorits" className="header-bottom-link">
+        <Link to="/favorits">
           <button className="header-bottom-nav">Favorits</button>
         </Link>
       </section>

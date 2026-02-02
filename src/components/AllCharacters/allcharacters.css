@@ -33,13 +33,13 @@
   object-fit: cover;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
-  border-bottom: red solid 5px;
+  border-bottom: #ed171e solid 5px;
 }
 
 .character-preview-container img:hover {
-  border-top: red solid 4px;
-  border-left: red solid 4px;
-  border-right: red solid 4px;
+  border-top: #ed171e solid 4px;
+  border-left: #ed171e solid 4px;
+  border-right: #ed171e solid 4px;
 }
 
 .charac-details-container {
@@ -120,6 +120,11 @@
 .page-number-container {
   width: 50px;
   text-align: center;
+}
+
+.no-change-page-characters {
+  height: 50px;
+  width: 50px;
 }
 
 @media (max-width: 1180px) {

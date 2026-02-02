@@ -35,6 +35,7 @@ header > div {
   align-items: center;
   justify-content: space-between;
 }
+
 .user-logout {
   width: 180px;
   padding: 0 7px;
@@ -44,17 +45,23 @@ header > div {
   justify-content: center;
   align-items: center;
 }
+
 .signup-button {
   display: flex;
+  align-items: center;
   gap: 5px;
   color: white;
   background-color: #202020;
   border: none;
   font-size: 16px;
 }
+
 .signup-button:hover {
   cursor: pointer;
+  background-color: #ed171e;
+  border-radius: 2px;
 }
+
 .hidden-signup-button {
   display: none;
   gap: 5px;
@@ -66,15 +73,20 @@ header > div {
 
 .login-button {
   display: flex;
+  align-items: center;
   gap: 5px;
   color: white;
   background-color: #202020;
   border: none;
   font-size: 16.5px;
 }
+
 .login-button:hover {
   cursor: pointer;
+  background-color: #ed171e;
+  border-radius: 2px;
 }
+
 .hidden-login-button {
   display: none;
   gap: 5px;
@@ -90,14 +102,20 @@ header > div {
   align-items: center;
   gap: 5px;
   color: white;
-  background-color: red;
+  background-color: #ed171e;
   border: none;
   font-size: 16px;
   border-radius: 2px;
 }
+
 .logout-button:hover {
   cursor: pointer;
+  /* background-color: #ed171ec6; */
+  background-color: white;
+  color: #ed171e;
+  font-weight: 600;
 }
+
 .logo {
   height: 100%;
 }
@@ -110,8 +128,11 @@ header > div {
   border: none;
   width: 100px;
 }
+
 .header-bottom-nav:hover {
   cursor: pointer;
+  background-color: #ed171e;
+  border-radius: 2px;
 }
 
 .user-onscreen-username {
@@ -126,9 +147,11 @@ header > div {
   line-height: 20px;
   overflow: hidden;
 }
+
 .username-onscreen {
   font-weight: bold;
 }
+
 .not-onscreen-username {
   width: 180px;
   border-left: #202020 solid 0.5px;
@@ -139,9 +162,11 @@ header > div {
   .user-connexion {
     border-left: none;
   }
+
   .user-onscreen-username {
     border-right: none;
   }
+
   .user-logout {
     border-left: none;
   }
@@ -155,9 +180,11 @@ header > div {
   .user-onscreen-username {
     border-right: none;
   }
+
   .user-connexion {
     border-left: none;
   }
+
   .user-logout {
     border-left: none;
   }
@@ -167,11 +194,13 @@ header > div {
   header {
     height: 90px;
   }
+
   .header-container {
     max-width: 768px;
     height: 40px;
     /* gap: 355px; */
   }
+
   .logo {
     height: 40px;
   }
@@ -183,24 +212,29 @@ header > div {
     justify-content: space-around;
     gap: 10px;
   }
+
   .user-onscreen-username {
     width: 160px;
     line-height: 16px;
     border-right: none;
   }
+
   .not-onscreen-username {
     width: 160px;
   }
+
   .user-connexion {
     width: 160px;
     padding: 0;
     justify-content: space-around;
     border-left: none;
   }
+
   .user-logout {
     width: 160px;
     border-left: none;
   }
+
   .signup-button {
     display: none;
   }
@@ -209,19 +243,16 @@ header > div {
     display: flex;
     font-size: 20px;
   }
+
   .hidden-signup-button:hover {
     cursor: pointer;
   }
-  .login-button {
-    display: none;
-  }
-  .login-button:hover {
-    cursor: pointer;
-  }
+
   .hidden-login-button {
     display: flex;
     font-size: 22px;
   }
+
   .logout-button {
     height: 24px;
     gap: 6px;
@@ -234,6 +265,7 @@ header > div {
     height: 90px;
     max-width: 576px;
   }
+
   .header-container {
     max-width: 576px;
     margin: 0 auto;
@@ -242,9 +274,11 @@ header > div {
     justify-content: center;
     /* gap: 355px; */
   }
+
   .logo {
     height: 40px;
   }
+
   .user-onscreen-username {
     width: 145px;
     border-left: none;
@@ -252,12 +286,15 @@ header > div {
     font-size: 12px;
     line-height: 16px;
   }
+
   .username-onscreen {
     font-weight: 500;
   }
+
   .not-onscreen-username {
     width: 145px;
   }
+
   .user-connexion {
     width: 145px;
     padding: 0;
@@ -266,12 +303,14 @@ header > div {
     border-left: none;
     border-right: none;
   }
+
   .user-logout {
     width: 145px;
     padding: 0;
     border-left: none;
     border-right: none;
   }
+
   .header-bottom-container {
     max-width: 576px;
     margin: 0 auto;
@@ -279,33 +318,27 @@ header > div {
     justify-content: space-around;
     gap: 10px;
   }
+
   .header-bottom-nav {
     font-size: 16px;
     width: 100px;
   }
+
   .signup-button {
     display: none;
   }
+
   .hidden-signup-button {
     display: flex;
     font-size: 20px;
   }
-  .hidden-signup-button:hover {
-    cursor: pointer;
-  }
+
   .login-button {
     display: none;
   }
-  .login-button:hover {
-    cursor: pointer;
-  }
+
   .hidden-login-button {
     display: flex;
     font-size: 22px;
-  }
-  .logout-button {
-    height: 24px;
-    gap: 6px;
-    font-size: 14px;
   }
 }

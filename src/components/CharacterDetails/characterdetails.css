@@ -26,7 +26,7 @@
 
 .character-infos {
   background-color: #202020;
-  border: red solid 3px;
+  border: #ed171e solid 3px;
   /* height: 550px; */
   width: 100%;
   display: flex;
@@ -105,7 +105,7 @@
 }
 
 .comic-with-character:hover {
-  color: red;
+  color: #ed171e;
 }
 
 .comic-with-character img {
@@ -117,8 +117,8 @@
 
 .comic-with-character img:hover {
   cursor: pointer;
-  box-shadow: 7px 12px 10px red;
-  border: red solid 1px;
+  box-shadow: 7px 12px 10px #ed171e;
+  border: #ed171e solid 1px;
 }
 
 .comic-with-character h3 {

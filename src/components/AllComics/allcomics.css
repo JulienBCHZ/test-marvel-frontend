@@ -33,7 +33,7 @@
 }
 
 .comic-container img:hover {
-  box-shadow: 7px 12px 10px red;
+  box-shadow: 7px 12px 10px #ed171e;
 }
 
 .comicsAdd-favorit-icon {
@@ -86,7 +86,7 @@ h2 {
 
 .comics-title-link > h2:hover {
   cursor: pointer;
-  color: red;
+  color: #ed171e;
 }
 
 p {
@@ -126,6 +126,11 @@ p {
 
 .button-enabled:hover {
   cursor: pointer;
+}
+
+.no-change-page-comics {
+  height: 50px;
+  width: 50px;
 }
 
 .comics-search-section {

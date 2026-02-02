@@ -3,26 +3,48 @@
   margin: 0 auto;
   padding: 30px 40px;
 }
+
 .login-form-vision {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
 
+.login-password-input-field {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.login-password-eye {
+  font-size: 20px;
+  color: #666666;
+  position: absolute;
+  right: 2px;
+  top: 10px;
+}
+
+.login-password-eye:hover {
+  cursor: pointer;
+}
+
 .login-submit-button {
   height: 45px;
-  background-color: red;
+  background-color: #202020;
   border: none;
   border-radius: 5px;
   color: white;
-  font-size: 16px;
+  font-size: 18px;
 }
+
 .login-submit-button:hover {
   cursor: pointer;
+  background-color: #ed171e;
 }
+
 .login-submit-disabled {
   height: 45px;
-  background-color: rgba(255, 0, 0, 0.387);
+  background-color: #ed171e88;
   border: none;
   border-radius: 5px;
   color: white;
@@ -31,18 +53,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .login-submit-disabled > p {
-  color: white;
-  font-size: 16px;
-  font-style: normal;
+  font-style: italic;
 }
-
-.login-error-message {
-  font-weight: 12px;
-}
-.signin-error-message {
-  text-align: center;
-  font-weight: bold;
-  color: red;
-}
-

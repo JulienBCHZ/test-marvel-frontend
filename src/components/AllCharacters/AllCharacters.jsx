@@ -91,44 +91,50 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
           <HiOutlineSearch />
           <input
             type="text"
-            placeholder="Rechercher des personnages"
+            placeholder="Search characters..."
             name="search"
             value={search}
             onChange={handleSearch}
           />
         </div>
       </section>
-      <section className="all-characters-vision">
-        <div className="change-page">
-          {page > 1 ? (
-            <button
-              className="button-enabled"
-              onClick={() => {
-                setPage(page - 1);
-              }}
-            >
-              <GrPrevious />
-            </button>
-          ) : (
-            <button className="button-disabled"></button>
-          )}
-          <div className="page-number-container">
-            <span>{page}</span>
-          </div>
 
-          {page < 20 ? (
-            <button
-              className="button-enabled"
-              onClick={() => {
-                setPage(page + 1);
-              }}
-            >
-              <GrNext />
-            </button>
-          ) : (
-            <button className="button-disabled"></button>
-          )}
-        </div>
+      <section className="all-characters-vision">
+        {data.results.length >= 12 ? (
+          <div className="change-page">
+            {page > 1 ? (
+              <button
+                className="button-enabled"
+                onClick={() => {
+                  setPage(page - 1);
+                }}
+              >
+                <GrPrevious />
+              </button>
+            ) : (
+              <button className="button-disabled"></button>
+            )}
+            <div className="page-number-container">
+              <span>{page}</span>
+            </div>
+
+            {page < 20 ? (
+              <button
+                className="button-enabled"
+                onClick={() => {
+                  setPage(page + 1);
+                }}
+              >
+                <GrNext />
+              </button>
+            ) : (
+              <button className="button-disabled"></button>
+            )}
+          </div>
+        ) : (
+          <div className="no-change-page-characters"></div>
+        )}
+
         <section className="all-characters-container">
           {data.results.map((characters) => {
             const picture = getImage(characters.thumbnail);
@@ -248,35 +254,39 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
             );
           })}
         </section>
-        <div className="change-page">
-          {page > 1 ? (
-            <button
-              className="button-enabled"
-              onClick={() => {
-                setPage(page - 1);
-              }}
-            >
-              <GrPrevious />
-            </button>
-          ) : (
-            <button className="button-disabled"></button>
-          )}
-          <div className="page-number-container">
-            <span>{page}</span>
+        {data.results.length >= 12 ? (
+          <div className="change-page">
+            {page > 1 ? (
+              <button
+                className="button-enabled"
+                onClick={() => {
+                  setPage(page - 1);
+                }}
+              >
+                <GrPrevious />
+              </button>
+            ) : (
+              <button className="button-disabled"></button>
+            )}
+            <div className="page-number-container">
+              <span>{page}</span>
+            </div>
+            {page < 20 ? (
+              <button
+                className="button-enabled"
+                onClick={() => {
+                  setPage(page + 1);
+                }}
+              >
+                <GrNext />
+              </button>
+            ) : (
+              <button className="button-disabled"></button>
+            )}
           </div>
-          {page < 20 ? (
-            <button
-              className="button-enabled"
-              onClick={() => {
-                setPage(page + 1);
-              }}
-            >
-              <GrNext />
-            </button>
-          ) : (
-            <button className="button-disabled"></button>
-          )}
-        </div>
+        ) : (
+          <div className="no-change-page"></div>
+        )}
       </section>
     </>
   );
