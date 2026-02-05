@@ -12,6 +12,7 @@ import getImage from "../../utils/getImage";
 
 import { MdFavoriteBorder } from "react-icons/md";
 import { MdFavorite } from "react-icons/md";
+import { GiSpiderMask } from "react-icons/gi";
 
 const AllComics = ({ search, setSearch, API_URL }) => {
   const getUserToken = Cookies.get("userToken") || null;
@@ -89,13 +90,20 @@ const AllComics = ({ search, setSearch, API_URL }) => {
           <HiOutlineSearch />
           <input
             type="text"
-            placeholder="Rechercher des comics"
+            placeholder="Search for comics..."
             name="search"
             value={search}
             onChange={handleSearch}
           />
         </div>
       </section>
+
+      {data.results.length === 0 && (
+        <info className="no-item-container">
+          <p className="no-item-message">No comic found...</p>
+          <GiSpiderMask className="no-item-icon" />
+        </info>
+      )}
 
       <section className="all-comics-vision">
         {data.results.length >= 10 ? (

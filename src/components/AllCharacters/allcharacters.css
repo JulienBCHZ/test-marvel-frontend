@@ -18,10 +18,11 @@
 
 .characters-search-section {
   background-color: #202020;
-  height: 50px;
+  height: 46px;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 10px;
 }
 
 .characters-search-bar {
@@ -125,6 +126,28 @@
   cursor: pointer;
 }
 
+.no-one-container {
+  height: 400px;
+  max-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.no-one-message {
+  color: #c1c1c1;
+  font-size: 40px;
+  font-weight: bold;
+  font-style: italic;
+  box-shadow: none;
+}
+
+.no-one-icon {
+  color: #c1c1c1;
+  font-size: 48px;
+}
+
 @media (max-width: 1180px) {
   .all-characters-vision {
     max-width: 1024px;
@@ -176,6 +199,7 @@
     max-width: 576px;
     padding: 50px 10px;
   }
+
   .all-characters-container {
     gap: 35px 18px;
   }
@@ -203,8 +227,32 @@
   }
 
   .characters-search-bar > input {
-    height: 24px;
     width: 310px;
     font-size: 17px;
+  }
+
+  .no-one-container {
+    height: 200px;
+    gap: 10px;
+  }
+
+  .no-one-message {
+    font-size: 28px;
+  }
+
+  .no-one-icon {
+    color: #c1c1c1;
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 400px) {
+  .no-one-message {
+    font-size: 26px;
+  }
+
+  .no-one-icon {
+    color: #c1c1c1;
+    font-size: 34px;
   }
 }

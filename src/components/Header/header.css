@@ -172,7 +172,7 @@ header > div {
     max-width: 768px;
     height: 49.5px;
     justify-content: space-around;
-    gap: 10px;
+    gap: 0;
   }
 
   .user-onscreen-username {

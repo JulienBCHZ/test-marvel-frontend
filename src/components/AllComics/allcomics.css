@@ -13,7 +13,31 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  /* gap: 20px; */
+}
+
+.comics-search-section {
+  background-color: #202020;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.comics-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 26px;
+  color: white;
+}
+
+.comics-search-bar > input {
+  height: 24px;
+  width: 470px;
+  border: #202020 solid 0.5px;
+  border-radius: 2px;
+  font-size: 18px;
 }
 
 .comic-container {
@@ -133,33 +157,30 @@ p {
   width: 50px;
 }
 
-.comics-search-section {
-  background-color: #202020;
-  height: 50px;
-  border-top: grey solid 0.5px;
+.comics-title-link {
+  text-decoration: none;
+}
+
+.no-item-container {
+  height: 400px;
+  max-width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.comics-search-bar {
-  display: flex;
-  align-items: center;
   gap: 10px;
-  font-size: 26px;
-  color: white;
 }
 
-.comics-search-bar > input {
-  height: 24px;
-  width: 470px;
-  border: #202020 solid 0.5px;
-  border-radius: 2px;
-  font-size: 18px;
+.no-item-message {
+  color: #c1c1c1;
+  font-size: 40px;
+  font-weight: bold;
+  font-style: italic;
+  box-shadow: none;
 }
 
-.comics-title-link {
-  text-decoration: none;
+.no-item-icon {
+  color: #c1c1c1;
+  font-size: 48px;
 }
 
 @media (max-width: 992px) {
@@ -272,5 +293,30 @@ p {
     height: 24px;
     width: 310px;
     font-size: 17px;
+  }
+
+  .no-item-container {
+    height: 200px;
+    gap: 10px;
+  }
+
+  .no-item-message {
+    font-size: 28px;
+  }
+
+  .no-item-icon {
+    color: #c1c1c1;
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 400px) {
+  .no-item-message {
+    font-size: 26px;
+  }
+
+  .no-item-icon {
+    color: #c1c1c1;
+    font-size: 34px;
   }
 }
