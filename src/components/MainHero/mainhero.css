@@ -22,7 +22,6 @@
   flex-grow: 0;
   flex-shrink: 0;
   flex-basis: 10em;
-  /* width: calc(100% / 3); */
 }
 
 @keyframes spin {
@@ -33,14 +32,6 @@
     transform: translateX(-100%);
   }
 }
-/* @keyframes spin {
-  from {
-    translate: 0;
-  }
-  to {
-    translate: -100%;
-  }
-} */
 
 .hero-image {
   height: 100%;
@@ -86,40 +77,5 @@
 @media (max-width: 768px) {
   .hero-carousel {
     display: none;
-    height: 400px;
-  }
-}
-@media (max-width: 576px) {
-  .hero-carousel {
-    display: none;
-    height: 350px;
-    overflow-x: auto;
-    overflow-y: hidden;
-
-    /* iOS smooth scroll */
-    -webkit-overflow-scrolling: touch;
-
-    scroll-behavior: smooth;
-  }
-
-  .characters-group {
-    display: flex;
-    animation: none;
-    /* width: 100vw; */
-  }
-
-  .picture-card {
-    width: 100vw;
-    /* flex-shrink: 0; */
-    flex: none;
-  }
-
-  .hidden-group {
-    display: none;
-  }
-
-  .hero-image {
-    min-width: 100%;
-    object-fit: cover;
   }
 }

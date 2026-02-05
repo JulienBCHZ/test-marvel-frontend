@@ -13,7 +13,6 @@ import getImage from "../../utils/getImage";
 import { MdFavoriteBorder } from "react-icons/md";
 import { MdFavorite } from "react-icons/md";
 
-// search={search} setSearch={setSearch}
 const AllCharacters = ({ search, setSearch, API_URL }) => {
   const getUserToken = Cookies.get("userToken") || null;
 

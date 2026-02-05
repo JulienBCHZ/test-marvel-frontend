@@ -13,7 +13,6 @@ header > div {
   height: 60px;
   display: flex;
   justify-content: space-between;
-  /* gap: 355px; */
 }
 
 .header-bottom-container {
@@ -29,8 +28,6 @@ header > div {
 .user-connexion {
   width: 180px;
   padding: 0 7px;
-  border-left: grey solid 0.5px;
-  border-right: grey solid 0.5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -39,8 +36,6 @@ header > div {
 .user-logout {
   width: 180px;
   padding: 0 7px;
-  border-left: grey solid 0.5px;
-  border-right: grey solid 0.5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -110,7 +105,6 @@ header > div {
 
 .logout-button:hover {
   cursor: pointer;
-  /* background-color: #ed171ec6; */
   background-color: white;
   color: #ed171e;
   font-weight: 600;
@@ -137,8 +131,6 @@ header > div {
 
 .user-onscreen-username {
   width: 180px;
-  border-left: grey solid 0.5px;
-  border-right: grey solid 0.5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -154,39 +146,11 @@ header > div {
 
 .not-onscreen-username {
   width: 180px;
-  border-left: #202020 solid 0.5px;
-  border-right: #202020 solid 0.5px;
-}
-
-@media (max-width: 1180px) {
-  .user-connexion {
-    border-left: none;
-  }
-
-  .user-onscreen-username {
-    border-right: none;
-  }
-
-  .user-logout {
-    border-left: none;
-  }
 }
 
 @media (max-width: 1024px) {
   .logo {
     height: 60px;
-  }
-
-  .user-onscreen-username {
-    border-right: none;
-  }
-
-  .user-connexion {
-    border-left: none;
-  }
-
-  .user-logout {
-    border-left: none;
   }
 }
 
@@ -198,7 +162,6 @@ header > div {
   .header-container {
     max-width: 768px;
     height: 40px;
-    /* gap: 355px; */
   }
 
   .logo {
@@ -207,7 +170,6 @@ header > div {
 
   .header-bottom-container {
     max-width: 768px;
-    margin: 0 auto;
     height: 49.5px;
     justify-content: space-around;
     gap: 10px;
@@ -216,7 +178,6 @@ header > div {
   .user-onscreen-username {
     width: 160px;
     line-height: 16px;
-    border-right: none;
   }
 
   .not-onscreen-username {
@@ -227,12 +188,10 @@ header > div {
     width: 160px;
     padding: 0;
     justify-content: space-around;
-    border-left: none;
   }
 
   .user-logout {
     width: 160px;
-    border-left: none;
   }
 
   .signup-button {
@@ -248,9 +207,17 @@ header > div {
     cursor: pointer;
   }
 
+  .login-button {
+    display: none;
+  }
+
   .hidden-login-button {
     display: flex;
     font-size: 22px;
+  }
+
+  .hidden-login-button:hover {
+    cursor: pointer;
   }
 
   .logout-button {
@@ -268,11 +235,6 @@ header > div {
 
   .header-container {
     max-width: 576px;
-    margin: 0 auto;
-    height: 40px;
-    margin: 0;
-    justify-content: center;
-    /* gap: 355px; */
   }
 
   .logo {
@@ -282,7 +244,6 @@ header > div {
   .user-onscreen-username {
     width: 145px;
     border-left: none;
-    border-right: none;
     font-size: 12px;
     line-height: 16px;
   }
@@ -297,26 +258,16 @@ header > div {
 
   .user-connexion {
     width: 145px;
-    padding: 0;
-    justify-content: space-around;
     padding: 0 10px;
-    border-left: none;
-    border-right: none;
   }
 
   .user-logout {
     width: 145px;
     padding: 0;
-    border-left: none;
-    border-right: none;
   }
 
   .header-bottom-container {
     max-width: 576px;
-    margin: 0 auto;
-    height: 49.5px;
-    justify-content: space-around;
-    gap: 10px;
   }
 
   .header-bottom-nav {

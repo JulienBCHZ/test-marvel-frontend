@@ -42,9 +42,7 @@
   }
 
   .hero-slide-image {
-    width: 100vw;
     height: 630px;
-    object-fit: cover;
   }
 }
 
@@ -54,8 +52,6 @@
   }
 
   .hero-slide-image {
-    width: 100vw;
     height: 450px;
-    object-fit: cover;
   }
 }
