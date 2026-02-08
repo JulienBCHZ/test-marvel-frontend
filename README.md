@@ -57,7 +57,7 @@ git clone https://github.com/JulienBCHZ/test-marvel-frontend
 ```bash
 npm install
 # ou
-yarn install
+yarn
 ```
 
 3. Lancer le projet en mode développement :
