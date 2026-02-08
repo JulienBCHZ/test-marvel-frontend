@@ -1,5 +1,3 @@
-import "./comics.css";
-
 import AllComics from "../../components/AllComics/AllComics";
 
 import { useState } from "react";

@@ -1,5 +1,3 @@
-import "./catchall.css";
-
 import { TfiFaceSad } from "react-icons/tfi";
 import { GiSpiderMask } from "react-icons/gi";
 

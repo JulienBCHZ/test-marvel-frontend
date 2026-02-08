@@ -1,5 +1,3 @@
-import "./favorits.css";
-
 import AllFavorits from "../../components/AllFavorits/AllFavorits";
 
 import Cookies from "js-cookie";

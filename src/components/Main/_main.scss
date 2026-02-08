@@ -7,45 +7,42 @@
   align-items: center;
   gap: 40px;
   padding: 100px 0;
-}
-
-h1 {
-  font-size: 50px;
-  line-height: 60px;
-  font-style: italic;
-  font-weight: bold;
-  padding-right: 5px;
-  box-shadow: 10px 10px 5px #202020;
-  border-radius: 3px;
+  h1 {
+    font-size: 50px;
+    line-height: 60px;
+    font-style: italic;
+    font-weight: bold;
+    padding-right: 5px;
+    box-shadow: 10px 10px 5px #202020;
+    border-radius: 3px;
+    &:hover {
+      color: white;
+      background-color: #ed171e;
+      box-shadow: 10px 10px 5px #ed171e88;
+    }
+  }
 }
 
 .carousel {
   background-color: #202020;
   height: 600px;
+  width: 1180px;
   display: flex;
   gap: 10px;
   overflow: scroll;
   border-radius: 5px;
   box-shadow: 20px 20px 20px #ed171e;
-}
-
-.carousel img {
-  width: calc((100% - 20px) / 3);
-}
-
-.carousel img:hover {
-  cursor: pointer;
+  img {
+    width: calc((1168px - 20px) / 3);
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 
 .read-comics-link {
   text-decoration: none;
   color: #202020;
-}
-
-h1:hover {
-  color: white;
-  background-color: #ed171e;
-  box-shadow: 10px 10px 5px #ed171e88;
 }
 
 .loadingMain {

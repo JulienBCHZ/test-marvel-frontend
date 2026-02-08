@@ -1,5 +1,3 @@
-import "./signup.css";
-
 import SignUpForm from "../../components/Auth/SignUpForm/SignUpForm";
 
 import { useState } from "react";

@@ -1,8 +1,8 @@
-.main-signup {
+.main-login {
   min-height: calc(100vh - 150px);
 }
 
-.signup-container {
+.login-container {
   max-width: 1180px;
   margin: 0 auto;
   padding: 30px 0;
@@ -12,7 +12,7 @@
   gap: 50px;
 }
 
-.signup-title {
+.login-title {
   font-size: 50px;
   line-height: 60px;
   font-style: italic;
@@ -22,23 +22,29 @@
   border-radius: 3px;
 }
 
-.existing-acount {
+.to-signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-acount {
   text-decoration: none;
   background-color: white;
   border: none;
   color: #ed171e;
   font-size: 16px;
-}
-
-.existing-acount:hover {
-  cursor: pointer;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 @media (max-width: 768px) {
-  .signup-container {
+  .login-container {
     max-width: 768px;
   }
-  .signup-title {
+
+  .login-title {
     font-size: 45px;
     line-height: 55px;
     padding-right: 3px;
@@ -47,13 +53,11 @@
 }
 
 @media (max-width: 576px) {
-  .main-signup {
+  .main-login {
     min-height: calc(100vh - 150px);
     background-color: white;
   }
-
-  .signup-container {
+  .login-container {
     max-width: 576px;
-    gap: 45px;
   }
 }

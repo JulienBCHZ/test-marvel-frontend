@@ -1,5 +1,3 @@
-import "./characters.css";
-
 import AllCharacters from "../../components/AllCharacters/AllCharacters";
 
 import { useState } from "react";

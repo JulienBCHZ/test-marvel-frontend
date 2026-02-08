@@ -1,0 +1,27 @@
+@use "./pages/Signup/signup";
+@use "./pages/Login/login";
+@use "./pages/Home/home";
+@use "./pages/Favorits/favorits";
+@use "./pages/Comics/comics";
+@use "./pages/ComicPage/comicpage";
+@use "./pages/Characters/characters";
+@use "./pages/CharacterPage/characterpage";
+@use "./pages/Catchall/catchall";
+@use "./components/MainHero/mainhero";
+@use "./components/Main/main";
+
+body {
+  background-color: white;
+  font-family: "Montserrat", sans-serif;
+}
+
+input::placeholder {
+  color: #a7a7a7;
+  font-style: italic;
+}
+
+@media (max-width: 576px) {
+  body {
+    background-color: #202020;
+  }
+}
