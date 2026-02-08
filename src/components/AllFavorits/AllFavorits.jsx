@@ -1,5 +1,3 @@
-import "./allfavorits.css";
-
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useState, useEffect } from "react";

@@ -1,5 +1,3 @@
-import "./slidebyslide.css";
-
 import { useEffect, useRef } from "react";
 
 import getImage from "../../utils/getImage";

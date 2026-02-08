@@ -1,5 +1,3 @@
-import "./signupform.css";
-
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";

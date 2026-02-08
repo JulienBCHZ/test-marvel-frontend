@@ -31,14 +31,13 @@
   gap: 10px;
   font-size: 26px;
   color: white;
-}
-
-.characters-search-bar > input {
-  height: 24px;
-  width: 470px;
-  border: #202020 solid 0.5px;
-  border-radius: 2px;
-  font-size: 18px;
+  input {
+    height: 24px;
+    width: 470px;
+    border: #202020 solid 0.5px;
+    border-radius: 2px;
+    font-size: 18px;
+  }
 }
 
 .page-number-container {
@@ -60,21 +59,19 @@
   flex-direction: column;
   flex-shrink: 0;
   border-radius: 3px;
-}
-
-.character-preview-container img {
-  height: 225px;
-  width: 100%;
-  object-fit: cover;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-  border-bottom: #ed171e solid 5px;
-}
-
-.character-preview-container img:hover {
-  border-top: #ed171e solid 4px;
-  border-left: #ed171e solid 4px;
-  border-right: #ed171e solid 4px;
+  img {
+    height: 225px;
+    width: 100%;
+    object-fit: cover;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom: #ed171e solid 5px;
+    &:hover {
+      border-top: #ed171e solid 4px;
+      border-left: #ed171e solid 4px;
+      border-right: #ed171e solid 4px;
+    }
+  }
 }
 
 .charac-details-container {
@@ -90,16 +87,15 @@
   line-height: 20px;
   text-decoration: none;
   color: white;
+  &:hover {
+    cursor: pointer;
+    color: rgb(255, 74, 74);
+    font-size: 19px;
+  }
 }
 
 .char-name-link {
   text-decoration: none;
-}
-
-.characters-name > h2:hover {
-  cursor: pointer;
-  color: rgb(255, 74, 74);
-  font-size: 19px;
 }
 
 .charAdd-favorit-icon {
@@ -107,11 +103,10 @@
   color: white;
   position: absolute;
   bottom: 17px;
-}
-
-.charAdd-favorit-icon:hover {
-  cursor: pointer;
-  color: rgb(255, 157, 157);
+  &:hover {
+    cursor: pointer;
+    color: rgb(255, 157, 157);
+  }
 }
 
 .charRemove-favorit-icon {
@@ -120,10 +115,9 @@
   position: absolute;
   bottom: 17px;
   z-index: 1000;
-}
-
-.charRemove-favorit-icon:hover {
-  cursor: pointer;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .no-one-container {
@@ -224,11 +218,10 @@
   .characters-search-bar {
     gap: 6px;
     font-size: 24px;
-  }
-
-  .characters-search-bar > input {
-    width: 310px;
-    font-size: 17px;
+    input {
+      width: 310px;
+      font-size: 17px;
+    }
   }
 
   .no-one-container {

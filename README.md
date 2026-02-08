@@ -25,7 +25,7 @@ L’objectif était de réaliser les tâches suivantes de manière autonome :
 - **React Router** — Gestion des routes
 - **JS Cookie** — Gestion de l’authentification (session), via le stockage du token de l'utilisateur dans un cookie
 - **Axios** - Requêtes vers le Back-End
-- **CSS** — Style du site
+- **SCSS** — Style du site
 - **Responsive Design**
 
 ---

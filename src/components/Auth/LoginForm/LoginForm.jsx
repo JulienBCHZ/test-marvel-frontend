@@ -1,5 +1,3 @@
-import "./loginform.css";
-
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -72,7 +70,7 @@ const LoginForm = ({
       <form onSubmit={handleSubmit} className="login-form-vision">
         <input
           type="email"
-          placeholder="Email"
+          placeholder="email"
           name="email"
           value={email}
           onChange={handleChangeEmail}
@@ -81,7 +79,7 @@ const LoginForm = ({
         <div className="login-password-input-field">
           <input
             type={showPassword ? "text" : "password"}
-            placeholder="Password"
+            placeholder="password"
             name="password"
             value={password}
             onChange={handleChangePassword}

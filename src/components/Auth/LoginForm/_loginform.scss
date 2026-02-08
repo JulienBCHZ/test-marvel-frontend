@@ -22,10 +22,9 @@
   position: absolute;
   right: 2px;
   top: 10px;
-}
-
-.login-password-eye:hover {
-  cursor: pointer;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .login-submit-button {
@@ -35,11 +34,10 @@
   border-radius: 5px;
   color: white;
   font-size: 18px;
-}
-
-.login-submit-button:hover {
-  cursor: pointer;
-  background-color: #ed171e;
+  &:hover {
+    cursor: pointer;
+    background-color: #ed171e;
+  }
 }
 
 .login-submit-disabled {
@@ -52,8 +50,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.login-submit-disabled > p {
-  font-style: italic;
+  p {
+    font-style: italic;
+  }
 }

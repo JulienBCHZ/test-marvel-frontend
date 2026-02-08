@@ -9,6 +9,16 @@
 @use "./pages/Catchall/catchall";
 @use "./components/MainHero/mainhero";
 @use "./components/Main/main";
+@use "./components/Header/header";
+@use "./components/SlideBySlide/slidebyslide";
+@use "./components/Footer/footer";
+@use "./components/ComicDetails/comicdetails";
+@use "./components/CharacterDetails/characterdetails";
+@use "./components/Auth/SignUpForm/signupform";
+@use "./components/Auth/LoginForm/loginform";
+@use "./components/AllFavorits/allfavorits";
+@use "./components/AllComics/allcomics";
+@use "./components/AllCharacters/allcharacters";
 
 body {
   background-color: white;
