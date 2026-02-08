@@ -1,4 +1,3 @@
-import "./allcomics.css";
 import { GrNext } from "react-icons/gr";
 import { GrPrevious } from "react-icons/gr";
 import { HiOutlineSearch } from "react-icons/hi";

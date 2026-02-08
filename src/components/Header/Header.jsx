@@ -1,5 +1,3 @@
-import "./header.css";
-
 import { useNavigate, Link } from "react-router-dom";
 import logo from "../../assets/MarvelLogo.svg_uw9pi8.png";
 import Cookies from "js-cookie";

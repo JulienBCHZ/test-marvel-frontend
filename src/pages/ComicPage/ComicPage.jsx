@@ -1,5 +1,3 @@
-import "./comicpage.css";
-
 import ComicDetails from "../../components/ComicDetails/ComicDetails";
 
 const ComicPage = ({ API_URL }) => {

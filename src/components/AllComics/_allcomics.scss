@@ -30,14 +30,13 @@
   gap: 10px;
   font-size: 26px;
   color: white;
-}
-
-.comics-search-bar > input {
-  height: 24px;
-  width: 470px;
-  border: #202020 solid 0.5px;
-  border-radius: 2px;
-  font-size: 18px;
+  input {
+    height: 24px;
+    width: 470px;
+    border: #202020 solid 0.5px;
+    border-radius: 2px;
+    font-size: 18px;
+  }
 }
 
 .comic-container {
@@ -47,17 +46,15 @@
   padding: 25px 0;
   width: 100%;
   position: relative;
-}
-
-.comic-container img {
-  height: 620px;
-  width: 408px;
-  box-shadow: 7px 12px 10px #202020;
-  border-radius: 2px;
-}
-
-.comic-container img:hover {
-  box-shadow: 7px 12px 10px #ed171e;
+  img {
+    height: 620px;
+    width: 408px;
+    box-shadow: 7px 12px 10px #202020;
+    border-radius: 2px;
+    &:hover {
+      box-shadow: 7px 12px 10px #ed171e;
+    }
+  }
 }
 
 .comicsAdd-favorit-icon {
@@ -66,11 +63,10 @@
   position: absolute;
   top: 20px;
   right: 5px;
-}
-
-.comicsAdd-favorit-icon:hover {
-  cursor: pointer;
-  color: rgb(255, 157, 157);
+  &:hover {
+    cursor: pointer;
+    color: rgb(255, 157, 157);
+  }
 }
 
 .comicsRemove-favorit-icon {
@@ -80,10 +76,9 @@
   top: 20px;
   right: 5px;
   z-index: 1000;
-}
-
-.comicsRemove-favorit-icon:hover {
-  cursor: pointer;
+  :hover {
+    cursor: pointer;
+  }
 }
 
 .details-container {
@@ -122,10 +117,9 @@ p {
   display: flex;
   align-items: center;
   gap: 40px;
-}
-
-.change-page span {
-  font-size: 28px;
+  span {
+    font-size: 28px;
+  }
 }
 
 .button-enabled {
@@ -139,6 +133,9 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .button-disabled {
@@ -146,10 +143,6 @@ p {
   border: none;
   height: 50px;
   width: 50px;
-}
-
-.button-enabled:hover {
-  cursor: pointer;
 }
 
 .no-change-page-comics {
@@ -201,12 +194,12 @@ p {
     flex-direction: column;
     gap: 0;
     padding: 25px 0;
-  }
-  .comic-container img {
-    height: 620px;
-    width: 408px;
-    box-shadow: 7px 12px 10px #202020;
-    border-radius: 2px;
+    img {
+      height: 620px;
+      width: 408px;
+      box-shadow: 7px 12px 10px #202020;
+      border-radius: 2px;
+    }
   }
 
   .comicsAdd-favorit-icon {
@@ -253,11 +246,10 @@ p {
     padding: 30px 0;
     width: 100%;
     position: relative;
-  }
-
-  .comic-container img {
-    height: 570px;
-    width: 100%;
+    img {
+      height: 570px;
+      width: 100%;
+    }
   }
 
   .details-container {
@@ -287,12 +279,11 @@ p {
   .comics-search-bar {
     gap: 6px;
     font-size: 24px;
-  }
-
-  .comics-search-bar > input {
-    height: 24px;
-    width: 310px;
-    font-size: 17px;
+    input {
+      height: 24px;
+      width: 310px;
+      font-size: 17px;
+    }
   }
 
   .no-item-container {

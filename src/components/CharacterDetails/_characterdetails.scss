@@ -32,12 +32,11 @@
   display: flex;
   border-radius: 2px;
   position: relative;
-}
-
-.character-infos img {
-  height: 100%;
-  width: 560px;
-  object-fit: cover;
+  img {
+    height: 100%;
+    width: 560px;
+    object-fit: cover;
+  }
 }
 
 .charac-details-add-favorit {
@@ -46,11 +45,10 @@
   color: white;
   right: 10px;
   top: 10px;
-}
-
-.charac-details-add-favorit:hover {
-  color: rgb(255, 157, 157);
-  cursor: pointer;
+  &:hover {
+    color: rgb(255, 157, 157);
+    cursor: pointer;
+  }
 }
 
 .charac-details-remove-favorit {
@@ -60,10 +58,9 @@
   right: 10px;
   top: 10px;
   z-index: 1000;
-}
-
-.charac-details-remove-favorit:hover {
-  cursor: pointer;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .charac-details-favorit-hidden {
@@ -77,16 +74,14 @@
   padding: 50px 35px;
   gap: 70px;
   text-align: justify;
-}
-
-.charact-info-details p {
-  font-size: 18px;
-  line-height: 26px;
-  color: white;
-}
-
-.charact-info-details h2 {
-  color: white;
+  p {
+    font-size: 18px;
+    line-height: 26px;
+    color: white;
+  }
+  h2 {
+    color: white;
+  }
 }
 
 .comics-character-container {
@@ -102,29 +97,25 @@
   gap: 20px;
   text-decoration: none;
   color: #202020;
-}
-
-.comic-with-character:hover {
-  color: #ed171e;
-}
-
-.comic-with-character img {
-  height: 420px;
-  width: 100%;
-  object-fit: cover;
-  box-shadow: 7px 12px 10px #202020;
-}
-
-.comic-with-character img:hover {
-  cursor: pointer;
-  box-shadow: 7px 12px 10px #ed171e;
-  border: #ed171e solid 1px;
-}
-
-.comic-with-character h3 {
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 15px;
+  :hover {
+    color: #ed171e;
+  }
+  img {
+    height: 420px;
+    width: 100%;
+    object-fit: cover;
+    box-shadow: 7px 12px 10px #202020;
+    &:hover {
+      cursor: pointer;
+      box-shadow: 7px 12px 10px #ed171e;
+      border: #ed171e solid 1px;
+    }
+  }
+  h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+  }
 }
 
 @media (max-width: 1248px) {
@@ -146,10 +137,9 @@
     gap: 20px;
     text-decoration: none;
     color: #202020;
-  }
-
-  .comic-with-character img {
-    height: 500px;
+    img {
+      height: 500px;
+    }
   }
 }
 
@@ -177,15 +167,13 @@
   .comics-character-container {
     max-width: 704px;
     gap: 30px 60px;
-    /* padding-left: 100px; */
   }
 
   .character-infos {
     max-height: 400px;
-  }
-
-  .character-infos img {
-    width: 400px;
+    img {
+      width: 400px;
+    }
   }
 
   .charac-details-add-favorit {
@@ -201,19 +189,17 @@
     padding: 30px 25px;
     gap: 40px;
     text-align: start;
+    p {
+      font-size: 17px;
+      line-height: 24px;
+    }
+    h2 {
+      font-size: 22px;
+    }
   }
 
   .comic-with-character img {
     height: 500px;
-  }
-
-  .charact-info-details p {
-    font-size: 17px;
-    line-height: 24px;
-  }
-
-  .charact-info-details h2 {
-    font-size: 22px;
   }
 }
 
@@ -226,11 +212,10 @@
 
   .character-infos {
     max-height: 350px;
-  }
-
-  .character-infos img {
-    width: 270px;
-    object-fit: contain;
+    img {
+      width: 270px;
+      object-fit: contain;
+    }
   }
 
   .charac-details-add-favorit {
@@ -245,15 +230,13 @@
     padding: 20px 15px;
     gap: 20px;
     text-align: start;
-  }
-
-  .charact-info-details p {
-    font-size: 16px;
-    line-height: 22px;
-  }
-
-  .charact-info-details h2 {
-    font-size: 20px;
+    p {
+      font-size: 16px;
+      line-height: 22px;
+    }
+    h2 {
+      font-size: 20px;
+    }
   }
 
   .comics-character-container {
@@ -265,9 +248,6 @@
     width: 100%;
     padding-bottom: 20px;
     scroll-behavior: smooth;
-
-    /* max-width: 576px; */
-    /* margin: 0 auto; */
   }
 
   .comic-with-character {
@@ -277,15 +257,13 @@
     gap: 20px;
     text-decoration: none;
     color: #202020;
-  }
-
-  .comic-with-character img {
-    height: 492px;
-  }
-
-  .comic-with-character h3 {
-    font-size: 18px;
-    margin-top: 10px;
+    img {
+      height: 492px;
+    }
+    h3 {
+      font-size: 18px;
+      margin-top: 10px;
+    }
   }
 
   .charact-page-title {
@@ -306,12 +284,11 @@
     width: 100%;
     flex-direction: column;
     gap: 15px;
-  }
-
-  .character-infos img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
   }
 
   .charac-details-add-favorit {
@@ -351,16 +328,14 @@
     gap: 10px;
     text-align: justify;
     max-width: 100%;
-  }
-
-  .charact-info-details p {
-    font-size: 16px;
-    line-height: 22px;
-    margin-bottom: 20px;
-  }
-
-  .charact-info-details h2 {
-    font-size: 22px;
+    p {
+      font-size: 16px;
+      line-height: 22px;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: 22px;
+    }
   }
 
   .comics-character-container {
@@ -369,9 +344,6 @@
     width: 100%;
     padding-bottom: 20px;
     scroll-behavior: smooth;
-
-    /* max-width: 576px; */
-    /* margin: 0 auto; */
   }
 
   .comic-with-character {
@@ -381,16 +353,13 @@
     gap: 20px;
     text-decoration: none;
     color: #202020;
-  }
-
-  .comic-with-character img {
-    height: 484px;
-    /* width: calc(100% - 30px); */
-  }
-
-  .comic-with-character h3 {
-    font-size: 16px;
-    margin-top: 10px;
+    img {
+      height: 484px;
+    }
+    h3 {
+      font-size: 16px;
+      margin-top: 10px;
+    }
   }
 
   .charact-page-title {
