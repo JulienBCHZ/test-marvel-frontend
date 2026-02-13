@@ -123,7 +123,6 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
             <div className="page-number-container">
               <span>{page}</span>
             </div>
-
             {page < 20 ? (
               <button
                 className="button-enabled"
@@ -138,7 +137,7 @@ const AllCharacters = ({ search, setSearch, API_URL }) => {
             )}
           </div>
         ) : (
-          <div className="no-change-page-characters"></div>
+          <div className="no-change-page"></div>
         )}
 
         <section className="all-characters-container">
