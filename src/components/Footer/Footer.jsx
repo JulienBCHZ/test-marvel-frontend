@@ -10,7 +10,7 @@ const Footer = () => {
       <span>by</span>
       <span>Julien Bouchez</span>
       <div className="network-logo">
-        <a href="https://github.com/JulienBCHZ" target="_blank">
+        <a href="https://github.com/julienb84" target="_blank">
           <FaGithub />
         </a>
         <a
